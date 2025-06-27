@@ -44,7 +44,11 @@ rms_features = zeros(num_windows, num_channels);
 % Filter each window and compute RMS per channel
 for w = 1:num_windows
     window = cleaned_windows{w};
-    filtered_window = zeros(size(window));
+    filtered_window = zeros(size(window)); 
+
+     % Take middle time point of the w-th window
+    center_idx = floor(window_size/2);
+    window_center_times(w) = window_times{w}(center_idx)/1000;%seconds
     
     for ch = 1:num_channels
         y = window(:, ch);
@@ -66,10 +70,10 @@ colors = lines(num_channels);
 figure;
 hold on;
 %for ch = 1:num_channels
-    plot(1:num_windows, rms_features(:, 1), 'Color', colors(1, :), 'LineWidth', 1.5);
+    plot(window_center_times, rms_features(:, 1), 'Color', colors(1, :), 'LineWidth', 1.5);
 %end
-xlabel('Window Number');
-ylabel('RMS Amplitude');
+xlabel('Time(s)');
+ylabel('Amplitude(V)');
 title('RMS Features Across Windows for Each Channel');
 legend(arrayfun(@(x) sprintf('Channel %d', x), 1:num_channels, 'UniformOutput', false));
 grid on;
@@ -96,10 +100,10 @@ colors = lines(size(rms_features, 2));
 figure;
 hold on;
 %for ch = 1:size(rms_features, 2)
-    plot(1:length(rms_envelope), rms_envelope(:, 1), 'Color', colors(1,:), 'LineWidth', 1.5);
+    plot(window_center_times, rms_envelope(:, 1), 'Color', colors(1,:), 'LineWidth', 1.5);
 %end
-xlabel('Window Number');
-ylabel('Envelope Amplitude');
+xlabel('Time(s)');
+ylabel('Amplitude(V)');
 title('Smoothed EMG Envelope (10th-Order Bessel Lowpass, 2 Hz)');
 legend(arrayfun(@(x) sprintf('Channel %d', x), 1:8, 'UniformOutput', false));
 grid on;
