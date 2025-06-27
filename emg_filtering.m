@@ -74,3 +74,33 @@ title('RMS Features Across Windows for Each Channel');
 legend(arrayfun(@(x) sprintf('Channel %d', x), 1:num_channels, 'UniformOutput', false));
 grid on;
 hold off;
+
+% Bessel lowpass filter (4th-order), cutoff at 10 Hz
+Fs_env = Fs / step_size;  % Effective "sampling rate" of RMS features per second
+cutoff = 2;  % Hz
+Wn = cutoff / (Fs_env / 2);  % Normalize cutoff to Nyquist
+
+% Design Bessel filter
+[b_bessel, a_bessel] = besself(10, 2*pi*cutoff);   % Analog prototype
+[bb, ab] = bilinear(b_bessel, a_bessel, Fs_env);  % Convert to digital filter
+
+% Apply Bessel lowpass filter across time (rows) for each channel
+rms_envelope = zeros(size(rms_features));
+for ch = 1:size(rms_features, 2)
+    rms_envelope(:, ch) = filtfilt(bb, ab, rms_features(:, ch));
+end 
+
+
+% Plot the smoothed envelope
+colors = lines(size(rms_features, 2));
+figure;
+hold on;
+%for ch = 1:size(rms_features, 2)
+    plot(1:length(rms_envelope), rms_envelope(:, 1), 'Color', colors(1,:), 'LineWidth', 1.5);
+%end
+xlabel('Window Number');
+ylabel('Envelope Amplitude');
+title('Smoothed EMG Envelope (10th-Order Bessel Lowpass, 2 Hz)');
+legend(arrayfun(@(x) sprintf('Channel %d', x), 1:8, 'UniformOutput', false));
+grid on;
+hold off;
