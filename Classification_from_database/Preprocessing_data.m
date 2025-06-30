@@ -78,9 +78,9 @@
     figure; hold on;
     
     NFFT=1000; 
-    ch=1; 
-    num_windows=200;
-    %for ch = 1:num_channels
+   % ch=1; 
+    %num_windows=200;
+    for ch = 1:num_channels
         mags = zeros(num_windows, NFFT/2+1);
         for w = 1:num_windows
             y = filtered_windows{w}(:, 1);    % get filtered data of window w, channel ch
@@ -88,13 +88,13 @@
             mags(w, :) = 2 * abs(Y(1:NFFT/2+1)); % single-sided magnitude spectrum
         end
         avg_mag(1, :) = mean(mags, 1);       % average across windows
-    %end
+    end
     
     figure; hold on;
     freq = linspace(0, Fs/2, NFFT/2+1);
-    %for ch = 1:num_channels
+    for ch = 1:num_channels
         plot(freq, avg_mag(1, :), 'Color', colors(1,:), 'LineWidth', 2);
-    %end
+    end
     xlabel('Frequency (Hz)');
     ylabel('Magnitude');
     title('Average FFT Magnitude Spectrum per Channel');
@@ -107,13 +107,13 @@
     colors = lines(num_channels);
     figure; hold on;
     
-    %for ch = 1:num_channels
+    for ch = 1:num_channels
         for w = 1:num_windows
             t = window_times{w} / 1000;       % convert ms to seconds
             y = filtered_windows{w}(:, ch);   % filtered data for window w, channel ch
             plot(t, y, 'Color', colors(ch,:), 'LineWidth', 0.5);
         end
-    %end
+    end
     
     xlabel('Time (s)');
     ylabel('Amplitude (V)');
