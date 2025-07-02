@@ -1,0 +1,21 @@
+Epoch 1/20 | Train loss: 2.1528 | Train acc: 0.0595 | Val loss: 2.1064 | Val acc: 0.0666
+Epoch 2/20 | Train loss: 2.1121 | Train acc: 0.0648 | Val loss: 2.0670 | Val acc: 0.0780
+Epoch 3/20 | Train loss: 2.0722 | Train acc: 0.0749 | Val loss: 2.0285 | Val acc: 0.0892
+Epoch 4/20 | Train loss: 2.0332 | Train acc: 0.0862 | Val loss: 1.9909 | Val acc: 0.1014
+Epoch 5/20 | Train loss: 1.9952 | Train acc: 0.0976 | Val loss: 1.9543 | Val acc: 0.1127
+Epoch 6/20 | Train loss: 1.9582 | Train acc: 0.1069 | Val loss: 1.9188 | Val acc: 0.1242
+Epoch 7/20 | Train loss: 1.9222 | Train acc: 0.1217 | Val loss: 1.8844 | Val acc: 0.1429
+Epoch 8/20 | Train loss: 1.8874 | Train acc: 0.1372 | Val loss: 1.8511 | Val acc: 0.1579
+Epoch 9/20 | Train loss: 1.8537 | Train acc: 0.1523 | Val loss: 1.8189 | Val acc: 0.1790
+Epoch 10/20 | Train loss: 1.8211 | Train acc: 0.1758 | Val loss: 1.7879 | Val acc: 0.2166
+Epoch 11/20 | Train loss: 1.7897 | Train acc: 0.2150 | Val loss: 1.7579 | Val acc: 0.2826
+Epoch 12/20 | Train loss: 1.7594 | Train acc: 0.2850 | Val loss: 1.7290 | Val acc: 0.3679
+Epoch 13/20 | Train loss: 1.7301 | Train acc: 0.3725 | Val loss: 1.7011 | Val acc: 0.4995
+Epoch 14/20 | Train loss: 1.7019 | Train acc: 0.5061 | Val loss: 1.6742 | Val acc: 0.6464
+Epoch 15/20 | Train loss: 1.6746 | Train acc: 0.6457 | Val loss: 1.6482 | Val acc: 0.6547
+Epoch 16/20 | Train loss: 1.6483 | Train acc: 0.6540 | Val loss: 1.6231 | Val acc: 0.6547
+Epoch 17/20 | Train loss: 1.6229 | Train acc: 0.6540 | Val loss: 1.5988 | Val acc: 0.6547
+Epoch 18/20 | Train loss: 1.5984 | Train acc: 0.6540 | Val loss: 1.5754 | Val acc: 0.6547
+Epoch 19/20 | Train loss: 1.5747 | Train acc: 0.6540 | Val loss: 1.5528 | Val acc: 0.6547
+Epoch 20/20 | Train loss: 1.5518 | Train acc: 0.6540 | Val loss: 1.5310 | Val acc: 0.6547
+Test accuracy: 0.6443
