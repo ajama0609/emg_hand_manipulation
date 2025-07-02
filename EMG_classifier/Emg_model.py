@@ -74,8 +74,10 @@ with torch.no_grad():
     test_logits=model(X_test_tensor) 
     test_preds = torch.argmax(test_logits,dim=1) 
     test_acc = (test_preds == labels_test_tensor).float().mean() 
-print(f"Test accuracy: {test_acc.item():.4f}")  
-y_true = labels_valid_tensor.cpu().numpy() 
+print(f"Test accuracy: {test_acc.item():.4f}")   
+model.eval() 
+
+y_true = labels_test_tensor.cpu().numpy() 
 y_pred = test_preds.cpu().numpy() 
 
 labels = np.unique(np.concatenate([y_true, y_pred]))
