@@ -1,8 +1,10 @@
 # emg_hand_manipulation
-emg HIL with arduino matlab manipulation of allegroHand 
-# Objectives 
-1.Use the allegro hand and control it with a arduino based on real time gestures done by a user hooked up to a emg sensors. 
-2. Set up the simulink env and model the RL agent 
-3. Extract the data from the arduino and post process it in matlab
-4. feed emg data into a neural network that can use linear regression to model joint torques and joint velocities 
-5. Train the whole pipeline to extract data from EMG -->Arduino --> Gestures clasification --> RL agent --> Real time simulation in simscape
+EMG classification of hand gestures 
+# Filter_Design 
+1. In the MATLAB script you can run and use the filterdesigner tool to make a custom filter 
+I chose to use a 10th order Butterworth filter. / 
+2. Extract the features for the EMG data. / 
+# Emg_classifier 
+1. A simple Linear neural network with two Linear layers to do classification 
+
+
