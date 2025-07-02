@@ -1,5 +1,6 @@
 import torch
-from torch import nn ,optim
+from torch import nn ,optim 
+from torch.utils.data import TensorDataset, DataLoader
 import numpy as np    
 from sklearn.model_selection import train_test_split 
 from sklearn.metrics import confusion_matrix  
@@ -8,7 +9,7 @@ import matplotlib.pyplot as plt
 class EMGClassfier(nn.Module): 
     def __init__(self,sequence_length,features,num_classes): 
         super().__init__()
-        self.flatten = nn.Flatten() 
+       # self.flatten = nn.Flatten() 
         self.linear_relu_stack = nn.Sequential(
             nn.Linear(sequence_length*features,128),
             nn.ReLU(),
@@ -17,7 +18,7 @@ class EMGClassfier(nn.Module):
         self.loss = nn.CrossEntropyLoss()
 
     def forward(self, x,target=None):
-        x = self.flatten(x)
+        #x = self.flatten(x)
         logits = self.linear_relu_stack(x) 
         if target is not None : 
             loss = self.loss(logits,target) 
@@ -44,11 +45,16 @@ labels_valid_tensor = torch.tensor(labels_valid, dtype=torch.int64, device=devic
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32, device=device)
 labels_test_tensor = torch.tensor(labels_test, dtype=torch.int64, device=device) 
 
+# Create a TensorDataset from the tensors
+test_dataset = TensorDataset(X_test_tensor, labels_test_tensor)
+
+# Create DataLoader for test data
+test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
 
 epochs=20
 lr=1e-3
 
-model = EMGClassfier(sample,features,num_classes=8).to('cuda:0') 
+model = EMGClassfier(sample,features,num_classes=len(np.unique(labels))).to('cuda:0') 
 optimzer = optim.Adam(model.parameters(),lr=lr) 
 for epoch in range(epochs): 
     model.train() 
@@ -69,16 +75,25 @@ for epoch in range(epochs):
         val_acc = (val_preds == labels_valid_tensor).float().mean() 
 
     print(f"Epoch {epoch+1}/{epochs} | Train loss: {loss.item():.4f} | Train acc: {train_acc.item():.4f} | Val loss: {val_loss.item():.4f} | Val acc: {val_acc.item():.4f}")
-model.eval() 
+model.eval()   
+y_true=[] 
+y_pred=[]
 with torch.no_grad():  
-    test_logits=model(X_test_tensor) 
-    test_preds = torch.argmax(test_logits,dim=1) 
-    test_acc = (test_preds == labels_test_tensor).float().mean() 
-print(f"Test accuracy: {test_acc.item():.4f}")   
-model.eval() 
+    for inputs,labels in test_loader: 
+        inputs = inputs.to(device)
+        labels = labels.to(device)
 
-y_true = labels_test_tensor.cpu().numpy() 
-y_pred = test_preds.cpu().numpy() 
+        outputs = model(inputs)
+        preds = torch.argmax(outputs, dim=1)
+
+        y_true.extend(labels.cpu().numpy())
+        y_pred.extend(preds.cpu().numpy())  
+
+y_true_tensor = torch.tensor(y_true)
+y_pred_tensor = torch.tensor(y_pred)
+test_acc = (y_pred_tensor == y_true_tensor).float().mean()
+print(f"Test accuracy: {test_acc.item():.4f}")   
+
 
 labels = np.unique(np.concatenate([y_true, y_pred]))
 
