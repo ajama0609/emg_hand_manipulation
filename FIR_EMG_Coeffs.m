@@ -13,7 +13,7 @@ t = (0:L-1)*T;
 f = Fs/L*(0:(L/2)); 
 
 
-%filterDesigner run this once to design the filter
+%filterDesigner %run this once to design the filter
 
 %y = filter(Num,1,channel1); FIR filter 
 
@@ -59,9 +59,16 @@ figure;
 plot(time,y,time,RMS,time,MAV); 
 xlabel('Time(s)'); 
 ylabel('Amplitude(mV)'); 
-title('Filtered EMG vs Time') 
+title('Filtered EMG vs Time')  
 
-feature_matrix=[RMS,MAV,VAR,ZC,SSC]; 
+RMS = normalize(RMS);
+MAV=normalize(MAV); 
+VAR=normalize(VAR); 
+ZC=normalize(ZC); 
+%SSC=normalize(SSC);
+labels=data{:,10};
+
+feature_matrix=[RMS,MAV,VAR,ZC,labels]; 
 
 fileID = fopen('features.csv','w','n','windows-1258');  
 for i = 1:size(feature_matrix,1)
