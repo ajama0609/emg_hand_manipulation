@@ -1,5 +1,7 @@
+import torch
 from torch import nn 
-
+import numpy as np  
+import pandas as pd 
 class EMGClassfier(nn.Module): 
     def __init__(self,sequence_length,features,num_classes): 
         super().__init__()
@@ -17,8 +19,10 @@ class EMGClassfier(nn.Module):
         if target is not None : 
             loss = self.loss(logits,target) 
             return logits,loss
-        return logits
-
-model = EMGClassfier(61936,6,8) 
-
-model(data)
+        return logits 
+    
+data = np.loadtxt('../features.csv',delimiter=',') 
+data_tensor = torch.tensor(data, dtype=torch.float32,device='cuda:0')
+model = EMGClassfier(len(data),5,8).to('cuda:0')
+output=model(data)  
+print(output.shape)
