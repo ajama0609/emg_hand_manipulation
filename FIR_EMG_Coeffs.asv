@@ -1,0 +1,40 @@
+data=readtable('emg_data_1.csv') 
+time=data{:,1}; 
+channel1=data{:,2};
+
+Fs=1000; 
+L=70000; 
+T=1/Fs; 
+t = (0:L-1)*T; 
+f = Fs/L*(0:(L/2)); 
+
+Fstop1 = 15;
+Fpass1 = 20;
+Fpass2 = 450;
+Fstop2 = 455;
+Wstop1 = 3;
+Wpass = 1; 
+Wstop2 = 3; 
+
+%filterDesigner 
+
+%y = filter(Num,1,channel1); FIR filter 
+
+y = sosfilt(SOS, channel1); 
+y = prod(G) * y;
+
+P2 = abs(fft(y) / L);        % two-sided spectrum (normalized)
+P1 = P2(1:L/2+1);          % single-sided spectrum
+P1(2:end-1) = 2*P1(2:end-1); 
+
+figure;
+plot(f, P1);
+xlabel('Frequency (Hz)');
+ylabel('|Y(f)|');
+title('Single-Sided Amplitude Spectrum of Y'); 
+
+figure; 
+plot(time,y); 
+xlabel('Time(s)'); 
+ylabel('Amplitude(mV)'); 
+title('Filtered EMG vs time')

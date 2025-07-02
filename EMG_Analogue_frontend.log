@@ -1,6 +1,6 @@
 LTspice 24.1.9 for Windows
 Circuit: C:\Users\dhiid\Downloads\emg_hand_manipulation\EMG_Analogue_frontend.net
-Start Time: Mon Jun 30 18:32:37 2025
+Start Time: Mon Jun 30 18:39:55 2025
 solver = Normal
 Maximum thread count: 16
 tnom = 27
@@ -26,7 +26,7 @@ Gmin = 2.70769e-13
 Gmin = 0
 Gmin stepping succeeded in finding the operating point.
 
-Total elapsed time: 0.328 seconds.
+Total elapsed time: 0.237 seconds.
 
 Files loaded:
 C:\Users\dhiid\Downloads\emg_hand_manipulation\EMG_Analogue_frontend.net
