@@ -14,8 +14,9 @@ class EMGClassfier(nn.Module):
        # self.flatten = nn.Flatten() 
         self.linear_relu_stack = nn.Sequential(
             nn.Linear(sequence_length*features,128),
-            nn.ReLU(),
-            nn.Linear(128,num_classes),
+            nn.ReLU(), 
+            nn.Dropout(0.2),
+            nn.Linear(128,num_classes), 
         ) 
         self.loss = nn.CrossEntropyLoss()
 
@@ -52,7 +53,7 @@ labels_valid_tensor = torch.tensor(labels_valid, dtype=torch.int64, device=devic
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32, device=device)
 labels_test_tensor = torch.tensor(labels_test, dtype=torch.int64, device=device) 
 
-epochs=20
+epochs=30
 lr=1e-3
 
 model = EMGClassfier(sample,features,num_classes=len(np.unique(labels))).to('cuda:0') 
