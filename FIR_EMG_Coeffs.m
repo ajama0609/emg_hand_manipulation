@@ -32,15 +32,19 @@ P1(2:end-1) = 2*P1(2:end-1);
 %ylabel('|Y(f)|');
 %title('Single-Sided Amplitude Spectrum of Y'); 
 
-N=100;
-RMS=zeros(L,1); 
-MAV=zeros(L,1); 
-ZC=zeros(L,1); 
-VAR = zeros(L,1); 
-SSC=zeros(L,1); 
+window_length=200; 
+step_size=100; 
+num_windows=floor((L-window_length)/step_size)+1;
+RMS=zeros(num_windows,1); 
+MAV=zeros(num_windows,1); 
+ZC=zeros(num_windows,1); 
+VAR = zeros(num_windows,1); 
+SSC=zeros(num_windows,1); 
 threshold = 0.01;
-for i=N:L   
-    window=y(i-N+1:i);
+for i=1:num_windows  
+    start_idx =(i-1)*step_size +1 ;  
+    end_idx=start_idx+window_length -1; 
+    window=y(start_idx:end_idx); 
     RMS(i) = sqrt(mean((window.^2))); 
     MAV(i) = mean(abs(window)); 
     VAR(i) = mean(window.^2) - (mean(window).^2);
@@ -55,23 +59,25 @@ for i=N:L
     end
 end  
 
-figure; 
-plot(time,y,time,RMS,time,MAV); 
-xlabel('Time(s)'); 
-ylabel('Amplitude(mV)'); 
-title('Filtered EMG vs Time')  
+%figure; 
+%plot(num_windows,y,num_windows,RMS,num_windows,MAV); 
+%xlabel('Time(s)'); 
+%ylabel('Amplitude(mV)'); 
+%title('Filtered EMG vs Time')  
 
-RMS = normalize(RMS);
-MAV=normalize(MAV); 
-VAR=normalize(VAR); 
-ZC=normalize(ZC); 
-%SSC=normalize(SSC);
-labels=data{:,10};
+labels=data{:,10}; 
+window_labels=zeros(num_windows,1); 
+for i=1:num_windows 
+    start_idx=(i-1)*step_size + 1;  
+    end_idx=window+start_idx; 
+    segment_labels=labels(start_idx:end_idx); 
+    window_labels(i)=mode(segment_labels);
+end
 
-feature_matrix=[RMS,MAV,VAR,ZC,labels]; 
+feature_matrix=[RMS,MAV,VAR,ZC,window_labels]; 
 
 fileID = fopen('features.csv','w','n','windows-1258');  
 for i = 1:size(feature_matrix,1)
-    fprintf(fileID,'%.11f, %.11f, %.11f, %.2f, %.2f\n',feature_matrix(i,:)); 
+    fprintf(fileID,'%.11f, %.11f, %.11f, %.11f, %d\n',feature_matrix(i,:)); 
 end
 fclose(fileID);
