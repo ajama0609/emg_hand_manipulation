@@ -3,7 +3,8 @@ from torch import nn ,optim
 from torch.utils.data import TensorDataset, DataLoader
 import numpy as np    
 from sklearn.model_selection import train_test_split 
-from sklearn.metrics import confusion_matrix  
+from sklearn.metrics import confusion_matrix   
+from sklearn.preprocessing import StandardScaler
 import seaborn as sns 
 import matplotlib.pyplot as plt  
 from imblearn.over_sampling import SMOTE
@@ -26,6 +27,8 @@ class EMGClassfier(nn.Module):
             return logits,loss
         return logits 
     
+
+scaler = StandardScaler()
 data = np.loadtxt('../features.csv',delimiter=',')   
 sm = SMOTE(random_state=42)
 X = data[:,:-1]  
@@ -35,6 +38,7 @@ labels=data[:,-1]
 
 device = 'cuda:0'
 
+X=scaler.fit_transform(X)
 X, labels = sm.fit_resample(X, labels)
 X_train,X_test,labels_train,labels_test=train_test_split(X,labels,test_size=0.20,random_state=42)   
 X_test,X_valid,labels_test,labels_valid=train_test_split(X_test,labels_test,test_size=0.50,random_state=42)
@@ -96,4 +100,5 @@ plt.xlabel("Predicted")
 plt.ylabel("True")
 plt.title("Confusion Matrix")
 plt.tight_layout()
-plt.show()
+plt.show() 
+print(model)
