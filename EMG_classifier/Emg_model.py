@@ -15,8 +15,13 @@ class EMGClassfier(nn.Module):
         self.linear_relu_stack = nn.Sequential(
             nn.Linear(sequence_length*features,128),
             nn.ReLU(), 
-            nn.Dropout(0.2),
-            nn.Linear(128,num_classes), 
+            nn.Dropout(0.2),  
+
+            nn.Linear(128,256),
+            nn.ReLU(), 
+            nn.Dropout(0.2),  
+            
+            nn.Linear(256,num_classes), 
         ) 
         self.loss = nn.CrossEntropyLoss()
 
