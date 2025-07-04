@@ -56,6 +56,14 @@ labels_test_tensor = torch.tensor(labels_test, dtype=torch.int64, device=device)
 epochs=30
 lr=1e-3
 
+history ={ 
+    'train_acc': [] ,
+    'test_acc': [] , 
+    'train_loss' :[], 
+    'val_loss':[], 
+    'val_acc':[]
+}
+
 model = EMGClassfier(sample,features,num_classes=len(np.unique(labels))).to('cuda:0') 
 optimzer = optim.Adam(model.parameters(),lr=lr) 
 for epoch in range(epochs): 
@@ -76,16 +84,23 @@ for epoch in range(epochs):
         val_preds = torch.argmax(val_logits, dim=1)
         val_acc = (val_preds == labels_valid_tensor).float().mean() 
 
-    print(f"Epoch {epoch+1}/{epochs} | Train loss: {loss.item():.4f} | Train acc: {train_acc.item():.4f} | Val loss: {val_loss.item():.4f} | Val acc: {val_acc.item():.4f}")
+    print(f"Epoch {epoch+1}/{epochs} | Train loss: {loss.item():.4f} | Train acc: {train_acc.item():.4f} | Val loss: {val_loss.item():.4f} | Val acc: {val_acc.item():.4f}") 
+    history['train_acc'].append(train_acc) 
+    history['train_loss'].append(loss) 
+    history['val_loss'].append(val_loss) 
+    history['val_acc'].append(val_acc)
 model.eval()   
 with torch.no_grad():  
     test_logits, test_loss = model(X_test_tensor, labels_test_tensor)
     test_preds = torch.argmax(test_logits, dim=1)
-    test_acc = (test_preds == labels_test_tensor).float().mean() 
+    test_acc = (test_preds == labels_test_tensor).float().mean()  
 y_true_tensor = torch.tensor(labels_test).to(device)
 y_pred_tensor = torch.tensor(test_preds).to(device)
 test_acc = (y_pred_tensor == y_true_tensor).float().mean()
-print(f"Test accuracy: {test_acc.item():.4f}")   
+print(f"Test accuracy: {test_acc.item():.4f}")    
+history['test_acc'].append(test_acc) 
+
+torch.save(history, 'training_history.pth')
 
 y_true = torch.tensor(labels_test).cpu().numpy()
 y_pred = torch.tensor(test_preds).cpu().numpy()
