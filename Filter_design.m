@@ -29,7 +29,7 @@ for ch = 1: size(channels,2)
     end 
 end
 y = zeros(size(channels)); 
-threshold=2e-5;
+threshold=1e-5;
 for ch = 1:channel_length
     if any(env(:, ch) > threshold)
         % Filter channel only if any window has envelope > thgireshold
@@ -99,4 +99,4 @@ for i =1:num_windows
     feature_matrix(i,:) = [row_features, window_labels(i)];
 end 
 
-writematrix(feature_matrix,'features.csv');
+writematrix(feature_matrix,'new_features.csv');
