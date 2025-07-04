@@ -51,12 +51,12 @@ for ch = 1: size(channels,2)
         MAV(i,ch) = mean(abs(window)); 
         VAR(i,ch) = var(window);
         zc_sign_changes = sum(abs(diff(sign(window))) == 2);
-        ZC(i,ch) = zc_sign_changes;  
+        ZC{ch}(i) = zc_sign_changes;  
         for k =2:length(window)-1 
            left_diff = window(k) - window(k-1);
            right_diff = window(k) - window(k+1); 
            if(left_diff * right_diff) > threshold  
-                SSC(i,ch)=SSC(i,ch) + 1; 
+                SSC{ch}(i)=SSC{ch}(i) + 1; 
            end 
         end
     end  
@@ -76,19 +76,9 @@ for i=1:num_windows
     window_labels(i)=mode(segment_labels);
 end
 
- 
-features = cell(channel_length, 1);
-for ch = 1:channel_length
-    features{ch} = [RMS(:, ch), MAV(:, ch), VAR(:, ch), ZC(:, ch)];  % 4 features per window
-end 
-
-feature_matrix=[];  
-for i =1:num_windows 
-    row_features=[];
-    for ch =1:size(channels,2)
-        row_features=[row_features,features{ch}(i,1:4)]; 
-    end  
-    feature_matrix(i,:) = [row_features, window_labels(i)];
+for ch =1:size(channels,2)
+    features=[RMS(ch),MAV(ch),VAR(ch),ZC(ch),window_labels];  
+    feature_matrix = [feature_matrix; features];
 end 
 
 fileID = fopen('features.csv','w','n','windows-1258');  
