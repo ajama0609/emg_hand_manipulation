@@ -91,8 +91,4 @@ for i =1:num_windows
     feature_matrix(i,:) = [row_features, window_labels(i)];
 end 
 
-fileID = fopen('features.csv','w','n','windows-1258');  
-for i = 1:size(feature_matrix,1)
-    fprintf(fileID,'%.11f, %.11f, %.11f, %.11f, %d\n',feature_matrix(i,:)); 
-end
-fclose(fileID);
+writematrix(feature_matrix,'features.csv');
