@@ -28,7 +28,7 @@ for ch = 1: size(channels,2)
     end 
 end
 y = zeros(size(channels)); 
-threshold=9e-4;
+threshold=1e-4;
 for ch = 1:channel_length
     if any(env(:, ch) > threshold)
         % Filter channel only if any window has envelope > thgireshold
@@ -36,7 +36,7 @@ for ch = 1:channel_length
         y(:, ch) = y(:, ch) * prod(G);
     else
         % Otherwise, keep raw data
-        y(:, ch) = channels(:,ch);
+        y(:, ch) = zeros(:,);
     end
 end 
 
