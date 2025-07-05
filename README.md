@@ -4,7 +4,9 @@ the rest state can be identified with high accuracies.Currently even in research
 
 
 #Results 
-I have been able to produce currently 89.5% accuracy between 6 gestures including resting,fist clenched,wrist flexion,wrist extension,ulnar deviation and radial deviation.Ultimately the hardest aspect is the fact that at rest the muscles are not sending much of a signal to move the hand and therefore the signal quality is poor (low SNR).This is to be improved on.Ulitmately most research I have look at have achieved ~90% with multiclass gesture classification w/o using a deep neural networks.Below is attached the best performing training's confusion matrix.
+I have been able to produce currently 89.5% accuracy between 6 gestures including resting,fist clenched,wrist flexion,wrist extension,ulnar deviation and radial deviation.Ultimately the hardest aspect is the fact that at rest the muscles are not sending much of a signal to move the hand and therefore the signal quality is poor (low SNR).This is to be improved on.Ulitmately most research I have look at have achieved ~90% with multiclass gesture classification w/o using a deep neural networks.Below is attached the best performing training's confusion matrix. 
+![image](https://github.com/user-attachments/assets/c915a66e-754b-4ec8-949b-e35fbeea93bc)
+
  
 
 
