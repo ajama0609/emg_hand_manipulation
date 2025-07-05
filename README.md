@@ -21,7 +21,7 @@ The current model achieves **89.5% accuracy** across six gesture classes:
 
 The most challenging aspect is detecting the **resting state** because the muscle signals are weak, leading to low SNR and lower classification confidence. Improving rest state identification is key to enhancing overall accuracy.
 
-Interestingly, many studies in the literature achieve around **90% accuracy** in multi-class hand gesture classification **without** employing deep neural networks.
+Many studies in the literature achieve around **90% accuracy** in multi-class hand gesture classification **without** employing deep neural networks.
 
 Below is the confusion matrix from the best performing training run:
 
