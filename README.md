@@ -4,8 +4,6 @@ The methodology implemented achieved **89.5% accuracy** in classifying six diffe
 
 One of the key challenges remains the accurate identification of the **rest state**. As illustrated in the image below, distinguishing the resting condition is difficult due to the low signal-to-noise ratio (SNR) when muscles are relaxed and not sending strong signals. This limitation affects both current research and practical applications.
 
-![Rest State Identification Challenge](https://github.com/user-attachments/assets/6f788eb1-edc4-4ff4-a570-d6818716243c)
-
 ---
 
 # Results
