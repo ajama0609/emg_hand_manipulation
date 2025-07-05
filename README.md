@@ -25,7 +25,8 @@ Interestingly, many studies in the literature achieve around **90% accuracy** in
 
 Below is the confusion matrix from the best performing training run:
 
-![Confusion Matrix](https://github.com/user-attachments/assets/a8aed9c0-c809-43ba-8797-5d7d6e1b3a4c)
+![Confusion Matrix](https://github.com/user-attachments/assets/f2ed3ae8-2a0e-4a71-920a-aebb6d2771ad)
+
 
 
 ---
