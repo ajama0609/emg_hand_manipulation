@@ -1,19 +1,41 @@
-#EMG Hand gestures classification 
-The results achieved with this methodoloy is 89.5% which replicates some research in the field ~90% classification for hand gestures classification.The results can further be improved if 
-the rest state can be identified with high accuracies.Currently even in research this seems to be an issue as illustrated in the image below.![image](https://github.com/user-attachments/assets/6f788eb1-edc4-4ff4-a570-d6818716243c) 
+# EMG Hand Gesture Classification
 
+The methodology implemented achieved **89.5% accuracy** in classifying six different hand gestures. This result aligns closely with existing research in the field, which typically reports around **90% classification accuracy** for hand gesture recognition using EMG signals.
 
-#Results 
-I have been able to produce currently 89.5% accuracy between 6 gestures including resting,fist clenched,wrist flexion,wrist extension,ulnar deviation and radial deviation.Ultimately the hardest aspect is the fact that at rest the muscles are not sending much of a signal to move the hand and therefore the signal quality is poor (low SNR).This is to be improved on.Ulitmately most research I have look at have achieved ~90% with multiclass gesture classification w/o using a deep neural networks.Below is attached the best performing training's confusion matrix. 
-![image](https://github.com/user-attachments/assets/c915a66e-754b-4ec8-949b-e35fbeea93bc)
+One of the key challenges remains the accurate identification of the **rest state**. As illustrated in the image below, distinguishing the resting condition is difficult due to the low signal-to-noise ratio (SNR) when muscles are relaxed and not sending strong signals. This limitation affects both current research and practical applications.
 
- 
+![Rest State Identification Challenge](https://github.com/user-attachments/assets/6f788eb1-edc4-4ff4-a570-d6818716243c)
 
+---
 
-#How to use this resource  
-1. First use the matlab script to filter out the data and generate a .csv file. 
-2. Use the python script with the EMG_classifier and train a model to classify the data based on the dataset.
-3. Evaluate the model by inspecting the accuracies and the confusion matrix.
+# Results
 
+The current model achieves **89.5% accuracy** across six gesture classes:
 
+- Resting  
+- Fist clenched  
+- Wrist flexion  
+- Wrist extension  
+- Ulnar deviation  
+- Radial deviation  
 
+The most challenging aspect is detecting the **resting state** because the muscle signals are weak, leading to low SNR and lower classification confidence. Improving rest state identification is key to enhancing overall accuracy.
+
+Interestingly, many studies in the literature achieve around **90% accuracy** in multi-class hand gesture classification **without** employing deep neural networks.
+
+Below is the confusion matrix from the best performing training run:
+
+![Confusion Matrix](https://github.com/user-attachments/assets/c915a66e-7548-4ec8-949b-e35fbeea93bc)
+
+---
+
+# How to Use This Resource
+
+1. **Data preprocessing:**  
+   Use the provided MATLAB script to filter the raw EMG data and generate a clean `.csv` dataset.
+
+2. **Model training:**  
+   Use the Python script with the `EMG_classifier` class to train a classification model on the preprocessed dataset.
+
+3. **Evaluation:**  
+   Assess the trained model by reviewing accuracy metrics and analyzing the confusion matrix to understand performance across different gestures.
