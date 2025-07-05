@@ -1,4 +1,4 @@
-#EMG Hand gestures classification 
+!# EMG Hand gestures classification 
 The results achieved with this methodoloy is 89.5% which replicates some research in the field ~90% classification for hand gestures classification.The results can further be improved if 
 the rest state can be identified with high accuracies.Currently even in research this seems to be an issue as illustrated in the image below.![image](https://github.com/user-attachments/assets/6f788eb1-edc4-4ff4-a570-d6818716243c) 
 
