@@ -61,12 +61,21 @@ class EMGClassfier(nn.Module):
             nn.Flatten(),    
             nn.Linear(512,num_classes),
 
-        )
+        ) 
+        self.lstm = nn.LSTM(features , 64, batch_first=True, bidirectional=True)    
+        self.lstm2 = nn.LSTM(128 , 256, batch_first=True, bidirectional=True)  
+
+        self.dropout=nn.Dropout(0.2)
+        self.fc = nn.Linear(256 * 2, num_classes)
         self.loss = nn.CrossEntropyLoss()
 
     def forward(self, x,target=None):
         #x = self.flatten(x)
-        logits = self.deep_emg_model(x) 
+        lstm_out, _ = self.lstm(x) 
+        lstm_out,_ = self.lstm2(lstm_out) 
+        last_layer = lstm_out[: ,-1 ,:] 
+        last_layer =self.dropout(last_layer) 
+        logits = self.fc(last_layer)   
         if target is not None : 
             loss = self.loss(logits,target) 
             return logits,loss
@@ -77,14 +86,14 @@ scaler = StandardScaler()
 data = np.loadtxt('../features1.csv',delimiter=',')   
 sm = SMOTE(random_state=42)
 X = data[:,:-1]  
-features=X.shape[1]
-sample = 1 
+features=X.shape[1] 
+sample = 32 
 labels=data[:,-1] 
 
 device = 'cuda:0'
 
 X=scaler.fit_transform(X)
-X, labels = sm.fit_resample(X, labels)
+X, labels = sm.fit_resample(X, labels) 
 X_train,X_test,labels_train,labels_test=train_test_split(X,labels,test_size=0.20,random_state=42)   
 X_test,X_valid,labels_test,labels_valid=train_test_split(X_test,labels_test,test_size=0.50,random_state=42)
 
@@ -108,12 +117,12 @@ history ={
     'val_acc':[]
 }
 
-X_train_tensor = X_train_tensor.unsqueeze(2)  #this is for the deep model
-X_valid_tensor = X_valid_tensor.unsqueeze(2)
-X_test_tensor = X_test_tensor.unsqueeze(2)
+X_train_tensor = X_train_tensor.unsqueeze(1)  #this is for the deep model
+X_valid_tensor = X_valid_tensor.unsqueeze(1)
+X_test_tensor = X_test_tensor.unsqueeze(1)
 
 model = EMGClassfier(features,sample,num_classes=len(np.unique(labels))).to('cuda:0') 
-optimzer = optim.Adam(model.parameters(),lr=lr,weight_decay=1e-4) 
+optimzer = optim.Adam(model.parameters(),lr=lr) 
 for epoch in range(epochs): 
     model.train() 
     optimzer.zero_grad()     
@@ -169,6 +178,6 @@ plt.ylabel("True")
 plt.title("Confusion Matrix")
 plt.tight_layout()
 plt.show()   
-
+print(model)
 
 
