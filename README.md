@@ -23,7 +23,8 @@ Many studies in the literature achieve around **90% accuracy** in multi-class ha
 
 Below is the confusion matrix from the best performing training run:
 
-![Confusion Matrix](https://github.com/user-attachments/assets/f2ed3ae8-2a0e-4a71-920a-aebb6d2771ad)
+![Confusion Matrix](https://github.com/user-attachments/assets/2bfee2e2-6143-49d0-b3e6-bd96f16cf545)
+
 
 
 
