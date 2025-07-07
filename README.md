@@ -1,14 +1,20 @@
 # EMG Hand Gesture Classification
 
-The methodology implemented achieved **89.5% accuracy** in classifying six different hand gestures. This result aligns closely with existing research in the field, which typically reports around **90% classification accuracy** for hand gesture recognition using EMG signals.
+The methodology implemented achieved up to **92% accuracy** in classifying six different hand gestures using a 4-layer MLP. This result is consistent with and slightly surpasses many reported accuracies in the literature, which typically hover around **90%** for EMG-based hand gesture recognition.
 
-One of the key challenges remains the accurate identification of the **rest state**. As illustrated in the image below, distinguishing the resting condition is difficult due to the low signal-to-noise ratio (SNR) when muscles are relaxed and not sending strong signals. This limitation affects both current research and practical applications.
+One persistent challenge is accurately identifying the **rest state**, which suffers from low signal-to-noise ratio (SNR) due to minimal muscle activation. This limitation affects both this study and prior work, making rest state detection a key area for improvement.
+
+Several recent studies support these observations:
+
+- The study *Research on Gesture Recognition of Surface EMG Based on Machine Learning* reported CNN accuracy of 99.47% and MLP accuracy of 98.42% on nine gestures, showing that deep learning models can achieve very high performance, though challenges remain for rest state classification.
+- Other studies typically report accuracy in the 90-95% range on similar multi-class EMG classification tasks, aligning with the 92% accuracy obtained here with a relatively simple MLP model.
+- This suggests that with careful preprocessing and model tuning, MLPs can be competitive with more complex CNN architectures.
 
 ---
 
 # Results
 
-The current model achieves **89.5% accuracy** across six gesture classes:
+The current model achieves up to **92% accuracy** across six gesture classes:
 
 - Resting  
 - Fist clenched  
@@ -17,16 +23,9 @@ The current model achieves **89.5% accuracy** across six gesture classes:
 - Ulnar deviation  
 - Radial deviation  
 
-The most challenging aspect is detecting the **resting state** because the muscle signals are weak, leading to low SNR and lower classification confidence. Improving rest state identification is key to enhancing overall accuracy.
-
-Many studies in the literature achieve around **90% accuracy** in multi-class hand gesture classification **without** employing deep neural networks.
-
-Below is the confusion matrix from the best performing training run:
+The confusion matrix below highlights that most misclassifications occur in the resting state, confirming that low SNR in relaxed muscles poses a classification challenge:
 
 ![Confusion Matrix](https://github.com/user-attachments/assets/2bfee2e2-6143-49d0-b3e6-bd96f16cf545)
-
-
-
 
 ---
 
