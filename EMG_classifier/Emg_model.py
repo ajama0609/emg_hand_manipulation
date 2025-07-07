@@ -9,37 +9,64 @@ import seaborn as sns
 import matplotlib.pyplot as plt  
 from imblearn.over_sampling import SMOTE
 class EMGClassfier(nn.Module): 
-    def __init__(self,sequence_length,features,num_classes): 
+    def __init__(self,features,sequence_length,num_classes): 
         super().__init__()
        # self.flatten = nn.Flatten() 
         self.linear_relu_stack = nn.Sequential( 
             nn.Linear(sequence_length*features,64), 
             nn.BatchNorm1d(64),
             nn.ReLU(), 
-            nn.Dropout(0.2),  
+            nn.Dropout(0.1),  
 
             nn.Linear(64,128), 
             nn.BatchNorm1d(128),
             nn.ReLU(), 
-            nn.Dropout(0.2),  
+            nn.Dropout(0.1),  
 
             nn.Linear(128,256), 
             nn.BatchNorm1d(256),
             nn.ReLU(), 
-            nn.Dropout(0.2),   
+            nn.Dropout(0.1),   
 
             nn.Linear(256,512), 
             nn.BatchNorm1d(512),
             nn.ReLU(), 
-            nn.Dropout(0.2),  
+            nn.Dropout(0.1),  
             
             nn.Linear(512,num_classes), 
-        ) 
+        )  
+        self.deep_emg_model = nn.Sequential( 
+            nn.Conv1d(sequence_length*features,64,1), 
+            nn.BatchNorm1d(64), 
+            nn.ReLU(), 
+            nn.Dropout(0.2),  
+
+
+            nn.Conv1d(64,128,1), 
+            nn.BatchNorm1d(128), 
+            nn.ReLU(), 
+            nn.Dropout(0.2),  
+
+            nn.Conv1d(128,256,1), 
+            nn.BatchNorm1d(256), 
+            nn.ReLU(), 
+            nn.Dropout(0.2), 
+
+
+            nn.Conv1d(256,512,1), 
+            nn.BatchNorm1d(512), 
+            nn.ReLU(), 
+            nn.Dropout(0.2), 
+
+            nn.Flatten(),    
+            nn.Linear(512,num_classes),
+
+        )
         self.loss = nn.CrossEntropyLoss()
 
     def forward(self, x,target=None):
         #x = self.flatten(x)
-        logits = self.linear_relu_stack(x) 
+        logits = self.deep_emg_model(x) 
         if target is not None : 
             loss = self.loss(logits,target) 
             return logits,loss
@@ -47,7 +74,7 @@ class EMGClassfier(nn.Module):
     
 
 scaler = StandardScaler()
-data = np.loadtxt('../features.csv',delimiter=',')   
+data = np.loadtxt('../features1.csv',delimiter=',')   
 sm = SMOTE(random_state=42)
 X = data[:,:-1]  
 features=X.shape[1]
@@ -81,8 +108,12 @@ history ={
     'val_acc':[]
 }
 
-model = EMGClassfier(sample,features,num_classes=len(np.unique(labels))).to('cuda:0') 
-optimzer = optim.Adam(model.parameters(),lr=lr) 
+X_train_tensor = X_train_tensor.unsqueeze(2)  #this is for the deep model
+X_valid_tensor = X_valid_tensor.unsqueeze(2)
+X_test_tensor = X_test_tensor.unsqueeze(2)
+
+model = EMGClassfier(features,sample,num_classes=len(np.unique(labels))).to('cuda:0') 
+optimzer = optim.Adam(model.parameters(),lr=lr,weight_decay=1e-4) 
 for epoch in range(epochs): 
     model.train() 
     optimzer.zero_grad()     
@@ -117,8 +148,12 @@ test_acc = (y_pred_tensor == y_true_tensor).float().mean()
 print(f"Test accuracy: {test_acc.item():.4f}")    
 history['test_acc'].append(test_acc) 
 
-torch.save(history, 'training_history.pth')
+def save(history): 
+    path=input("Please write something to save this training log to") 
+    torch.save(history, f'training_history_{path}.pth')
+    print(f"Training history saved as training_history_{path}.pth")  
 
+save(history=history)
 y_true = torch.tensor(labels_test).cpu().numpy()
 y_pred = torch.tensor(test_preds).cpu().numpy()
 
@@ -133,5 +168,7 @@ plt.xlabel("Predicted")
 plt.ylabel("True")
 plt.title("Confusion Matrix")
 plt.tight_layout()
-plt.show()  
+plt.show()   
+
+
 
