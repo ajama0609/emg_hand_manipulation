@@ -1,0 +1,15 @@
+LTspice 24.1.9 for Windows
+Circuit: C:\Users\dhiid\OneDrive\Desktop\emg_hand_manipulation\EMG_filter_test.net
+Start Time: Sun Jul  6 21:31:38 2025
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.111 seconds.
+
+Files loaded:
+C:\Users\dhiid\OneDrive\Desktop\emg_hand_manipulation\EMG_filter_test.net
+C:\Users\dhiid\AppData\Local\LTspice\lib\sub\LTC.lib
+

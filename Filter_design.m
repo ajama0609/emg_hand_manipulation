@@ -8,6 +8,8 @@ channels=data{:,2:9};
 channel_length = size(channels,2);
 window_length=200; 
 step_size=100; 
+labels=data{:,10}; 
+
 
 Fs=1000; 
 L=63196; 
@@ -18,7 +20,7 @@ f = Fs/L*(0:(L/2));
 num_windows=floor((L-window_length)/step_size)+1;   
 %filterDesigner %run this once to design the filter
 
-env=zeros(num_windows,channel_length)
+env=zeros(num_windows,channel_length);
 for ch = 1: size(channels,2) 
     for i=1:num_windows  
         start_idx =(i-1)*step_size +1 ;  
@@ -68,23 +70,16 @@ for ch = 1: size(channels,2)
         end
     end  
 end
-
-figure; 
-plot(y); 
-xlabel('Time(s)'); 
-ylabel('Amplitude(mV)'); 
-title('Filtered EMG vs Time') 
    
-labels=data{:,10}; 
-window_labels=zeros(num_windows,1); 
-for i=1:num_windows 
-    start_idx=(i-1)*step_size + 1;  
-    end_idx=window+start_idx; 
-    segment_labels=labels(start_idx:end_idx); 
-    window_labels(i)=mode(segment_labels);
-end
+segment_labels = cell(num_windows, 1);  
+window_labels=zeros(num_windows,1);   
+  for i=1:num_windows  
+        start_idx=(i-1)*step_size + 1;  
+        end_idx=window_length+start_idx -1 ; 
+        segment_labels{i}=labels(start_idx:end_idx); 
+        window_labels(i)=mode(segment_labels{i});
+  end
 
- 
 features = cell(channel_length, 1);
 for ch = 1:channel_length
     features{ch} = [RMS(:, ch), MAV(:, ch), VAR(:, ch), ZC(:, ch)];  % 4 features per window
@@ -99,4 +94,4 @@ for i =1:num_windows
     feature_matrix(i,:) = [row_features, window_labels(i)];
 end 
 
-writematrix(feature_matrix,'new_features.csv');
+writematrix(feature_matrix,'features1.csv');
