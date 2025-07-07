@@ -1978,12 +1978,6 @@
 		(uuid "2d12b20c-4e60-42a5-a1a8-211e05937df9")
 	)
 	(junction
-		(at 248.92 53.34)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "3267d098-e522-4f44-816e-9c601feb5b20")
-	)
-	(junction
 		(at 77.47 57.15)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1996,24 +1990,6 @@
 		(uuid "4d31926c-7ed8-4c5a-b530-ab89faa76fca")
 	)
 	(junction
-		(at 248.92 39.37)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8c2f7999-cdd3-485c-920d-6badf67fb37c")
-	)
-	(junction
-		(at 224.79 39.37)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ccc6f6a4-66bf-4292-b261-3e260def2f19")
-	)
-	(junction
-		(at 224.79 50.8)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "db3337c3-760d-47c7-9448-c6e5eab3b948")
-	)
-	(junction
 		(at 212.09 107.95)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2024,16 +2000,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fcc3f110-2bc8-41a8-bc99-5f9d62732778")
-	)
-	(wire
-		(pts
-			(xy 224.79 39.37) (xy 224.79 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "07c8358c-9f10-4686-9c72-f50413765d6e")
 	)
 	(wire
 		(pts
@@ -2057,16 +2023,6 @@
 	)
 	(wire
 		(pts
-			(xy 240.03 39.37) (xy 248.92 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "12cb3703-6a3b-4fc7-9af3-83145d21419a")
-	)
-	(wire
-		(pts
 			(xy 116.84 92.71) (xy 124.46 92.71)
 		)
 		(stroke
@@ -2087,16 +2043,6 @@
 	)
 	(wire
 		(pts
-			(xy 224.79 31.75) (xy 224.79 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2461e0e8-ff65-4a09-91ac-55b26ed0b3eb")
-	)
-	(wire
-		(pts
 			(xy 116.84 107.95) (xy 124.46 107.95)
 		)
 		(stroke
@@ -2107,26 +2053,6 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 53.34) (xy 248.92 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2f0ce0ed-1285-425e-b6ff-fbedd8c4405c")
-	)
-	(wire
-		(pts
-			(xy 209.55 50.8) (xy 217.17 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "30d8ffa3-78e0-4706-8d3e-cb4176d61492")
-	)
-	(wire
-		(pts
 			(xy 83.82 92.71) (xy 91.44 92.71)
 		)
 		(stroke
@@ -2134,16 +2060,6 @@
 			(type default)
 		)
 		(uuid "47969dae-cb6b-4764-8544-1f493598c916")
-	)
-	(wire
-		(pts
-			(xy 233.68 55.88) (xy 229.87 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "48aa0daa-0891-401f-9c2c-52a6f0dbdfa7")
 	)
 	(wire
 		(pts
@@ -2167,16 +2083,6 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 53.34) (xy 250.19 53.34)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "56726b0b-baab-42d5-bc3d-af97a8ce2f66")
-	)
-	(wire
-		(pts
 			(xy 116.84 77.47) (xy 123.19 77.47)
 		)
 		(stroke
@@ -2187,16 +2093,6 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 31.75) (xy 248.92 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5c3b4d2b-bd60-45ce-ba83-03cca9dd504a")
-	)
-	(wire
-		(pts
 			(xy 88.9 74.93) (xy 88.9 77.47)
 		)
 		(stroke
@@ -2204,16 +2100,6 @@
 			(type default)
 		)
 		(uuid "5cd7f141-8cec-4170-852f-f104b8052219")
-	)
-	(wire
-		(pts
-			(xy 240.03 31.75) (xy 248.92 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5fe18ef7-35de-4189-80bf-c8ec0750e8fc")
 	)
 	(wire
 		(pts
@@ -2347,26 +2233,6 @@
 	)
 	(wire
 		(pts
-			(xy 229.87 55.88) (xy 229.87 58.42)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9a58c254-fe01-460c-a232-9dc5014ea56c")
-	)
-	(wire
-		(pts
-			(xy 224.79 39.37) (xy 234.95 39.37)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9c4f7c2c-23e3-482a-a898-fea740faaf34")
-	)
-	(wire
-		(pts
 			(xy 116.84 85.09) (xy 124.46 85.09)
 		)
 		(stroke
@@ -2374,16 +2240,6 @@
 			(type default)
 		)
 		(uuid "9cdf8965-3c29-4e80-ab34-d6488a0565e6")
-	)
-	(wire
-		(pts
-			(xy 233.68 50.8) (xy 224.79 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9fb576c1-26b0-4458-ada0-4b659adb2bf7")
 	)
 	(wire
 		(pts
@@ -2447,16 +2303,6 @@
 	)
 	(wire
 		(pts
-			(xy 222.25 50.8) (xy 224.79 50.8)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cf5e04dd-25f7-488d-b1d5-78fd3323b307")
-	)
-	(wire
-		(pts
 			(xy 116.84 80.01) (xy 123.19 80.01)
 		)
 		(stroke
@@ -2514,16 +2360,6 @@
 			(type default)
 		)
 		(uuid "f561fd0a-9029-4bef-841b-603fae58d73b")
-	)
-	(wire
-		(pts
-			(xy 224.79 31.75) (xy 234.95 31.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fe46c6c5-7975-4caf-97d6-fa11ecae7d40")
 	)
 	(global_label "E2"
 		(shape input)
@@ -3009,28 +2845,6 @@
 			)
 		)
 	)
-	(global_label "Vout"
-		(shape input)
-		(at 250.19 53.34 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "a3eead28-c7e1-467a-9d8d-97270b2557a7")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 257.2875 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "E9"
 		(shape input)
 		(at 124.46 90.17 0)
@@ -3252,72 +3066,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3V3")
-		(at 238.76 60.96 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "03d8db0a-5aa0-4995-b7ef-17dd14dce486")
-		(property "Reference" "#PWR07"
-			(at 238.76 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "-1V6"
-			(at 238.76 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 238.76 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 238.76 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 238.76 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "abe365df-8c65-49c9-9675-5256308816b4")
-		)
-		(instances
-			(project "EMG_hand_sensor"
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "#PWR07")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 86.36 59.69 0)
 		(unit 1)
@@ -3382,139 +3130,6 @@
 			(project ""
 				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
 					(reference "C1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 224.79 55.88 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "083a990f-b39e-423f-9b7a-344c595f358c")
-		(property "Reference" "#PWR04"
-			(at 224.79 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 224.79 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 224.79 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 224.79 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 224.79 55.88 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "597ddd8a-8770-4bdf-89e5-b63fcf28f205")
-		)
-		(instances
-			(project ""
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "#PWR04")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 237.49 39.37 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2f5d7f13-f193-439a-82f3-aaabd0d862ee")
-		(property "Reference" "C4"
-			(at 237.236 35.814 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "100nF"
-			(at 234.95 37.846 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 237.49 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 237.49 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 237.49 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "4e90429c-47e0-4e41-ab5f-2fde1413f0bd")
-		)
-		(pin "1"
-			(uuid "e80a4d8b-3e7f-491c-b781-90d1dcde8afc")
-		)
-		(instances
-			(project "EMG_hand_sensor"
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "C4")
 					(unit 1)
 				)
 			)
@@ -4163,74 +3778,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 219.71 50.8 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8f48be14-51f2-4a2f-be27-9225c8407dd7")
-		(property "Reference" "R1"
-			(at 219.71 45.72 90)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "1kOhm"
-			(at 219.71 48.26 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 219.71 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 219.71 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 219.71 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "98b958c2-97bd-4223-9fed-88f32ff6714c")
-		)
-		(pin "1"
-			(uuid "940a0607-157f-4cbc-b824-9ff974330230")
-		)
-		(instances
-			(project ""
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "R1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+3V3")
 		(at 212.09 100.33 0)
 		(unit 1)
@@ -4291,71 +3838,6 @@
 			(project ""
 				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
 					(reference "#PWR09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 238.76 45.72 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "947f71d9-7ffc-4e66-bf54-18d663c73e09")
-		(property "Reference" "#PWR06"
-			(at 238.76 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+1V6"
-			(at 241.808 44.196 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 238.76 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 238.76 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 238.76 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "078a1e51-2d50-4669-a6cd-e67fa31f8a51")
-		)
-		(instances
-			(project "EMG_hand_sensor"
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "#PWR06")
 					(unit 1)
 				)
 			)
@@ -4429,7 +3911,7 @@
 	)
 	(symbol
 		(lib_id "Amplifier_Operational:ADA4099-1xUJ")
-		(at 176.53 73.66 0)
+		(at 172.72 72.39 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4438,7 +3920,7 @@
 		(fields_autoplaced yes)
 		(uuid "af330d68-1644-421a-b1f2-e6cdf83fdeb2")
 		(property "Reference" "U4"
-			(at 190.5 67.2398 0)
+			(at 186.69 65.9698 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4446,7 +3928,7 @@
 			)
 		)
 		(property "Value" "ADA4099-1xUJ"
-			(at 190.5 69.7798 0)
+			(at 186.69 68.5098 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4454,7 +3936,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:TSOT-23-6"
-			(at 176.53 80.01 0)
+			(at 172.72 78.74 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4463,7 +3945,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/ada4099-1_ada4099-2.pdf"
-			(at 176.53 82.55 0)
+			(at 172.72 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4473,7 +3955,7 @@
 			)
 		)
 		(property "Description" "3.15..50V supply, 8MHz GBW, Rail-to-Rail input/output, over-the-top opamp with shutdown, TSOT-6"
-			(at 176.53 73.66 0)
+			(at 172.72 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4575,142 +4057,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 229.87 58.42 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bd41c6e0-d77d-4489-8649-cc6d9fdffa9a")
-		(property "Reference" "#PWR05"
-			(at 229.87 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 229.87 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 229.87 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 229.87 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 229.87 58.42 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "0998c8c5-5f7b-4e8c-938a-0e1f62916fd4")
-		)
-		(instances
-			(project "EMG_hand_sensor"
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "#PWR05")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 224.79 53.34 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c94da811-9c27-407c-a5dc-5372b08d5742")
-		(property "Reference" "C3"
-			(at 227.33 52.0762 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100nF"
-			(at 227.33 54.6162 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 224.79 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 224.79 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 224.79 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "a93f8b9e-9994-4c86-b4fa-08fe34163095")
-		)
-		(pin "1"
-			(uuid "238d92fb-e803-4005-999e-7a42daf148eb")
-		)
-		(instances
-			(project ""
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "C3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R_Small")
 		(at 212.09 113.03 0)
 		(unit 1)
@@ -4781,74 +4127,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 237.49 31.75 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d36a36ff-316d-4811-ae14-59d69c016f37")
-		(property "Reference" "R2"
-			(at 237.49 26.67 90)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "100kOhm"
-			(at 237.49 29.21 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 237.49 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 237.49 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 237.49 31.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "c207a0bd-3ce3-4ec3-8dd2-e0bfd054fdb1")
-		)
-		(pin "1"
-			(uuid "e85dfbe1-b01a-4eb7-a312-c1d8e6ed1048")
-		)
-		(instances
-			(project "EMG_hand_sensor"
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "R2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 72.39 92.71 0)
 		(unit 1)
@@ -4909,152 +4187,6 @@
 			(project "EMG_hand_sensor"
 				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
 					(reference "#PWR012")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 241.3 60.96 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e0e1d1c2-1a37-41c8-bcb0-69a76c1f70a5")
-		(property "Reference" "#PWR08"
-			(at 241.3 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+1V6"
-			(at 244.602 62.484 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 241.3 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 241.3 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 241.3 60.96 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "de3399d5-af58-4c25-846a-6b0261c9cf6c")
-		)
-		(instances
-			(project "EMG_hand_sensor"
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "#PWR08")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Amplifier_Operational:ADA4099-1xUJ")
-		(at 241.3 53.34 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ed10fcb5-c378-461f-8536-a075c7741297")
-		(property "Reference" "U2"
-			(at 255.27 46.9198 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ADA4099-1xUJ"
-			(at 255.27 49.4598 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:TSOT-23-6"
-			(at 241.3 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/ada4099-1_ada4099-2.pdf"
-			(at 241.3 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" "3.15..50V supply, 8MHz GBW, Rail-to-Rail input/output, over-the-top opamp with shutdown, TSOT-6"
-			(at 241.3 53.34 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "4"
-			(uuid "61ad181b-09bf-43de-a60f-e6fb8f9559a6")
-		)
-		(pin "2"
-			(uuid "70dec5d6-a4b0-49f6-a7a3-103f4e4e74bc")
-		)
-		(pin "5"
-			(uuid "ad65a662-5fb5-4a4e-974f-b9e3020d5737")
-		)
-		(pin "1"
-			(uuid "ce6e2e1b-13cb-4a8b-b02f-d0f8df8745ff")
-		)
-		(pin "3"
-			(uuid "a6e24333-5219-4a9d-9f65-58b69debed12")
-		)
-		(pin "6"
-			(uuid "339295fe-6a2a-4725-b73b-12694f216b81")
-		)
-		(instances
-			(project "EMG_hand_sensor"
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "U2")
 					(unit 1)
 				)
 			)
@@ -5136,74 +4268,6 @@
 			(project "EMG_hand_sensor"
 				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
 					(reference "U5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 207.01 50.8 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "efc1f665-b42e-4b82-8bd3-ef98ef9bad5a")
-		(property "Reference" "R3"
-			(at 207.01 45.72 90)
-			(effects
-				(font
-					(size 1.016 1.016)
-				)
-			)
-		)
-		(property "Value" "10kOhm"
-			(at 207.01 48.26 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 207.01 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 207.01 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 207.01 50.8 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "848f3295-3db3-47c8-8937-705381396d5f")
-		)
-		(pin "1"
-			(uuid "1fed5250-ff62-431b-a98a-bc45ad1ea83c")
-		)
-		(instances
-			(project "EMG_hand_sensor"
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "R3")
 					(unit 1)
 				)
 			)
