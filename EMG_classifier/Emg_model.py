@@ -12,16 +12,28 @@ class EMGClassfier(nn.Module):
     def __init__(self,sequence_length,features,num_classes): 
         super().__init__()
        # self.flatten = nn.Flatten() 
-        self.linear_relu_stack = nn.Sequential(
-            nn.Linear(sequence_length*features,128),
+        self.linear_relu_stack = nn.Sequential( 
+            nn.Linear(sequence_length*features,64), 
+            nn.BatchNorm1d(64),
             nn.ReLU(), 
             nn.Dropout(0.2),  
 
-            nn.Linear(128,256),
+            nn.Linear(64,128), 
+            nn.BatchNorm1d(128),
+            nn.ReLU(), 
+            nn.Dropout(0.2),  
+
+            nn.Linear(128,256), 
+            nn.BatchNorm1d(256),
+            nn.ReLU(), 
+            nn.Dropout(0.2),   
+
+            nn.Linear(256,512), 
+            nn.BatchNorm1d(512),
             nn.ReLU(), 
             nn.Dropout(0.2),  
             
-            nn.Linear(256,num_classes), 
+            nn.Linear(512,num_classes), 
         ) 
         self.loss = nn.CrossEntropyLoss()
 
@@ -121,5 +133,5 @@ plt.xlabel("Predicted")
 plt.ylabel("True")
 plt.title("Confusion Matrix")
 plt.tight_layout()
-plt.show() 
-print(model)
+plt.show()  
+
