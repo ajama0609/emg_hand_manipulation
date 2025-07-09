@@ -1,15 +1,15 @@
 LTspice 24.1.9 for Windows
 Circuit: C:\Users\dhiid\OneDrive\Desktop\emg_hand_manipulation\EMG_schematics_spice\EMG_HPF_filter_test.net
-Start Time: Mon Jul  7 19:38:02 2025
+Start Time: Wed Jul  9 18:17:27 2025
 solver = Normal
 Maximum thread count: 16
 tnom = 27
 temp = 27
 method = trap
 Direct Newton iteration for .op point succeeded.
-Total elapsed time: 0.073 seconds.
+Total elapsed time: 0.087 seconds.
 
 Files loaded:
 C:\Users\dhiid\OneDrive\Desktop\emg_hand_manipulation\EMG_schematics_spice\EMG_HPF_filter_test.net
-C:\Users\dhiid\AppData\Local\LTspice\lib\sub\LTC.lib
+C:\Users\dhiid\AppData\Local\LTspice\lib\sub\ADI.lib
 

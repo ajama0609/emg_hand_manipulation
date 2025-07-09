@@ -1,6 +1,6 @@
 LTspice 24.1.9 for Windows
-Circuit: C:\Users\dhiid\OneDrive\Desktop\emg_hand_manipulation\EMG_notch_filter_test.net
-Start Time: Mon Jul  7 19:14:25 2025
+Circuit: C:\Users\dhiid\OneDrive\Desktop\emg_hand_manipulation\EMG_schematics_spice\EMG_notch_filter_test.net
+Start Time: Tue Jul  8 19:07:57 2025
 solver = Normal
 Maximum thread count: 16
 tnom = 27
@@ -26,9 +26,9 @@ Gmin = 2.70769e-13
 Gmin = 0
 Gmin stepping succeeded in finding the operating point.
 
-Total elapsed time: 0.132 seconds.
+Total elapsed time: 0.138 seconds.
 
 Files loaded:
-C:\Users\dhiid\OneDrive\Desktop\emg_hand_manipulation\EMG_notch_filter_test.net
+C:\Users\dhiid\OneDrive\Desktop\emg_hand_manipulation\EMG_schematics_spice\EMG_notch_filter_test.net
 C:\Users\dhiid\AppData\Local\LTspice\lib\sub\LTC.lib
 

@@ -1,6 +1,6 @@
 LTspice 24.1.9 for Windows
-Circuit: C:\Users\dhiid\OneDrive\Desktop\emg_hand_manipulation\EMG_schematics_spice\EMG_LPF_filter_test.net
-Start Time: Wed Jul  9 18:30:58 2025
+Circuit: C:\Users\dhiid\OneDrive\Desktop\emg_hand_manipulation\EMG_schematics_spice\EMG_BANDPASS_filter_test.net
+Start Time: Wed Jul  9 19:33:29 2025
 solver = Normal
 Maximum thread count: 16
 tnom = 27
@@ -26,10 +26,10 @@ Gmin = 2.70769e-13
 Gmin = 0
 Gmin stepping succeeded in finding the operating point.
 
-Total elapsed time: 0.146 seconds.
+Total elapsed time: 0.177 seconds.
 
 Files loaded:
-C:\Users\dhiid\OneDrive\Desktop\emg_hand_manipulation\EMG_schematics_spice\EMG_LPF_filter_test.net
+C:\Users\dhiid\OneDrive\Desktop\emg_hand_manipulation\EMG_schematics_spice\EMG_BANDPASS_filter_test.net
 C:\Users\dhiid\AppData\Local\LTspice\lib\sub\ADI.lib
 C:\Users\dhiid\AppData\Local\LTspice\lib\sub\LTC.lib
 
