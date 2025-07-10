@@ -6872,6 +6872,92 @@
 		)
 	)
 	(symbol
+		(lib_id "Amplifier_Operational:ADA4099-2xR")
+		(at 52.07 76.2 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "26e13d9e-ac46-44c9-b39b-bfea7c842b51")
+		(property "Reference" "U2"
+			(at 52.07 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "ADA4099-2xR"
+			(at 52.07 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 49.53 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/ada4099-1_ada4099-2.pdf"
+			(at 45.72 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "3.15..50V supply, 8MHz GBW, Rail-to-Rail input/output, over-the-top dual opamp, SOIC-8"
+			(at 52.07 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "af807fb0-1430-4ef5-968c-df9048af0fbe")
+		)
+		(pin "4"
+			(uuid "60db27e7-338c-4aec-bccd-f9932e2ed0d0")
+		)
+		(pin "7"
+			(uuid "543f9987-1c42-45a9-998a-f6022bac2e73")
+		)
+		(pin "8"
+			(uuid "034c55a2-a897-49dc-9f6e-05b4eed51434")
+		)
+		(pin "3"
+			(uuid "3b3ea1d6-2b4d-49dc-9ec5-4c590258f00e")
+		)
+		(pin "2"
+			(uuid "a801dbca-41e4-4cfc-adc5-fbe8645837c8")
+		)
+		(pin "1"
+			(uuid "3855da0b-039f-4459-b23b-ac28d048a5f5")
+		)
+		(pin "6"
+			(uuid "3d23cd4f-f30b-4d01-b17f-3f92f819b1de")
+		)
+		(instances
+			(project ""
+				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
+					(reference "U2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 186.69 66.04 270)
 		(unit 1)
@@ -7691,92 +7777,6 @@
 			(project "EMG_hand_sensor"
 				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
 					(reference "R6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Amplifier_Operational:ADA4099-2xR")
-		(at 157.48 49.53 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "46ad9411-44d9-4ec2-aa77-64640889699a")
-		(property "Reference" "U2"
-			(at 157.48 39.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ADA4099-2xR"
-			(at 157.48 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
-			(at 160.02 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/ada4099-1_ada4099-2.pdf"
-			(at 163.83 45.72 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "3.15..50V supply, 8MHz GBW, Rail-to-Rail input/output, over-the-top dual opamp, SOIC-8"
-			(at 157.48 49.53 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "7"
-			(uuid "175e5fb3-54d1-430c-a82a-3db92d48bee3")
-		)
-		(pin "5"
-			(uuid "823096f0-14ac-4493-8ca8-e301b543356a")
-		)
-		(pin "4"
-			(uuid "4395072c-b4ec-4899-b990-c40c880a801f")
-		)
-		(pin "2"
-			(uuid "82bf6339-b18a-4e54-ad38-03e2b4298cc1")
-		)
-		(pin "6"
-			(uuid "a9ac0fb3-9925-4ed7-a76e-b2a8d4bec38e")
-		)
-		(pin "3"
-			(uuid "6fe61352-225a-402f-aff6-8fd3ab713a12")
-		)
-		(pin "8"
-			(uuid "674931bb-9d7a-439a-bb8b-c8729466ac5b")
-		)
-		(pin "1"
-			(uuid "b989f62e-858e-47ee-b705-97c70e278d3b")
-		)
-		(instances
-			(project "EMG_hand_sensor"
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "U2")
 					(unit 1)
 				)
 			)
@@ -8823,6 +8823,92 @@
 				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
 					(reference "C6")
 					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Amplifier_Operational:ADA4099-2xR")
+		(at 157.48 49.53 0)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7b74c10b-f029-4e3e-9e98-abe7ee512b0a")
+		(property "Reference" "U2"
+			(at 157.48 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "ADA4099-2xR"
+			(at 157.48 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 160.02 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/ada4099-1_ada4099-2.pdf"
+			(at 163.83 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "3.15..50V supply, 8MHz GBW, Rail-to-Rail input/output, over-the-top dual opamp, SOIC-8"
+			(at 157.48 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "d026e24b-5afe-4a14-a372-e7f576d00f34")
+		)
+		(pin "1"
+			(uuid "eb3d4640-8325-482f-bddc-1590e3fbb2e8")
+		)
+		(pin "6"
+			(uuid "fa083409-080f-4764-b1f6-9de8119af525")
+		)
+		(pin "5"
+			(uuid "25ba176e-9787-447e-b36f-5ff1fe5dc144")
+		)
+		(pin "3"
+			(uuid "35424840-e29c-42c2-ad2b-e3acfec9e108")
+		)
+		(pin "7"
+			(uuid "bc9a8ef3-f9f0-4dd2-b6f6-55d2df629883")
+		)
+		(pin "8"
+			(uuid "93513da7-278b-414f-be0f-7e5d5c2fb17c")
+		)
+		(pin "4"
+			(uuid "5a574d04-9893-4f81-aa1c-a7ae93fe84d4")
+		)
+		(instances
+			(project ""
+				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
+					(reference "U2")
+					(unit 2)
 				)
 			)
 		)
@@ -10822,92 +10908,6 @@
 			(project ""
 				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
 					(reference "R17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Amplifier_Operational:ADA4099-2xR")
-		(at 52.07 76.2 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "f911d499-c6b9-47b0-9178-f069a95f535b")
-		(property "Reference" "U5"
-			(at 52.07 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "ADA4099-2xR"
-			(at 52.07 68.58 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
-			(at 49.53 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/ada4099-1_ada4099-2.pdf"
-			(at 45.72 72.39 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "3.15..50V supply, 8MHz GBW, Rail-to-Rail input/output, over-the-top dual opamp, SOIC-8"
-			(at 52.07 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "7"
-			(uuid "175e5fb3-54d1-430c-a82a-3db92d48bee4")
-		)
-		(pin "5"
-			(uuid "823096f0-14ac-4493-8ca8-e301b543356b")
-		)
-		(pin "4"
-			(uuid "4395072c-b4ec-4899-b990-c40c880a8020")
-		)
-		(pin "2"
-			(uuid "c3613c61-db25-4e0f-975b-714f927706e8")
-		)
-		(pin "6"
-			(uuid "a9ac0fb3-9925-4ed7-a76e-b2a8d4bec38f")
-		)
-		(pin "3"
-			(uuid "c3efa978-bd84-416d-b9d0-7c4cade68a2d")
-		)
-		(pin "8"
-			(uuid "674931bb-9d7a-439a-bb8b-c8729466ac5c")
-		)
-		(pin "1"
-			(uuid "44d8fdba-8a74-437e-be3b-bf7c9ff4a999")
-		)
-		(instances
-			(project "EMG_hand_sensor"
-				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
-					(reference "U5")
 					(unit 1)
 				)
 			)
