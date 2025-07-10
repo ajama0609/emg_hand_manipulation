@@ -1,4 +1,4 @@
-25595825291543738
+25556675284586661
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -13,6 +13,13 @@ audio belton reverb
 0
 7
 7
+B2B_XH_A
+JST_B2B-XH-A
+
+
+0
+2
+2
 Battery
 BatteryClip_Keystone_54_D16-19mm
 Battery clip for batteries with a diameter between 16-19 mm: https://www.keyelco.com/product.cfm/product_id/826
@@ -6902,48 +6909,6 @@ Jack_3.5mm_CUI_SJ-3524-SMT_Horizontal
 4
 4
 Connector_Audio
-Jack_3.5mm_CUI_SJ1-3513N_Horizontal
-TRS 3.5mm, horizontal, through-hole, https://www.cuidevices.com/product/resource/sj1-351xn.pdf
-TRS audio jack stereo horizontal
-0
-3
-3
-Connector_Audio
-Jack_3.5mm_CUI_SJ1-3514N_Horizontal
-TRS 3.5mm, horizontal, through-hole, with tip switch, https://www.cuidevices.com/product/resource/sj1-351xn.pdf
-TRS audio jack stereo horizontal
-0
-4
-4
-Connector_Audio
-Jack_3.5mm_CUI_SJ1-3515N_Horizontal
-TRS 3.5mm, horizontal, through-hole, with tip and ring switches, https://www.cuidevices.com/product/resource/sj1-351xn.pdf
-TRS audio jack stereo horizontal
-0
-5
-5
-Connector_Audio
-Jack_3.5mm_CUI_SJ1-3523N_Horizontal
-TRS 3.5mm, horizontal, through-hole, https://www.cuidevices.com/product/resource/pdf/sj1-352xn.pdf
-TRS audio jack stereo horizontal
-0
-3
-3
-Connector_Audio
-Jack_3.5mm_CUI_SJ1-3524N_Horizontal
-TRS 3.5mm, horizontal, through-hole, https://www.cuidevices.com/product/resource/pdf/sj1-352xn.pdf
-TRS audio jack stereo horizontal
-0
-4
-4
-Connector_Audio
-Jack_3.5mm_CUI_SJ1-3525N_Horizontal
-TRS 3.5mm, horizontal, through-hole, https://www.cuidevices.com/product/resource/pdf/sj1-352xn.pdf
-TRS audio jack stereo horizontal
-0
-5
-5
-Connector_Audio
 Jack_3.5mm_CUI_SJ1-3533NG_Horizontal
 TRS 3.5mm, horizontal, through-hole, https://www.cui.com/product/resource/sj1-353xng.pdf
 TRS audio jack stereo horizontal
@@ -6972,47 +6937,12 @@ TRS audio jack stereo horizontal circular
 5
 5
 Connector_Audio
-Jack_3.5mm_CUI_SJ2-3593D-SMT_Horizontal
-3.5 mm, Stereo, Right Angle, Surface Mount (SMT), Audio Jack Connector (https://www.cuidevices.com/product/resource/sj2-359x-smt.pdf)
-3.5mm audio cui horizontal jack stereo
-0
-5
-5
-Connector_Audio
-Jack_3.5mm_KoreanHropartsElec_PJ-320D-4A_Horizontal
-Korean Hroparts Elec PJ-320D-4A (https://datasheet.lcsc.com/lcsc/1810121716_Korean-Hroparts-Elec-PJ-320D-4A_C95562.pdf)
-smt female jack horizontal
-0
-4
-4
-Connector_Audio
 Jack_3.5mm_Ledino_KB3SPRS_Horizontal
 https://www.reichelt.de/index.html?ACTION=7&LA=3&OPEN=0&INDEX=0&FILENAME=C160%252FKB3SPRS.pdf
 jack stereo TRS
 0
 5
 5
-Connector_Audio
-Jack_3.5mm_Lumberg_1503_02_Horizontal
-TRS 3.5mm, horizontal, Surface Mount (SMT), https://downloads.lumberg.com/datenblaetter/en/1503_02.pdf
-TRS audio jack horizontal
-0
-4
-3
-Connector_Audio
-Jack_3.5mm_Lumberg_1503_03_Horizontal
-TRS 3.5mm, horizontal, Surface Mount (SMT), https://downloads.lumberg.com/datenblaetter/en/1503_03.pdf
-TRS audio jack horizontal
-0
-5
-4
-Connector_Audio
-Jack_3.5mm_Lumberg_1503_07_Horizontal
-TRS 3.5mm, horizontal, through-hole, height 5mm, width 6.5mm, https://downloads.lumberg.com/datenblaetter/en/1503_07.pdf
-TRS audio jack horizontal
-0
-4
-3
 Connector_Audio
 Jack_3.5mm_PJ311_Horizontal
 PJ311 6pin SMD 3.5mm stereo headphones jack.
@@ -7055,13 +6985,6 @@ Connector Audio Switronic ST-005-G
 0
 4
 3
-Connector_Audio
-Jack_3.5mm_Technik_TWP-3002_Horizontal
-3.5mm Horizontal Waterproof Stereo Headphones Jack, https://www.technik.com.hk/images/pdf_product/WP3002-PA66-A.pdf
-audio jack stereo horizontal waterproof
-0
-7
-4
 Connector_Audio
 Jack_6.35mm_Neutrik_NJ2FD-V_Vertical
 6.35mm (1/4 in) Vertical Jack, Non-switching mono jack (T/S), https://www.neutrik.com/en/product/nj2fd-v
@@ -7904,7 +7827,7 @@ neutrik xlr aa
 4
 Connector_Audio
 Jack_XLR_Neutrik_NC3MAFH-PH_Horizontal
-A Series, Chassis connector H female (A series layout), mates with Phoenix MSTB2,5/3-ST, horizontal PCB mount, https://www.neutrik.com/en/product/nc3mafh-ph
+A Series, Chassis connector H female (A series layout), horizontal PCB mount, https://www.neutrik.com/en/product/nc4mafh-ph
 neutrik xlr a
 0
 3
@@ -7939,7 +7862,7 @@ neutrik xlr a
 4
 Connector_Audio
 Jack_XLR_Neutrik_NC3MAMH-PH_Horizontal
-A Series, Chassis connector Phoenix H male (A series layout), mates with Phoenix MSTB 2,5/3-ST, horizontal PCB mount, https://www.neutrik.com/en/product/nc3mamh-ph
+A Series, Chassis connector Phoenix H male (A series layout), horizontal PCB mount, https://www.neutrik.com/en/product/nc4mamh-ph
 neutrik xlr a
 0
 3
@@ -8267,78 +8190,106 @@ neutrik xlr b
 6
 6
 Connector_Audio
-Jack_speakON-6.35mm_Neutrik_NLJ2MDXX-H_Horizontal
-speakON Combo, 2 pole combination of speakON socket and 6.35mm (1/4in) jack receptacle, horizontal pcb mount, replaces NLJ2MD-H, https://www.neutrik.com/en/product/nlj2mdxx-h
+Jack_speakON-6.35mm_Neutrik_NLJ2MD-H_Horizontal
+speakON Combo, 2 pole combination of speakON socket and 6.35mm (1/4in) jack receptacle, horizontal pcb mount, https://www.neutrik.com/en/product/nlj2md-h
 neutrik speakon combo
 0
 2
 2
 Connector_Audio
-Jack_speakON-6.35mm_Neutrik_NLJ2MDXX-V_Vertical
-speakON Combo, 2 pole combination of speakON socket and 6.35mm (1/4in) jack receptacle, vertical pcb mount, replaces NLJ2MD-V, https://www.neutrik.com/en/product/nlj2mdxx-v
+Jack_speakON-6.35mm_Neutrik_NLJ2MD-V_Vertical
+speakON Combo, 2 pole combination of speakON socket and 6.35mm (1/4in) jack receptacle, vertical pcb mount, https://www.neutrik.com/en/product/nlj2md-v
 neutrik speakon combo
 0
 2
 2
 Connector_Audio
-Jack_speakON_Neutrik_NL2MDXX-H-3_Horizontal
-speakON Chassis Connectors, 2 pole chassis connector, gray D-size flange, countersunk thru holes, horizontal PCB, replaces NL2MD-H, https://www.neutrik.com/en/product/nl2mdxx-h-3
+Jack_speakON_Neutrik_NL2MD-H_Horizontal
+speakON Chassis Connectors, 2 pole chassis connector, gray D-size flange, countersunk thru holes, horizontal PCB, https://www.neutrik.com/en/product/nl2md-h
 neutrik speakon
 0
 2
 2
 Connector_Audio
-Jack_speakON_Neutrik_NL2MDXX-V_Vertical
-speakON Chassis Connectors, 2 pole chassis connector, black D-size flange, countersunk thru holes, vertical PCB mount, replaces NL2MD-V, https://www.neutrik.com/en/product/nl2mdxx-v
+Jack_speakON_Neutrik_NL2MD-V_Vertical
+speakON Chassis Connectors, 2 pole chassis connector, black D-size flange, countersunk thru holes, vertical PCB mount, https://www.neutrik.com/en/product/nl2md-v
 neutrik speakon
 0
 2
 2
 Connector_Audio
-Jack_speakON_Neutrik_NL4MDXX-H-2_Horizontal
-speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, mirrored self tapping screw holes (A-screw), horizontal PCB mount, replaces NL4MD-H-2, https://www.neutrik.com/en/product/nl4mdxx-h-2
+Jack_speakON_Neutrik_NL4MD-H-1_Horizontal
+speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, countersunk thru holes, horizontal PCB mount, https://www.neutrik.com/en/product/nl4md-h-1
 neutrik speakon
 0
 4
 4
 Connector_Audio
-Jack_speakON_Neutrik_NL4MDXX-H-3_Horizontal
-speakON Chassis Connectors, 4 pole chassis connector, grey D-size flange, self tapping screw holes (A-screw), horizontal PCB mount, replaces NL4MD-H, NL4MD-H-1, NL4MD-H-3, https://www.neutrik.com/en/product/nl4mdxx-h-3
+Jack_speakON_Neutrik_NL4MD-H-2_Horizontal
+speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, mirrored self tapping screw holes (A-screw), horizontal PCB mount, https://www.neutrik.com/en/product/nl4md-h-2
 neutrik speakon
 0
 4
 4
 Connector_Audio
-Jack_speakON_Neutrik_NL4MDXX-V-2_Vertical
-speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, mirrored self tapping screw holes (A-screw), vertical PCB mount, replaces NL4MD-V-2, https://www.neutrik.com/en/product/nl4mdxx-v-2
+Jack_speakON_Neutrik_NL4MD-H-3_Horizontal
+speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, self tapping screw holes (A-screw), horizontal PCB mount, https://www.neutrik.com/en/product/nl4md-h-3
 neutrik speakon
 0
 4
 4
 Connector_Audio
-Jack_speakON_Neutrik_NL4MDXX-V-3_Vertical
-speakON Chassis Connectors, 4 pole chassis connector, grey D-size flange, self tapping screw holes (A-screw), vertical PCB mount, replaces NL4MD-V-1, https://www.neutrik.com/en/product/nl4mdxx-v-3
+Jack_speakON_Neutrik_NL4MD-H_Horizontal
+speakON Chassis Connectors, 4 pole chassis connector, grey D-size flange, self tapping screw holes (A-screw), horizontal PCB mount, https://www.neutrik.com/en/product/nl4md-h
 neutrik speakon
 0
 4
 4
 Connector_Audio
-Jack_speakON_Neutrik_NL4MDXX-V_Vertical
-speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, countersunk thru holes, vertical PCB mount, replaces NL4MD-V, NL4MD-V-R, NL4MD-V-S, https://www.neutrik.com/en/product/nl4mdxx-v
+Jack_speakON_Neutrik_NL4MD-V-1_Vertical
+speakON Chassis Connectors, 4 pole chassis connector, grey D-size flange, self tapping screw holes (A-screw), vertical PCB mount, https://www.neutrik.com/en/product/nl4md-v-1
 neutrik speakon
 0
 4
 4
 Connector_Audio
-Jack_speakON_Neutrik_NL8MDXX-V-3_Vertical
-speakON Chassis Connectors, 8 pole chassis connector, nickel metal square G-size flange, self tapping screw holes (A-screw), vertical PCB mount, replaces NL8MD-V-1, https://www.neutrik.com/en/product/nl8mdxx-v-3
+Jack_speakON_Neutrik_NL4MD-V-2_Vertical
+speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, mirrored self tapping screw holes (A-screw), vertical PCB mount, https://www.neutrik.com/en/product/nl4md-v-2
+neutrik speakon
+0
+4
+4
+Connector_Audio
+Jack_speakON_Neutrik_NL4MD-V-R_Vertical
+speakON Chassis Connectors, 4 pole chassis connector, red D-size flange, countersunk thru holes, vertical PCB mount, https://www.neutrik.com/en/product/nl4md-v-r
+neutrik speakon
+0
+4
+4
+Connector_Audio
+Jack_speakON_Neutrik_NL4MD-V-S_Vertical
+speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, switchable version of NL4MD-V with 8 vertical PCB contacts (4 switching contacts), https://www.neutrik.com/en/product/nl4md-v-s
 neutrik speakon
 0
 8
 8
 Connector_Audio
-Jack_speakON_Neutrik_NL8MDXX-V_Vertical
-speakON Chassis Connectors, 8 pole chassis connector, nickel metal square G-size flange, countersunk thru holes, vertical PCB mount, replaces NL8MD-V, https://www.neutrik.com/en/product/nl8mdxx-v
+Jack_speakON_Neutrik_NL4MD-V_Vertical
+speakON Chassis Connectors, 4 pole chassis connector, black D-size flange, countersunk thru holes, vertical PCB mount, https://www.neutrik.com/en/product/nl4md-v
+neutrik speakon
+0
+4
+4
+Connector_Audio
+Jack_speakON_Neutrik_NL8MD-V-1_Vertical
+speakON Chassis Connectors, 8 pole chassis connector, nickel metal square G-size flange, self tapping screw holes (A-screw), vertical PCB mount, https://www.neutrik.com/en/product/nl8md-v-1
+neutrik speakon
+0
+8
+8
+Connector_Audio
+Jack_speakON_Neutrik_NL8MD-V_Vertical
+speakON Chassis Connectors, 8 pole chassis connector, nickel metal square G-size flange, countersunk thru holes, vertical PCB mount, https://www.neutrik.com/en/product/nl8md-v
 neutrik speakon
 0
 8
@@ -8357,13 +8308,6 @@ THT Mini XLR 5Pin right angle
 0
 5
 5
-Connector_Audio
-Plug_3.5mm_CUI_SP-3541
-4 contacts, 3.5mm audio plug, https://www.cuidevices.com/product/resource/pdf/sp-3541.pdf
-3.5mm plug TRRS
-0
-4
-4
 Connector_BarrelJack
 BarrelJack_CLIFF_FC681465S_SMT_Horizontal
 Surface-mount DC Barrel Jack, https://www.cliffuk.co.uk/products/dcconnectors/FC681465S.pdf
