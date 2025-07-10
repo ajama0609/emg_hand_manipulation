@@ -1,4 +1,4 @@
-25556675284586661
+25558427445097033
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -60297,6 +60297,13 @@ heatsink
 0
 0
 0
+INA
+SOIC127P600X175-8N
+D
+Integrated Circuit
+0
+8
+8
 Inductor_SMD
 L_6.3x6.3_H3
 Choke, SMD, 6.3x6.3mm 3mm height
