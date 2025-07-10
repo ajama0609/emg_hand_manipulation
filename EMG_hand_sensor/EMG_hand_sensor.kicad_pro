@@ -477,7 +477,25 @@
     "meta": {
       "version": 4
     },
-    "net_colors": null,
+    "net_colors": {
+      "+3.3V": "rgb(255, 22, 0)",
+      "/E1": "rgb(255, 214, 0)",
+      "/E2": "rgb(255, 207, 0)",
+      "/E3": "rgb(255, 227, 0)",
+      "/E4": "rgb(255, 166, 0)",
+      "/E5": "rgb(255, 204, 0)",
+      "/E6": "rgb(255, 230, 0)",
+      "/O1": "rgb(255, 0, 228)",
+      "/O2": "rgb(237, 0, 255)",
+      "/O3": "rgb(255, 0, 255)",
+      "/O4": "rgb(255, 0, 197)",
+      "/SWCLK": "rgb(0, 233, 255)",
+      "/SWDIO": "rgb(0, 255, 253)",
+      "/USB_D+": "rgb(8, 0, 255)",
+      "/USB_D-": "rgb(0, 38, 255)",
+      "GND": "rgb(86, 255, 0)",
+      "VBUS": "rgb(255, 5, 0)"
+    },
     "netclass_assignments": null,
     "netclass_patterns": []
   },
@@ -594,6 +612,12 @@
           "group_by": false,
           "label": "#",
           "name": "${ITEM_NUMBER}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Pins",
+          "name": "Sim.Pins",
           "show": false
         }
       ],
