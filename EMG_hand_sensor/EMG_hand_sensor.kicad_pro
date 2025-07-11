@@ -485,32 +485,95 @@
         "via_diameter": 0.6,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "name": "ELECTRODES",
+        "pcb_color": "rgb(255, 214, 0)",
+        "priority": 5,
+        "schematic_color": "rgba(0, 0, 0, 0.000)"
+      },
+      {
+        "name": "GND",
+        "pcb_color": "rgb(0, 240, 255)",
+        "priority": 4,
+        "schematic_color": "rgba(0, 0, 0, 0.000)"
+      },
+      {
+        "name": "GPIO",
+        "pcb_color": "rgb(255, 99, 0)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)"
+      },
+      {
+        "name": "HSE",
+        "pcb_color": "rgb(255, 0, 209)",
+        "priority": 1,
+        "schematic_color": "rgba(0, 0, 0, 0.000)"
+      },
+      {
+        "name": "PWR",
+        "pcb_color": "rgb(255, 0, 5)",
+        "priority": 7,
+        "schematic_color": "rgba(0, 0, 0, 0.000)"
+      },
+      {
+        "name": "SWD",
+        "pcb_color": "rgb(255, 0, 97)",
+        "priority": 2,
+        "schematic_color": "rgba(0, 0, 0, 0.000)"
+      },
+      {
+        "name": "USB",
+        "pcb_color": "rgb(12, 255, 139)",
+        "priority": 6,
+        "schematic_color": "rgba(0, 0, 0, 0.000)"
+      },
+      {
+        "name": "VBAT",
+        "pcb_color": "rgb(0, 19, 255)",
+        "priority": 3,
+        "schematic_color": "rgba(0, 0, 0, 0.000)"
       }
     ],
     "meta": {
       "version": 4
     },
-    "net_colors": {
-      "+3.3V": "rgb(255, 22, 0)",
-      "/E1": "rgb(255, 214, 0)",
-      "/E2": "rgb(255, 207, 0)",
-      "/E3": "rgb(255, 227, 0)",
-      "/E4": "rgb(255, 166, 0)",
-      "/E5": "rgb(255, 204, 0)",
-      "/E6": "rgb(255, 230, 0)",
-      "/O1": "rgb(255, 0, 228)",
-      "/O2": "rgb(237, 0, 255)",
-      "/O3": "rgb(255, 0, 255)",
-      "/O4": "rgb(255, 0, 197)",
-      "/SWCLK": "rgb(0, 233, 255)",
-      "/SWDIO": "rgb(0, 255, 253)",
-      "/USB_D+": "rgb(8, 0, 255)",
-      "/USB_D-": "rgb(0, 38, 255)",
-      "GND": "rgb(86, 255, 0)",
-      "VBUS": "rgb(255, 5, 0)"
-    },
+    "net_colors": null,
     "netclass_assignments": null,
-    "netclass_patterns": []
+    "netclass_patterns": [
+      {
+        "netclass": "ELECTRODES",
+        "pattern": "/E*"
+      },
+      {
+        "netclass": "PWR",
+        "pattern": "+*"
+      },
+      {
+        "netclass": "VBAT",
+        "pattern": "VBUS*"
+      },
+      {
+        "netclass": "USB",
+        "pattern": "/USB*"
+      },
+      {
+        "netclass": "SWD",
+        "pattern": "/SWD*"
+      },
+      {
+        "netclass": "GND",
+        "pattern": "GND"
+      },
+      {
+        "netclass": "HSE",
+        "pattern": "/HSE*"
+      },
+      {
+        "netclass": "GPIO",
+        "pattern": "/O*"
+      }
+    ]
   },
   "pcbnew": {
     "last_paths": {
