@@ -607,7 +607,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "./",
+      "plot": "Manfacturing/",
       "pos_files": "Manfacturing/",
       "specctra_dsn": "",
       "step": "",
