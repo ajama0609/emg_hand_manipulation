@@ -56,6 +56,11 @@
           "gap": 0.0,
           "via_gap": 0.0,
           "width": 0.0
+        },
+        {
+          "gap": 0.21,
+          "via_gap": 0.5,
+          "width": 0.3
         }
       ],
       "drc_exclusions": [],
@@ -191,6 +196,7 @@
         0.15,
         0.2,
         0.3,
+        0.35,
         0.5,
         1.0
       ],
@@ -498,49 +504,55 @@
       {
         "name": "ELECTRODES",
         "pcb_color": "rgb(255, 214, 0)",
-        "priority": 5,
+        "priority": 6,
         "schematic_color": "rgba(0, 0, 0, 0.000)"
       },
       {
         "name": "GND",
         "pcb_color": "rgb(0, 240, 255)",
-        "priority": 4,
+        "priority": 5,
         "schematic_color": "rgba(0, 0, 0, 0.000)"
       },
       {
         "name": "GPIO",
         "pcb_color": "rgb(255, 99, 0)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)"
       },
       {
         "name": "HSE",
         "pcb_color": "rgb(255, 0, 209)",
-        "priority": 1,
+        "priority": 2,
         "schematic_color": "rgba(0, 0, 0, 0.000)"
       },
       {
         "name": "PWR",
         "pcb_color": "rgb(255, 0, 5)",
-        "priority": 7,
+        "priority": 8,
+        "schematic_color": "rgba(0, 0, 0, 0.000)"
+      },
+      {
+        "name": "RV3",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
         "schematic_color": "rgba(0, 0, 0, 0.000)"
       },
       {
         "name": "SWD",
         "pcb_color": "rgb(255, 0, 97)",
-        "priority": 2,
+        "priority": 3,
         "schematic_color": "rgba(0, 0, 0, 0.000)"
       },
       {
         "name": "USB",
         "pcb_color": "rgb(12, 255, 139)",
-        "priority": 6,
+        "priority": 7,
         "schematic_color": "rgba(0, 0, 0, 0.000)"
       },
       {
         "name": "VBAT",
         "pcb_color": "rgb(0, 19, 255)",
-        "priority": 3,
+        "priority": 4,
         "schematic_color": "rgba(0, 0, 0, 0.000)"
       }
     ],
@@ -581,6 +593,10 @@
       {
         "netclass": "GPIO",
         "pattern": "/O*"
+      },
+      {
+        "netclass": "RV3",
+        "pattern": "/RV3*"
       }
     ]
   },
