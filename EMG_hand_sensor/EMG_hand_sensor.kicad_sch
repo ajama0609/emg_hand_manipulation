@@ -10847,7 +10847,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Ferrite_THT:LairdTech_28C0236-0JW-10"
+		(property "Footprint" "Ferrite_SMT:BLM21AG102BH1J"
 			(at 134.62 57.912 90)
 			(effects
 				(font

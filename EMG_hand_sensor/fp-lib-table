@@ -4,4 +4,5 @@
   (lib (name "B2B_XH_A")(type "KiCad")(uri "C:/Users/dhiid/Downloads/B2B_XH_A.pretty")(options "")(descr ""))
   (lib (name "KiCad")(type "KiCad")(uri "C:/Users/dhiid/Downloads/KiCad.pretty")(options "")(descr ""))
   (lib (name "INA")(type "KiCad")(uri "${KIPRJMOD}/INA.pretty")(options "")(descr ""))
+  (lib (name "Ferrite_SMT")(type "KiCad")(uri "${KIPRJMOD}/Ferrite_SMT.pretty")(options "")(descr ""))
 )
