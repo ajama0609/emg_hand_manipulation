@@ -7973,7 +7973,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "KEMET "
 			(at 245.11 107.95 0)
 			(effects
 				(font
@@ -8001,6 +8001,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 245.11 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/KEMET/C0805X103JCRAC3316?qs=sGAEpiMZZMukHu%252BjC5l7YVjJ5HkUHZc2iaMFa1wqgvk%3D"
+			(at 245.11 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "C0805X103JCRAC3316 "
 			(at 245.11 107.95 0)
 			(effects
 				(font
@@ -8277,7 +8295,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " Vishay / Vitramon "
 			(at 190.5 64.77 0)
 			(effects
 				(font
@@ -8305,6 +8323,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 190.5 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/Vishay-Vitramon/GA0805Y104KBBBT31G?qs=sGAEpiMZZMukHu%252BjC5l7YT1OS9QZ2rTiFKdokXtle0Y%3D"
+			(at 190.5 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "GA0805Y104KBBBT31G "
 			(at 190.5 64.77 0)
 			(effects
 				(font
@@ -8383,7 +8419,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Bourns Inc."
 			(at 114.3 30.48 0)
 			(effects
 				(font
@@ -8411,6 +8447,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 114.3 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/bourns-inc/3214J-1-103E/248440"
+			(at 114.3 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "3214J-1-103E"
 			(at 114.3 30.48 0)
 			(effects
 				(font
@@ -8492,7 +8546,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " Vishay / Vitramon "
 			(at 48.26 64.77 0)
 			(effects
 				(font
@@ -8520,6 +8574,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 48.26 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/Vishay-Vitramon/GA0805Y104KBBBT31G?qs=sGAEpiMZZMukHu%252BjC5l7YT1OS9QZ2rTiFKdokXtle0Y%3D"
+			(at 48.26 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "GA0805Y104KBBBT31G "
 			(at 48.26 64.77 0)
 			(effects
 				(font
@@ -8616,7 +8688,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "19e11a67-ddc7-4a30-b202-2d9e73a7560a")
 		(property "Reference" "FID3"
@@ -8700,6 +8772,24 @@
 				(hide yes)
 			)
 		)
+		(property "Distributor" ""
+			(at 160.02 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" ""
+			(at 160.02 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(instances
 			(project "EMG_hand_sensor"
 				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
@@ -8764,7 +8854,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " KEMET "
 			(at 125.73 62.23 0)
 			(effects
 				(font
@@ -8800,6 +8890,24 @@
 				(hide yes)
 			)
 		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/KEMET/C0805X105J5RACAUTO?qs=sGAEpiMZZMukHu%252BjC5l7YXK%2FO3odgRa9gq8wpLcPIC0%3D"
+			(at 125.73 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" " C0805X105J5RACAUTO "
+			(at 125.73 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ee58a3f3-4ea0-4671-8530-bf21f66ce3cb")
 		)
@@ -8822,7 +8930,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2388219e-178a-484d-8084-17c8c5a439f0")
 		(property "Reference" "FID1"
@@ -8906,6 +9014,24 @@
 				(hide yes)
 			)
 		)
+		(property "Distributor" ""
+			(at 161.29 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" ""
+			(at 161.29 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(instances
 			(project ""
 				(path "/84a42da6-643f-42bf-9876-7927dca3da2c"
@@ -8970,7 +9096,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "KEMET "
 			(at 113.03 62.23 0)
 			(effects
 				(font
@@ -8998,6 +9124,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 113.03 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/KEMET/C0805X103JCRAC3316?qs=sGAEpiMZZMukHu%252BjC5l7YVjJ5HkUHZc2iaMFa1wqgvk%3D"
+			(at 113.03 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "C0805X103JCRAC3316 "
 			(at 113.03 62.23 0)
 			(effects
 				(font
@@ -9073,7 +9217,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "C&K"
 			(at 40.64 92.71 0)
 			(effects
 				(font
@@ -9101,6 +9245,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 40.64 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/c-k/JS102011SAQN/1640095"
+			(at 40.64 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "JS102011SAQN"
 			(at 40.64 92.71 0)
 			(effects
 				(font
@@ -9443,7 +9605,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "EPSON"
 			(at 41.91 130.81 0)
 			(effects
 				(font
@@ -9471,6 +9633,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 41.91 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/epson/TSX-3225-16-0000MF10U-B0/5260851?utm_source=chatgpt.com"
+			(at 41.91 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "TSX-3225 16.0000MF10U-B0"
 			(at 41.91 130.81 0)
 			(effects
 				(font
@@ -9687,7 +9867,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " Vishay / Vitramon "
 			(at 68.58 64.77 0)
 			(effects
 				(font
@@ -9715,6 +9895,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 68.58 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/Vishay-Vitramon/GA0805Y104KBBBT31G?qs=sGAEpiMZZMukHu%252BjC5l7YT1OS9QZ2rTiFKdokXtle0Y%3D"
+			(at 68.58 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "GA0805Y104KBBBT31G "
 			(at 68.58 64.77 0)
 			(effects
 				(font
@@ -9793,7 +9991,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " Vishay / Vitramon "
 			(at 54.61 81.28 0)
 			(effects
 				(font
@@ -9821,6 +10019,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 54.61 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/Vishay-Vitramon/GA0805Y104KBBBT31G?qs=sGAEpiMZZMukHu%252BjC5l7YT1OS9QZ2rTiFKdokXtle0Y%3D"
+			(at 54.61 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "GA0805Y104KBBBT31G "
 			(at 54.61 81.28 0)
 			(effects
 				(font
@@ -10031,7 +10247,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "YAGEO"
 			(at 130.81 165.1 0)
 			(effects
 				(font
@@ -10059,6 +10275,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 130.81 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/yageo/RC0402JR-074K7L/726477"
+			(at 130.81 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "RC0402JR-074K7L"
 			(at 130.81 165.1 0)
 			(effects
 				(font
@@ -10203,7 +10437,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Susumu"
 			(at 219.71 138.43 0)
 			(effects
 				(font
@@ -10231,6 +10465,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 219.71 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/susumu/RR1220P-103-D/432315"
+			(at 219.71 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "RR1220P-103-D"
 			(at 219.71 138.43 0)
 			(effects
 				(font
@@ -10312,7 +10564,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "STMicroelectronics"
 			(at 132.08 143.51 0)
 			(effects
 				(font
@@ -10340,6 +10592,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 132.08 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/stmicroelectronics/USBLC6-2SC6/1040559"
+			(at 132.08 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "USBLC6-2SC6"
 			(at 132.08 143.51 0)
 			(effects
 				(font
@@ -10428,7 +10698,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Same Sky (Formerly CUI Devices)"
 			(at 260.35 66.04 0)
 			(effects
 				(font
@@ -10456,6 +10726,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 260.35 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.co.uk/en/products/detail/same-sky-formerly-cui-devices-/SJ-3523-SMT-TR/669704?utm_source=chatgpt.com"
+			(at 260.35 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "SJ-3523-SMT-TR"
 			(at 260.35 66.04 0)
 			(effects
 				(font
@@ -10537,7 +10825,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Bourns Inc."
 			(at 173.99 87.63 0)
 			(effects
 				(font
@@ -10565,6 +10853,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 173.99 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/bourns-inc/3214J-1-103E/248440"
+			(at 173.99 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "3214J-1-103E"
 			(at 173.99 87.63 0)
 			(effects
 				(font
@@ -10646,7 +10952,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "YAGEO"
 			(at 274.32 105.41 0)
 			(effects
 				(font
@@ -10674,6 +10980,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 274.32 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/yageo/RC0805JR-071K5L/728230"
+			(at 274.32 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "RC0805JR-071K5L"
 			(at 274.32 105.41 0)
 			(effects
 				(font
@@ -10753,7 +11077,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Texas Instruments"
 			(at 224.79 60.96 0)
 			(effects
 				(font
@@ -10781,6 +11105,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 224.79 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/texas-instruments/INA128U/251086"
+			(at 224.79 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "INA128U"
 			(at 224.79 60.96 0)
 			(effects
 				(font
@@ -10874,7 +11216,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Murata Electronics"
 			(at 134.62 59.69 90)
 			(effects
 				(font
@@ -10902,6 +11244,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 134.62 59.69 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/murata-electronics/BLM21AG102SN1D/468922"
+			(at 134.62 59.69 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "BLM21AG102SN1D"
 			(at 134.62 59.69 90)
 			(effects
 				(font
@@ -10988,7 +11348,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Kingbright"
 			(at 267.97 101.6 0)
 			(effects
 				(font
@@ -11016,6 +11376,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 267.97 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.co.uk/en/products/detail/kingbright/APT2012SURCK/1747850?gclsrc=aw.ds&gad_source=1&gad_campaignid=19510052873&gclid=Cj0KCQjwss3DBhC3ARIsALdgYxMWN7NeMxewODV8XOYux1dU08gdrNKSpuE2qNeMUphyw1XzxpXzbq0aAhh6EALw_wcB"
+			(at 267.97 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "APT2012SURCK"
 			(at 267.97 101.6 0)
 			(effects
 				(font
@@ -11226,7 +11604,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Susumu"
 			(at 219.71 129.54 0)
 			(effects
 				(font
@@ -11254,6 +11632,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 219.71 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/susumu/RR1220P-103-D/432315"
+			(at 219.71 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "RR1220P-103-D"
 			(at 219.71 129.54 0)
 			(effects
 				(font
@@ -11398,7 +11794,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " Vishay / Vitramon "
 			(at 54.61 64.77 0)
 			(effects
 				(font
@@ -11426,6 +11822,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 54.61 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/Vishay-Vitramon/GA0805Y104KBBBT31G?qs=sGAEpiMZZMukHu%252BjC5l7YT1OS9QZ2rTiFKdokXtle0Y%3D"
+			(at 54.61 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "GA0805Y104KBBBT31G "
 			(at 54.61 64.77 0)
 			(effects
 				(font
@@ -11505,7 +11919,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Texas Instruments"
 			(at 104.14 30.48 0)
 			(effects
 				(font
@@ -11533,6 +11947,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 104.14 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/texas-instruments/INA128U/251086"
+			(at 104.14 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "INA128U"
 			(at 104.14 30.48 0)
 			(effects
 				(font
@@ -11695,7 +12127,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " KEMET "
 			(at 139.7 62.23 0)
 			(effects
 				(font
@@ -11731,6 +12163,24 @@
 				(hide yes)
 			)
 		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/KEMET/C0805X105J5RACAUTO?qs=sGAEpiMZZMukHu%252BjC5l7YXK%2FO3odgRa9gq8wpLcPIC0%3D"
+			(at 139.7 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" " C0805X105J5RACAUTO "
+			(at 139.7 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f87186f8-bbc8-402f-982f-1a339136b111")
 		)
@@ -11753,7 +12203,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "6b1b3234-6ea5-4c36-8205-02c7db242b02")
 		(property "Reference" "H2"
@@ -11829,6 +12279,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 200.66 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" ""
+			(at 200.66 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" ""
 			(at 200.66 31.75 0)
 			(effects
 				(font
@@ -12232,7 +12700,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Würth Elektronik"
 			(at 143.51 113.03 0)
 			(effects
 				(font
@@ -12260,6 +12728,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 143.51 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/w%C3%BCrth-elektronik/61300411121/4846827"
+			(at 143.51 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "61300411121"
 			(at 143.51 113.03 0)
 			(effects
 				(font
@@ -12296,7 +12782,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "765ea9d0-9845-4200-80a8-d7dfd4c4a26a")
 		(property "Reference" "FID2"
@@ -12372,6 +12858,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 162.56 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" ""
+			(at 162.56 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" ""
 			(at 162.56 54.61 0)
 			(effects
 				(font
@@ -12660,7 +13164,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "8161be7d-4c64-4f08-8ca1-7b5ad2886b01")
 		(property "Reference" "H1"
@@ -12736,6 +13240,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 179.07 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" ""
+			(at 179.07 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" ""
 			(at 179.07 31.75 0)
 			(effects
 				(font
@@ -12841,7 +13363,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "STM32F103C8Tx"
+		(property "Value" "STM32F103C8T6"
 			(at 99.9333 153.67 0)
 			(effects
 				(font
@@ -12878,7 +13400,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "STMicroelectronics"
 			(at 95.25 110.49 0)
 			(effects
 				(font
@@ -12906,6 +13428,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 95.25 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.co.uk/en/products/detail/stmicroelectronics/STM32F103C8T6/1646338"
+			(at 95.25 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "STM32F103C8T6"
 			(at 95.25 110.49 0)
 			(effects
 				(font
@@ -13189,7 +13729,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "GCT"
 			(at 157.48 144.78 0)
 			(effects
 				(font
@@ -13217,6 +13757,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 157.48 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/gct/USB4105-GF-A/11198441"
+			(at 157.48 144.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "USB4105-GF-A"
 			(at 157.48 144.78 0)
 			(effects
 				(font
@@ -13340,7 +13898,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " Vishay / Vitramon "
 			(at 95.25 25.4 0)
 			(effects
 				(font
@@ -13368,6 +13926,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 95.25 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/Vishay-Vitramon/GA0805Y104KBBBT31G?qs=sGAEpiMZZMukHu%252BjC5l7YT1OS9QZ2rTiFKdokXtle0Y%3D"
+			(at 95.25 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "GA0805Y104KBBBT31G "
 			(at 95.25 25.4 0)
 			(effects
 				(font
@@ -13446,7 +14022,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " KEMET "
 			(at 208.28 105.41 0)
 			(effects
 				(font
@@ -13474,6 +14050,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 208.28 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/KEMET/C0805X105J5RACAUTO?qs=sGAEpiMZZMukHu%252BjC5l7YXK%2FO3odgRa9gq8wpLcPIC0%3D"
+			(at 208.28 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" " C0805X105J5RACAUTO "
 			(at 208.28 105.41 0)
 			(effects
 				(font
@@ -13553,7 +14147,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Texas Instruments"
 			(at 163.83 87.63 0)
 			(effects
 				(font
@@ -13581,6 +14175,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 163.83 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/texas-instruments/INA128U/251086"
+			(at 163.83 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "INA128U"
 			(at 163.83 87.63 0)
 			(effects
 				(font
@@ -13741,7 +14353,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Same Sky (Formerly CUI Devices)"
 			(at 198.12 83.82 0)
 			(effects
 				(font
@@ -13769,6 +14381,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 198.12 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.co.uk/en/products/detail/same-sky-formerly-cui-devices-/SJ-3523-SMT-TR/669704?utm_source=chatgpt.com"
+			(at 198.12 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "SJ-3523-SMT-TR"
 			(at 198.12 83.82 0)
 			(effects
 				(font
@@ -13916,7 +14546,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "YAGEO"
 			(at 137.16 165.1 0)
 			(effects
 				(font
@@ -13944,6 +14574,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 137.16 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/yageo/RC0402JR-074K7L/726477"
+			(at 137.16 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "RC0402JR-074K7L"
 			(at 137.16 165.1 0)
 			(effects
 				(font
@@ -14154,7 +14802,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " Vishay / Vitramon "
 			(at 156.21 82.55 0)
 			(effects
 				(font
@@ -14182,6 +14830,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 156.21 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/Vishay-Vitramon/GA0805Y104KBBBT31G?qs=sGAEpiMZZMukHu%252BjC5l7YT1OS9QZ2rTiFKdokXtle0Y%3D"
+			(at 156.21 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "GA0805Y104KBBBT31G "
 			(at 156.21 82.55 0)
 			(effects
 				(font
@@ -14323,7 +14989,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Susumu"
 			(at 53.34 92.71 90)
 			(effects
 				(font
@@ -14351,6 +15017,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 53.34 92.71 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/susumu/RR1220P-103-D/432315"
+			(at 53.34 92.71 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "RR1220P-103-D"
 			(at 53.34 92.71 90)
 			(effects
 				(font
@@ -14429,7 +15113,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " Vishay / Vitramon "
 			(at 212.09 55.88 0)
 			(effects
 				(font
@@ -14457,6 +15141,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 212.09 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/Vishay-Vitramon/GA0805Y104KBBBT31G?qs=sGAEpiMZZMukHu%252BjC5l7YT1OS9QZ2rTiFKdokXtle0Y%3D"
+			(at 212.09 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "GA0805Y104KBBBT31G "
 			(at 212.09 55.88 0)
 			(effects
 				(font
@@ -14667,7 +15369,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Bourns Inc."
 			(at 234.95 60.96 0)
 			(effects
 				(font
@@ -14695,6 +15397,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 234.95 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/bourns-inc/3214J-1-103E/248440"
+			(at 234.95 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "3214J-1-103E"
 			(at 234.95 60.96 0)
 			(effects
 				(font
@@ -14842,7 +15562,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " Vishay / Vitramon "
 			(at 62.23 64.77 0)
 			(effects
 				(font
@@ -14870,6 +15590,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 62.23 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/Vishay-Vitramon/GA0805Y104KBBBT31G?qs=sGAEpiMZZMukHu%252BjC5l7YT1OS9QZ2rTiFKdokXtle0Y%3D"
+			(at 62.23 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "GA0805Y104KBBBT31G "
 			(at 62.23 64.77 0)
 			(effects
 				(font
@@ -15146,7 +15884,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " Vishay / Vitramon "
 			(at 67.31 34.29 0)
 			(effects
 				(font
@@ -15174,6 +15912,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 67.31 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/Vishay-Vitramon/GA0805Y104KBBBT31G?qs=sGAEpiMZZMukHu%252BjC5l7YT1OS9QZ2rTiFKdokXtle0Y%3D"
+			(at 67.31 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "GA0805Y104KBBBT31G "
 			(at 67.31 34.29 0)
 			(effects
 				(font
@@ -15250,7 +16006,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Same Sky (Formerly CUI Devices)"
 			(at 133.35 30.48 0)
 			(effects
 				(font
@@ -15278,6 +16034,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 133.35 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.co.uk/en/products/detail/same-sky-formerly-cui-devices-/SJ-3523-SMT-TR/669704?utm_source=chatgpt.com"
+			(at 133.35 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "SJ-3523-SMT-TR"
 			(at 133.35 30.48 0)
 			(effects
 				(font
@@ -15357,7 +16131,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Analog Devices Inc."
 			(at 231.14 107.95 0)
 			(effects
 				(font
@@ -15385,6 +16159,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 231.14 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/analog-devices-inc/LT1762EMS8-3-3-TRPBF/960293"
+			(at 231.14 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "LT1762EMS8-3.3#TRPBF"
 			(at 231.14 107.95 0)
 			(effects
 				(font
@@ -15547,7 +16339,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " Vishay / Vitramon "
 			(at 135.89 91.44 0)
 			(effects
 				(font
@@ -15575,6 +16367,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 135.89 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/Vishay-Vitramon/GA0805Y104KBBBT31G?qs=sGAEpiMZZMukHu%252BjC5l7YT1OS9QZ2rTiFKdokXtle0Y%3D"
+			(at 135.89 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "GA0805Y104KBBBT31G "
 			(at 135.89 91.44 0)
 			(effects
 				(font
@@ -15653,7 +16463,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Panasonic Electronic Components"
 			(at 255.27 104.14 0)
 			(effects
 				(font
@@ -15681,6 +16491,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 255.27 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.co.uk/en/products/detail/panasonic-electronic-components/ECA-0JHG101/245104?gclsrc=aw.ds&gad_source=1&gad_campaignid=17347303118&gclid=Cj0KCQjwss3DBhC3ARIsALdgYxMEanF8dXssPLvoCo0rowp6ayGpHQxk2Xla_Zfl_eMusib1Y9f4fE0aAv9gEALw_wcB"
+			(at 255.27 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "ECA-0JHG101"
 			(at 255.27 104.14 0)
 			(effects
 				(font
@@ -15759,7 +16587,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "TDK"
 			(at 39.37 64.77 0)
 			(effects
 				(font
@@ -15787,6 +16615,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 39.37 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/TDK/C2012X5R1E106M125AB?qs=LcTL%2F5vFEzExs%2FSyUmw6oA%3D%3D&srsltid=AfmBOopVVqD6ybM7rJqEd3H8iMOG3fjhh-qd0KfiEkvAzhJiJqXV22DD"
+			(at 39.37 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "C2012X5R1E106M125AB "
 			(at 39.37 64.77 0)
 			(effects
 				(font
@@ -15865,7 +16711,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " Vishay / Vitramon "
 			(at 74.93 64.77 0)
 			(effects
 				(font
@@ -15893,6 +16739,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 74.93 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/Vishay-Vitramon/GA0805Y104KBBBT31G?qs=sGAEpiMZZMukHu%252BjC5l7YT1OS9QZ2rTiFKdokXtle0Y%3D"
+			(at 74.93 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "GA0805Y104KBBBT31G "
 			(at 74.93 64.77 0)
 			(effects
 				(font
@@ -16101,7 +16965,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Susumu"
 			(at 194.31 60.96 90)
 			(effects
 				(font
@@ -16129,6 +16993,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 194.31 60.96 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/susumu/RG2012L-332-L-T05/3738064"
+			(at 194.31 60.96 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "RG2012L-332-L-T05"
 			(at 194.31 60.96 90)
 			(effects
 				(font
@@ -16205,7 +17087,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Susumu"
 			(at 71.12 30.48 90)
 			(effects
 				(font
@@ -16233,6 +17115,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 71.12 30.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/susumu/RG2012L-332-L-T05/3738064"
+			(at 71.12 30.48 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "RG2012L-332-L-T05"
 			(at 71.12 30.48 90)
 			(effects
 				(font
@@ -16377,7 +17277,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " KEMET "
 			(at 53.34 135.89 0)
 			(effects
 				(font
@@ -16405,6 +17305,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 53.34 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C100KDTACTU?qs=Wj%2FVkw3K%252BMBaxd0CsHLU5A%3D%3D"
+			(at 53.34 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" " C0805C100KDTACTU "
 			(at 53.34 135.89 0)
 			(effects
 				(font
@@ -16483,7 +17401,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" " KEMET "
 			(at 29.21 137.16 0)
 			(effects
 				(font
@@ -16511,6 +17429,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 29.21 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.mouser.co.uk/ProductDetail/KEMET/C0805C100KDTACTU?qs=Wj%2FVkw3K%252BMBaxd0CsHLU5A%3D%3D"
+			(at 29.21 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" " C0805C100KDTACTU "
 			(at 29.21 137.16 0)
 			(effects
 				(font
@@ -16652,7 +17588,7 @@
 				(hide yes)
 			)
 		)
-		(property "MANUFACTURER" ""
+		(property "MANUFACTURER" "Susumu"
 			(at 139.7 87.63 90)
 			(effects
 				(font
@@ -16680,6 +17616,24 @@
 			)
 		)
 		(property "STANDARD" ""
+			(at 139.7 87.63 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Distributor" "https://www.digikey.com/en/products/detail/susumu/RG2012L-332-L-T05/3738064"
+			(at 139.7 87.63 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manfacturer_number" "RG2012L-332-L-T05"
 			(at 139.7 87.63 90)
 			(effects
 				(font
