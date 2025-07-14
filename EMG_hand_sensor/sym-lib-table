@@ -3,4 +3,6 @@
   (lib (name "JST_CONN")(type "KiCad")(uri "${KIPRJMOD}/JST_CONN.kicad_sym")(options "")(descr ""))
   (lib (name "Audio_connector")(type "KiCad")(uri "${KIPRJMOD}/Audio_connector.kicad_sym")(options "")(descr ""))
   (lib (name "Bourne_pots")(type "KiCad")(uri "${KIPRJMOD}/Bourne_pots.kicad_sym")(options "")(descr ""))
+  (lib (name "Vishay_pot")(type "KiCad")(uri "${KIPRJMOD}/Vishay_pot.kicad_sym")(options "")(descr ""))
+  (lib (name "Bourne_smd_pot")(type "KiCad")(uri "${KIPRJMOD}/Bourne_smd_pot.kicad_sym")(options "")(descr ""))
 )

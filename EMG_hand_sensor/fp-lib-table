@@ -6,4 +6,6 @@
   (lib (name "INA")(type "KiCad")(uri "${KIPRJMOD}/INA.pretty")(options "")(descr ""))
   (lib (name "Ferrite_SMT")(type "KiCad")(uri "${KIPRJMOD}/Ferrite_SMT.pretty")(options "")(descr ""))
   (lib (name "Boune_pot")(type "KiCad")(uri "${KIPRJMOD}/Boune_pot.pretty")(options "")(descr ""))
+  (lib (name "Vishay_pot")(type "KiCad")(uri "${KIPRJMOD}/Vishay_pot.pretty")(options "")(descr ""))
+  (lib (name "Bourne_pot_smd")(type "KiCad")(uri "${KIPRJMOD}/Bourne_pot_smd.pretty")(options "")(descr ""))
 )

@@ -1,4 +1,4 @@
-25561932278505034
+25565437265386665
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -395,6 +395,13 @@ Boune_pot
 TRIM_3296W-1-102
 
 
+0
+3
+3
+Bourne_pot_smd
+3314G-1
+3314G-1
+Variable Resistor
 0
 3
 3
@@ -102605,3 +102612,10 @@ Varistor VF
 0
 2
 2
+Vishay_pot
+TS53YJ203MR10
+TS53YJ203MR10-3
+Variable Resistor
+0
+3
+3
