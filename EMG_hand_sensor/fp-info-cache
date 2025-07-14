@@ -1,4 +1,4 @@
-25560179795490560
+25561932278505034
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -391,6 +391,13 @@ battery CR-3032 coin cell vertical
 0
 2
 2
+Boune_pot
+TRIM_3296W-1-102
+
+
+0
+3
+3
 Button_Switch_Keyboard
 SW_Cherry_MX_1.00u_PCB
 Cherry MX keyswitch, 1.00u, PCB mount, http://cherryamericas.com/wp-content/uploads/2014/12/mx_cat.pdf
