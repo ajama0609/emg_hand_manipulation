@@ -6,7 +6,7 @@ Surface electromyography (sEMG) is widely used for hand gesture recognition due 
 
 A notable and consistent challenge across the literature is the classification of the **rest state**, where muscle activation is minimal and the signal-to-noise ratio (SNR) is low. This leads to frequent misclassification and lowers overall system reliability [4,5]. Lobov et al. [4] specifically identify latent factors such as low SNR and inter-subject variability as key limitations for sEMG-based interfaces.
 
-In this study, we achieve up to **92% accuracy** using a 4-layer MLP on six hand gestures, including the rest state, which aligns well with these prior findings. This accuracy was obtained using the machine learning pipeline on preprocessed data collected from the MYO Thalmic bracelet.
+In this study, we achieve up to **92% accuracy** using a 4-layer MLP on six hand gestures, including the rest state, which aligns well with these prior findings. This accuracy was obtained using the machine learning pipeline using the open-source dataset that made use of the Myoband.
 
 ---
 
@@ -33,8 +33,6 @@ Testing and validation using signals acquired from this hardware platform are cu
 # Methodology
 
 ## Data Acquisition and Preprocessing
-
-EMG signals were recorded using the **MYO Thalmic bracelet**, which contains eight equally spaced sensors around the forearm, transmitting data via Bluetooth to a PC.
 
 Preprocessing of raw EMG signals was performed using a MATLAB script. Key preprocessing steps include:
 
