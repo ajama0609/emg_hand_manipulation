@@ -6,7 +6,27 @@ Surface electromyography (sEMG) is widely used for hand gesture recognition due 
 
 A notable and consistent challenge across the literature is the classification of the **rest state**, where muscle activation is minimal and the signal-to-noise ratio (SNR) is low. This leads to frequent misclassification and lowers overall system reliability [4,5]. Lobov et al. [4] specifically identify latent factors such as low SNR and inter-subject variability as key limitations for sEMG-based interfaces.
 
-In this study, we achieve up to **92% accuracy** using a 4-layer MLP on six hand gestures, including the rest state, which aligns well with these prior findings. Our work demonstrates that with careful preprocessing and model design, MLPs can be competitive alternatives to deeper CNNs for real-time gesture recognition applications.
+In this study, we achieve up to **92% accuracy** using a 4-layer MLP on six hand gestures, including the rest state, which aligns well with these prior findings. This accuracy was obtained using the machine learning pipeline on preprocessed data collected from the MYO Thalmic bracelet.
+
+---
+
+# Hardware Development and Testing
+
+In parallel to the ML pipeline development, a custom sEMG acquisition hardware board has been designed and fabricated to enable lightweight, low-latency, and high-fidelity signal capture for real-time applications.
+
+![Custom sEMG Acquisition Board](https://github.com/user-attachments/assets/d60003c4-8d64-4608-a2c1-6201ea7448be)
+
+### Key Components and BOM Highlights:
+
+- **Instrumentation Amplifiers:** Texas Instruments INA333 (3 units) for high CMRR and low noise EMG signal amplification  
+- **Microcontroller:** STM32F103C8T6 (ARM Cortex-M3) for signal processing and data acquisition  
+- **Power Management:** Microchip MIC5504-3.3 LDO regulator for stable 3.3V supply  
+- **ESD Protection:** STMicroelectronics USBLC6-2SC6 for USB interface protection  
+- **Passive Components:** High-quality capacitors (e.g., TDK X5R, KEMET), resistors (Susumu, Yageo), and ferrite bead (Murata) for noise filtering and stable operation  
+- **Connectors:** USB-C receptacle, 3.5mm audio jacks for signal output and power input  
+- **Oscillator:** EPSON 16MHz crystal for clock generation
+
+Testing and validation using signals acquired from this hardware platform are currently underway. The goal is to integrate hardware and software pipelines for a fully functional wearable hand gesture recognition system.
 
 ---
 
@@ -49,7 +69,7 @@ Each data file contains 10 columns:
 
 # Results
 
-The current model achieves up to **92% accuracy** across six gesture classes:
+The current model achieves up to **92% accuracy** across six gesture classes using only the ML pipeline on preprocessed MYO bracelet data:
 
 - Resting  
 - Fist clenched  
@@ -93,4 +113,4 @@ This research was supported by the Ministry of Education and Science of the Russ
 2. Smith, J., & Lee, A. (2019). "Machine Learning Techniques for sEMG Gesture Recognition." *IEEE Transactions on Neural Systems*, 29(10), 2153-2161.  
 3. Chen, L., et al. (2018). "Deep Learning for Hand Gesture Classification with sEMG." *Sensors*, 18(11), 3456.  
 4. Lobov, S., et al. (2018). "Latent Factors Limiting the Performance of sEMG-Interfaces." *Sensors*, 18(4), 1122.  
-5. Patel, R., & Kumar, S. (2017). "Challenges in Rest State Classification in sEMG Signals." *Biomedical Signal Processing*, 32, 120-128.  
+5. Patel, R., & Kumar, S. (2017). "Challenges in Rest State Classification in sEMG Signals." *Biomedical Signal Processing*, 32, 120-128.
