@@ -2,7 +2,7 @@
 %as a 10 order IIR butterworth filter for this application at least in its
 %magnitude spectrum phase is distorted but that isn't important for us as
 %we are used RMS,MAV,SSC which are not distorted with phase.
-data=readtable('emg_data_1.csv') 
+data=readtable("emg+data+for+gestures\EMG_data_for_gestures-master\01\1_raw_data_13-12_22.03.16.txt"') 
 time=data{:,1}; 
 channels=data{:,2:9}; 
 channel_length = size(channels,2);
@@ -75,8 +75,9 @@ segment_labels = cell(num_windows, 1);
 window_labels=zeros(num_windows,1);   
   for i=1:num_windows  
         start_idx=(i-1)*step_size + 1;  
-        end_idx=window_length+start_idx -1 ; 
-        segment_labels{i}=labels(start_idx:end_idx); 
+        end_idx=window_length+start_idx -1 ;  
+        segment_labels{i}=labels(start_idx:end_idx);  
+        window_center_idx(i) = floor((start_idx + end_idx) / 2);
         window_labels(i)=mode(segment_labels{i});
   end
 
@@ -85,13 +86,13 @@ for ch = 1:channel_length
     features{ch} = [RMS(:, ch), MAV(:, ch), VAR(:, ch), ZC(:, ch)];  % 4 features per window
 end 
 
-feature_matrix=[];  
+feature_matrix=[];   
 for i =1:num_windows 
     row_features=[];
-    for ch =1:size(channels,2)
+    for ch =1:size(channels,2) 
         row_features=[row_features,features{ch}(i,1:4)]; 
     end  
-    feature_matrix(i,:) = [row_features, window_labels(i)];
+    feature_matrix(i,:) = [row_features, window_labels(i),time(window_center_idx(i))];
 end 
 
 writematrix(feature_matrix,'features1.csv');
