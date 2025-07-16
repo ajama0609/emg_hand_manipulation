@@ -95,4 +95,4 @@ for i =1:num_windows
     feature_matrix(i,:) = [row_features, window_labels(i),time(window_center_idx(i))];
 end 
 
-writematrix(feature_matrix,'features1.csv');
+writematrix(feature_matrix,'featuressnn.csv');
