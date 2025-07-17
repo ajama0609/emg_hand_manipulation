@@ -9,7 +9,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt   
 import snntorch as snn 
 from snntorch import surrogate
-from imblearn.over_sampling import SMOTE  
+from imblearn.over_sampling import SMOTE   
+from torchsummary import summary
 
 class LeakySpikeOperator(torch.autograd.Function):
     """
@@ -41,7 +42,7 @@ def LSO(slope=0.1):
 
 epochs=30
 lr=1e-3
-beta = 0.4  # neuron decay rate
+beta = 0.1  # neuron decay rate
 spike_grad = LSO() 
 
 class EMGClassfier(nn.Module): 
@@ -114,10 +115,8 @@ data = np.loadtxt('../featuressnn.csv',delimiter=',')
 sm = SMOTE(random_state=42)
 X = data[:, :32]  
 features=X.shape[1] 
-time_stamps = data[:, 32]
-labels=data[:,33]
-time = len(time_stamps) 
-print(time)
+time = 1
+labels=data[:,32]
 
 device = 'cuda:0'
 
@@ -188,8 +187,9 @@ history['test_acc'].append(test_acc)
 def save(history): 
     path=input("Please write something to save this training log to") 
     torch.save(history, f'training_history_{path}.pth')
-    print(f"Training history saved as training_history_{path}.pth")  
+    print(f"Training history saved as training_history_{path}.pth")   
 
+summary(model, input_size=(features,time))
 save(history=history)
 y_true = torch.tensor(labels_test).cpu().numpy()
 y_pred = torch.tensor(test_preds).cpu().numpy()
@@ -206,6 +206,5 @@ plt.ylabel("True")
 plt.title("Confusion Matrix")
 plt.tight_layout()
 plt.show()   
-print(model)
-
+#summary(model, input_size=(features,time,len(np.unique(labels))))
 
