@@ -11,7 +11,7 @@ import snntorch as snn
 from snntorch import surrogate
 from imblearn.over_sampling import SMOTE   
 from torchsummary import summary
-
+from ipdb import set_trace
 class LeakySpikeOperator(torch.autograd.Function):
     """
     Leaky surrogate gradient for a spike function.
@@ -42,56 +42,37 @@ def LSO(slope=0.1):
 
 epochs=50
 lr=1e-3
-beta = 0.2 # neuron decay rate
+beta = 0.1 # neuron decay rate
 spike_grad = LSO() 
 
 class EMGClassfier(nn.Module): 
     def __init__(self,features,sequence_length,num_classes): 
         super().__init__()
-       # self.flatten = nn.Flatten() 
-        self.linear_relu_stack = nn.Sequential( 
+        #self.flatten = nn.Flatten() 
+        self.linear_relu_stack = nn.Sequential(    
             nn.Linear(sequence_length*features,32), 
-            nn.BatchNorm1d(32),
-            snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad), 
-            nn.Dropout(0.1),  
+            nn.BatchNorm1d(32), 
+            snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad),  
 
-            nn.Linear(32,64), 
-            nn.BatchNorm1d(64),
-            snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad), 
-            nn.Dropout(0.1),  
 
-            nn.Linear(64,128), 
-            nn.BatchNorm1d(128),
+            nn.Linear(32,64),  
+            nn.BatchNorm1d(64), 
             snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad), 
-            nn.Dropout(0.1),   
+
+            nn.Linear(64,128),  
+            nn.BatchNorm1d(128), 
+            snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad), 
             
             nn.Linear(128,num_classes), 
         )  
         self.deep_emg_model = nn.Sequential( 
             nn.Conv1d(features,64,1), 
             nn.BatchNorm1d(64), 
-            nn.ReLU(), 
+            snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad), 
             nn.Dropout(0.2),  
-
-
-            nn.Conv1d(64,128,1), 
-            nn.BatchNorm1d(128), 
-            nn.ReLU(), 
-            nn.Dropout(0.2),  
-
-            nn.Conv1d(128,256,1), 
-            nn.BatchNorm1d(256), 
-            nn.ReLU(), 
-            nn.Dropout(0.2), 
-
-
-            nn.Conv1d(256,512,1), 
-            nn.BatchNorm1d(512), 
-            nn.ReLU(), 
-            nn.Dropout(0.2), 
 
             nn.Flatten(),    
-            nn.Linear(512,num_classes),
+            nn.Linear(64,num_classes),
 
         ) 
         self.lstm = nn.LSTM(features , 64, batch_first=True, bidirectional=True)    
@@ -102,7 +83,9 @@ class EMGClassfier(nn.Module):
         self.loss = nn.CrossEntropyLoss()
 
     def forward(self, x,target=None): 
-        x_flat = x.view(x.size(0), -1)
+        x_flat = x.view(x.size(0), -1)  
+        #set_trace()  
+       # x=self.flatten(x)
         logits =self.linear_relu_stack(x_flat) 
         if target is not None :     
             loss = self.loss(logits,target) 
@@ -115,7 +98,7 @@ data = np.loadtxt('../featuressnn.csv',delimiter=',')
 sm = SMOTE(random_state=42)
 X = data[:, :32]  
 features=X.shape[1] 
-time = 1
+time =1
 labels=data[:,32]
 
 device = 'cuda:0'
@@ -142,10 +125,10 @@ history ={
     'val_loss':[], 
     'val_acc':[]
 }
-
-X_train_tensor = X_train_tensor.view(-1, time,features)
-X_valid_tensor = X_valid_tensor.view(-1, time,features)
-X_test_tensor = X_test_tensor.view(-1, time,features)
+#set_trace()
+X_train_tensor = X_train_tensor.unsqueeze(2) 
+X_valid_tensor = X_valid_tensor.unsqueeze(2) 
+X_test_tensor = X_test_tensor.unsqueeze(2) 
 
 
 model = EMGClassfier(features,time,num_classes=len(np.unique(labels))).to('cuda:0') 
