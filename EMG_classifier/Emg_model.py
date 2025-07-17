@@ -40,9 +40,9 @@ def LSO(slope=0.1):
         return LeakySpikeOperator.apply(x, slope)
     return inner
 
-epochs=30
+epochs=50
 lr=1e-3
-beta = 0.1  # neuron decay rate
+beta = 0.1 # neuron decay rate
 spike_grad = LSO() 
 
 class EMGClassfier(nn.Module): 
@@ -50,7 +50,12 @@ class EMGClassfier(nn.Module):
         super().__init__()
        # self.flatten = nn.Flatten() 
         self.linear_relu_stack = nn.Sequential( 
-            nn.Linear(sequence_length*features,64), 
+            nn.Linear(sequence_length*features,32), 
+            nn.BatchNorm1d(32),
+            snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad), 
+            nn.Dropout(0.1),  
+
+            nn.Linear(32,64), 
             nn.BatchNorm1d(64),
             snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad), 
             nn.Dropout(0.1),  
@@ -58,14 +63,9 @@ class EMGClassfier(nn.Module):
             nn.Linear(64,128), 
             nn.BatchNorm1d(128),
             snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad), 
-            nn.Dropout(0.1),  
-
-            nn.Linear(128,256), 
-            nn.BatchNorm1d(256),
-            snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad), 
             nn.Dropout(0.1),   
             
-            nn.Linear(256,num_classes), 
+            nn.Linear(128,num_classes), 
         )  
         self.deep_emg_model = nn.Sequential( 
             nn.Conv1d(features,64,1), 
