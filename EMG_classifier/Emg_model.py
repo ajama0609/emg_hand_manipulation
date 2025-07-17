@@ -42,7 +42,7 @@ def LSO(slope=0.1):
 
 epochs=50
 lr=1e-3
-beta = 0.1 # neuron decay rate
+beta = 0.2 # neuron decay rate
 spike_grad = LSO() 
 
 class EMGClassfier(nn.Module): 
