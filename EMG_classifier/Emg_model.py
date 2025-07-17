@@ -6,8 +6,44 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix   
 from sklearn.preprocessing import StandardScaler
 import seaborn as sns 
-import matplotlib.pyplot as plt  
-from imblearn.over_sampling import SMOTE
+import matplotlib.pyplot as plt   
+import snntorch as snn 
+from snntorch import surrogate
+from imblearn.over_sampling import SMOTE  
+
+class LeakySpikeOperator(torch.autograd.Function):
+    """
+    Leaky surrogate gradient for a spike function.
+
+    Forward: Heaviside step (outputs 1 if input >= 0)
+    Backward: Leaky ReLU gradient (1 if input >= 0, slope if < 0)
+    """
+
+    @staticmethod
+    def forward(ctx, input_, slope):
+        ctx.save_for_backward(input_)
+        ctx.slope = slope
+        return (input_ > 0).float()
+
+    @staticmethod
+    def backward(ctx, grad_output):
+        input_, = ctx.saved_tensors
+        grad = grad_output.clone()
+        grad[input_ >= 0] *= 1.0
+        grad[input_ < 0] *= ctx.slope
+        return grad, None  # No gradient for slope
+
+def LSO(slope=0.1):
+    """Returns a callable that applies the LeakySpikeOperator with given slope."""
+    def inner(x):
+        return LeakySpikeOperator.apply(x, slope)
+    return inner
+
+epochs=30
+lr=1e-3
+beta = 0.4  # neuron decay rate
+spike_grad = LSO() 
+
 class EMGClassfier(nn.Module): 
     def __init__(self,features,sequence_length,num_classes): 
         super().__init__()
@@ -15,28 +51,23 @@ class EMGClassfier(nn.Module):
         self.linear_relu_stack = nn.Sequential( 
             nn.Linear(sequence_length*features,64), 
             nn.BatchNorm1d(64),
-            nn.ReLU(), 
+            snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad), 
             nn.Dropout(0.1),  
 
             nn.Linear(64,128), 
             nn.BatchNorm1d(128),
-            nn.ReLU(), 
+            snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad), 
             nn.Dropout(0.1),  
 
             nn.Linear(128,256), 
             nn.BatchNorm1d(256),
-            nn.ReLU(), 
+            snn.Leaky(beta=beta, init_hidden=True, spike_grad=spike_grad), 
             nn.Dropout(0.1),   
-
-            nn.Linear(256,512), 
-            nn.BatchNorm1d(512),
-            nn.ReLU(), 
-            nn.Dropout(0.1),  
             
-            nn.Linear(512,num_classes), 
+            nn.Linear(256,num_classes), 
         )  
         self.deep_emg_model = nn.Sequential( 
-            nn.Conv1d(sequence_length*features,64,1), 
+            nn.Conv1d(features,64,1), 
             nn.BatchNorm1d(64), 
             nn.ReLU(), 
             nn.Dropout(0.2),  
@@ -69,26 +100,24 @@ class EMGClassfier(nn.Module):
         self.fc = nn.Linear(256 * 2, num_classes)
         self.loss = nn.CrossEntropyLoss()
 
-    def forward(self, x,target=None):
-        #x = self.flatten(x)
-        lstm_out, _ = self.lstm(x) 
-        lstm_out,_ = self.lstm2(lstm_out) 
-        last_layer = lstm_out[: ,-1 ,:] 
-        last_layer =self.dropout(last_layer) 
-        logits = self.fc(last_layer)   
-        if target is not None : 
+    def forward(self, x,target=None): 
+        x_flat = x.view(x.size(0), -1)
+        logits =self.linear_relu_stack(x_flat) 
+        if target is not None :     
             loss = self.loss(logits,target) 
             return logits,loss
         return logits 
     
 
 scaler = StandardScaler()
-data = np.loadtxt('../features1.csv',delimiter=',')   
+data = np.loadtxt('../featuressnn.csv',delimiter=',')   
 sm = SMOTE(random_state=42)
-X = data[:,:-1]  
+X = data[:, :32]  
 features=X.shape[1] 
-sample = 32 
-labels=data[:,-1] 
+time_stamps = data[:, 32]
+labels=data[:,33]
+time = len(time_stamps) 
+print(time)
 
 device = 'cuda:0'
 
@@ -106,8 +135,6 @@ labels_valid_tensor = torch.tensor(labels_valid, dtype=torch.int64, device=devic
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32, device=device)
 labels_test_tensor = torch.tensor(labels_test, dtype=torch.int64, device=device) 
 
-epochs=30
-lr=1e-3
 
 history ={ 
     'train_acc': [] ,
@@ -117,11 +144,12 @@ history ={
     'val_acc':[]
 }
 
-X_train_tensor = X_train_tensor.unsqueeze(1)  #this is for the deep model
-X_valid_tensor = X_valid_tensor.unsqueeze(1)
-X_test_tensor = X_test_tensor.unsqueeze(1)
+X_train_tensor = X_train_tensor.view(-1, time,features)
+X_valid_tensor = X_valid_tensor.view(-1, time,features)
+X_test_tensor = X_test_tensor.view(-1, time,features)
 
-model = EMGClassfier(features,sample,num_classes=len(np.unique(labels))).to('cuda:0') 
+
+model = EMGClassfier(features,time,num_classes=len(np.unique(labels))).to('cuda:0') 
 optimzer = optim.Adam(model.parameters(),lr=lr) 
 for epoch in range(epochs): 
     model.train() 
