@@ -9,7 +9,7 @@ num_windows = floor(L / window_samples);
 figure;  % Create a single figure window
 hold on;  % Keep all plots on the same axes 
 
-%filterDesigner ; %IIR Highpass 10Hz Fs=1000Hz
+%filterDesigner ; %IIR Highpass 15Hz Fs=1000Hz
 
 
 emg_filtered = sosfilt(SOS, emg);
@@ -35,7 +35,7 @@ num_channels = size(emg_filtered,2);
 RMS = zeros(num_windows, num_channels);
 VAR = zeros(num_windows, num_channels);
 MAV = zeros(num_windows, num_channels);
-
+fft_feats = zeros(num_windows, num_channels, 2); 
 labels=zeros(num_windows,1);
 for w=1:num_windows 
   start_idx = (w-1)*window_samples + 1;
@@ -47,15 +47,30 @@ for ch = 1:num_channels
     for w = 1:num_windows
         start_idx = (w-1)*window_samples + 1;
         end_idx = w*window_samples;
-        window_data = emg_filtered(start_idx:end_idx, ch);
+        window_data = emg_filtered(start_idx:end_idx, ch); 
+
+        Y = fft(window_data);
+        P2 = abs(Y/window_samples);
+        P1 = P2(1:floor(window_samples/2)+1);
+        P1(2:end-1) = 2*P1(2:end-1); % single-sided spectrum
         
+        % Then extract features like total power, peak freq, etc.
+        fft_power = sum(P1.^2);  % total power in window
+        fft_max = max(P1);       % max magnitude in freq spectrum
+
+        fft_feats(w, ch, 1) = fft_power;
+        fft_feats(w, ch, 2) = fft_max;
+
         RMS(w, ch) = rms(window_data);
         VAR(w, ch) = var(window_data);
         MAV(w, ch) = mean(abs(window_data));
     end
 end
-%raw_flat = emg_filtered(:)';
-features = [RMS, VAR, MAV,labels]; 
+%raw_flat = emg_filtered(:)'; 
+
+fft_feats_reshaped = reshape(fft_feats, num_windows, num_channels * 2);
+
+features = [RMS, VAR, MAV,fft_feats_reshaped,labels]; 
 writematrix(features,'s1_feat.csv');
 xlabel('Frequency (Hz)');
 ylabel('|P1(f)|');
