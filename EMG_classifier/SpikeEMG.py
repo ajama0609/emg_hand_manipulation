@@ -52,30 +52,27 @@ X_train_tensor = X_train_tensor
 class SimpleSNN(nn.Module):
     def __init__(self,features,num_classes):
         super().__init__()
-        self.fc = nn.Sequential( 
-            nn.Linear(features,64),  
-
-            neuron.LIFNode( surrogate_function=surrogate.PiecewiseLeakyReLU(),  
-            tau=2.0),
-        
-            nn.Linear(64,num_classes) ,
-
-            neuron.LIFNode(    surrogate_function=surrogate.PiecewiseLeakyReLU(),  
-            tau=2.0),
-        
-        )  
+        self.MLP = nn.Sequential(
+            nn.Linear(features, 64), 
+            nn.ReLU(),
+            nn.Linear(64, num_classes)
+        ) 
+        self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=2.0)   
         self.loss = nn.CrossEntropyLoss()
 
 
-    def forward(self, x, target=None):
-        batch_size, Time, _ = x.shape
-        spike_sum = torch.zeros(batch_size, self.fc[-2].out_features, device=x.device)        
+    def forward(self, x,target=None):
+        batch_size, Time,features = x.shape
+        spike_sum = torch.zeros(batch_size, self.MLP[-1].out_features, device=x.device)        
     
         functional.reset_net(self) 
 
+        xt = x.view(batch_size * Time,features)  
+        xt=self.MLP(xt) 
+        xt = xt.view(batch_size, Time, -1)
         for t in range(Time):
-            xt = x[:, t, :]
-            spk = self.fc(xt) 
+            x = xt[:, t, :]
+            spk = self.lif1(x) 
             spike_sum += spk
         output = spike_sum / Time
 
@@ -86,6 +83,8 @@ class SimpleSNN(nn.Module):
             return output
 
 model = SimpleSNN(features=n_features,num_classes=num_classes).to('cuda:0') 
+
+summary(model,input_size=(X.shape[1],X.shape[2]))
 
 num_epochs = 20 
 optimizer = optim.Adam(model.parameters(), lr=1e-3) 
@@ -104,17 +103,22 @@ test_loader = DataLoader(test_dataset, batch_size=64, shuffle=True)
 for epoch in range(num_epochs): 
     model.train()
     train_loss = 0
-    train_acc = 0
-    for X_batch, labels_batch in train_loader: 
+    correct = 0
+    total = 0
+
+    for X_batch, labels_batch in train_loader:
         optimizer.zero_grad()
-        output, loss = model(X_batch, labels_batch)   
+        output, loss = model(X_batch, labels_batch)
         loss.backward()
         optimizer.step()
-        train_loss += loss.item() * X_batch.size(0) 
+
+        train_loss += loss.item() * X_batch.size(0)
         preds = torch.argmax(output, dim=1)
-        train_acc += (preds == labels_batch).float().mean().item() 
-    avg_loss = train_loss / len(train_loader.dataset)
-    avg_acc = train_acc / len(train_loader.dataset)
+        correct += (preds == labels_batch).sum().item()  # count correct predictions
+        total += labels_batch.size(0)                     # count total samples
+
+    avg_loss = train_loss / total
+    avg_acc = correct / total
     
     model.eval()
     valid_loss_sum = 0
