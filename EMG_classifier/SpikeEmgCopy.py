@@ -18,6 +18,8 @@ import json
 
 device = 'cuda:0'
 
+beta=0.9 
+num_epochs=50
 
 scaler = StandardScaler()
 data = np.loadtxt('../s1/s1_feat.csv',delimiter=',')    
@@ -50,47 +52,50 @@ labels_test_tensor = torch.tensor(labels_test, dtype=torch.int64, device=device)
 
 X_train_tensor = X_train_tensor
 
+spike_grad1 = surrogate.ATan()
+spike_grad2 = surrogate.ATan()
+
 class SimpleSNN(nn.Module):
-    def __init__(self,features,num_classes):
+    def __init__(self, features, num_classes):
         super().__init__()
-        self.MLP = nn.Sequential(
-            nn.Linear(features, 64), 
-            nn.ReLU(),  
-            nn.Dropout(0.1), 
-            nn.Linear(64,128)
-        ) 
-        self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=2.0)     
-        self.fc =nn.Linear(128,num_classes)
+        self.MLP = nn.Linear(features, 32)
+        self.MLP2 = nn.Linear(32, num_classes)
+
+        self.lif = neuron.LIFNode(tau=2.0, surrogate_function=spike_grad1)
+        self.lif1 = neuron.LIFNode(tau=2.0, surrogate_function=spike_grad2)
+
         self.loss = nn.CrossEntropyLoss()
 
+    def forward(self, x,target=None): 
+        self.lif.reset()
+        self.lif1.reset()
 
-    def forward(self, x,target=None):
-        batch_size, Time,features = x.shape
-        spike_sum = torch.zeros(batch_size, self.fc.out_features, device=x.device)        
-    
-        functional.reset_net(self) 
+        batch_size, Time, features = x.shape
 
-        xt = x.view(batch_size * Time,features)  
-        xt=self.MLP(xt) 
-        xt = xt.view(batch_size, Time, -1)
+        x1 = x.reshape(batch_size * Time, features)
+        x1 = self.MLP(x1)
+        x1 = x1.reshape(batch_size, Time, -1)
+
+        spk_out = []
         for t in range(Time):
-            x = xt[:, t, :]  
-            spk = self.lif1(x)     
-            out = self.fc(spk)       
-            spike_sum += out
-        output = spike_sum / Time
+            spk_t= self.lif1(x1[:, t, :])
+            spk_out.append(spk_t)
+
+        # Stack and average spikes across time
+        spk_out = torch.stack(spk_out, dim=1)  # (batch, time, neurons)
+        out = spk_out.mean(dim=1)  # (batch, neurons)
 
         if target is not None:
-            loss = self.loss(output, target)
-            return output, loss
+            loss = self.loss(out, target)
+            return out, loss
         else:
-            return output
+            return out
+
 
 model = SimpleSNN(features=n_features,num_classes=num_classes).to('cuda:0') 
 
 summary(model,input_size=(X.shape[1],X.shape[2]))
 
-num_epochs = 50
 optimizer = optim.Adam(model.parameters(), lr=1e-3) 
 
 train_dataset = TensorDataset(X_train_tensor, labels_train_tensor) 
@@ -104,13 +109,15 @@ test_dataset=  TensorDataset(X_test_tensor, labels_test_tensor)
 test_loader = DataLoader(test_dataset, batch_size=64, shuffle=True) 
 
 
+
 for epoch in range(num_epochs): 
     model.train()
     train_loss = 0
     correct = 0
     total = 0
 
-    for X_batch, labels_batch in train_loader:
+    for X_batch, labels_batch in train_loader: 
+
         optimizer.zero_grad()
         output, loss = model(X_batch, labels_batch)
         loss.backward()
@@ -130,7 +137,8 @@ for epoch in range(num_epochs):
     num_batches = 0
 
     with torch.no_grad():
-        for valid_batch, valid_labels_batch in valid_loader:
+        for valid_batch, valid_labels_batch in valid_loader: 
+
             valid_output, val_loss = model(valid_batch, valid_labels_batch)
             valid_preds = torch.argmax(valid_output, dim=1)
             
@@ -172,7 +180,8 @@ end_event = torch.cuda.Event(enable_timing=True)
 start_event.record()  # start timing
 
 with torch.no_grad():
-    for test_batch, test_labels_batch in test_loader:
+    for test_batch, test_labels_batch in test_loader: 
+
         test_output, test_loss = model(test_batch, test_labels_batch)
         test_preds = torch.argmax(test_output, dim=1)
 
