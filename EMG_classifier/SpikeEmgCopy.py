@@ -14,7 +14,8 @@ from torchsummary import summary
 from ipdb import set_trace
 from spikingjelly.clock_driven import neuron, surrogate, functional, layer
 import time 
-import json 
+import json  
+
 device = 'cuda:0'
 
 
@@ -54,10 +55,14 @@ class SimpleSNN(nn.Module):
         super().__init__()
         self.MLP = nn.Sequential(
             nn.Linear(features, 64), 
-            nn.ReLU(),
-            nn.Linear(64, num_classes)
+            nn.ReLU(), 
+            nn.Linear(64,128), 
+            nn.ReLU(), 
+            nn.Linear(128, num_classes)
         ) 
-        self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=2.0)   
+        self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=2.0)    
+        self.lif2 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=2.0)    
+        self.lif3 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=2.0)   
         self.loss = nn.CrossEntropyLoss()
 
 
@@ -71,9 +76,11 @@ class SimpleSNN(nn.Module):
         xt=self.MLP(xt) 
         xt = xt.view(batch_size, Time, -1)
         for t in range(Time):
-            x = xt[:, t, :]
-            spk = self.lif1(x) 
-            spike_sum += spk
+            x = xt[:, t, :]  
+            spk=self.lif1(x)
+            spk1= self.lif2(spk)
+            spk2 = self.lif3(spk) 
+            spike_sum += spk2
         output = spike_sum / Time
 
         if target is not None:
@@ -86,7 +93,7 @@ model = SimpleSNN(features=n_features,num_classes=num_classes).to('cuda:0')
 
 summary(model,input_size=(X.shape[1],X.shape[2]))
 
-num_epochs = 20 
+num_epochs = 50
 optimizer = optim.Adam(model.parameters(), lr=1e-3) 
 
 train_dataset = TensorDataset(X_train_tensor, labels_train_tensor) 
@@ -153,7 +160,7 @@ torch.save({
     'train_acc': avg_acc,
     'valid_loss': valid_loss,
     'valid_acc': valid_acc,
-}, f'../model_{training_number}checkpoint.pth')
+}, f'../SpikeEmg/model_{training_number}checkpoint.pth')
 
 
 
@@ -207,7 +214,7 @@ results = {
     "avg_inference_time_per_sample_s": elapsed_time_s / total_samples
 }
 
-with open(f"../inference_results_{training_number}.json", "w") as f:
+with open(f"../SpikeEmg/inference_results_{training_number}.json", "w") as f:
     json.dump(results, f, indent=4)
 
 
