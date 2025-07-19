@@ -93,8 +93,12 @@ optimizer = optim.Adam(model.parameters(), lr=1e-3)
 train_dataset = TensorDataset(X_train_tensor, labels_train_tensor) 
 train_loader = DataLoader(train_dataset, batch_size=64, shuffle=True) 
 
-valid_dataset=  TensorDataset(X_test_tensor, labels_test_tensor)  
+valid_dataset=  TensorDataset(X_valid_tensor, labels_valid_tensor)  
 valid_loader = DataLoader(valid_dataset, batch_size=64, shuffle=True) 
+
+
+test_dataset=  TensorDataset(X_test_tensor, labels_test_tensor)  
+test_loader = DataLoader(test_dataset, batch_size=64, shuffle=True) 
 
 
 for epoch in range(num_epochs): 
@@ -113,11 +117,61 @@ for epoch in range(num_epochs):
     avg_acc = train_acc / len(train_loader.dataset)
     
     model.eval()
-    with torch.no_grad(): 
-        for valid_batch,valid_labels_batch in valid_loader:
-            valid_output = model(valid_batch) 
+    valid_loss_sum = 0
+    valid_acc_sum = 0
+    num_batches = 0
+
+    with torch.no_grad():
+        for valid_batch, valid_labels_batch in valid_loader:
+            valid_output, val_loss = model(valid_batch, valid_labels_batch)
             valid_preds = torch.argmax(valid_output, dim=1)
-            valid_acc = (valid_preds == valid_labels_batch).float().mean().item()
+            
+            valid_acc_batch = (valid_preds == valid_labels_batch).float().mean()
+            
+            valid_loss_sum += val_loss.item() * valid_batch.size(0)
+            valid_acc_sum += valid_acc_batch.item() * valid_batch.size(0)
+            num_batches += valid_batch.size(0)
+
+    valid_loss = valid_loss_sum / num_batches
+    valid_acc = valid_acc_sum / num_batches
+
 
     print(f"Epoch {epoch+1}/{num_epochs}, "
-          f"Train Loss: {avg_loss:.4f}, Train Acc: {avg_acc:.4f}, Valid Acc: {valid_acc:.4f}")
+      f"Train Loss: {avg_loss:.4f}, Train Acc: {avg_acc:.4f}, "
+      f"Valid Loss: {val_loss:.4f}, Valid Acc: {valid_acc:.4f}") 
+    
+model.eval()   
+all_preds = []
+all_labels = []
+all_losses = []
+
+with torch.no_grad():
+    for test_batch, test_labels_batch in test_loader:
+        test_output, test_loss = model(test_batch, test_labels_batch)
+        test_preds = torch.argmax(test_output, dim=1)
+
+        all_preds.append(test_preds)
+        all_labels.append(test_labels_batch)
+        all_losses.append(test_loss.item() * test_batch.size(0))
+
+y_pred_tensor = torch.cat(all_preds)
+y_true_tensor = torch.cat(all_labels)
+avg_test_loss = sum(all_losses) / len(test_dataset)
+test_acc = (y_pred_tensor == y_true_tensor).float().mean()
+
+print(f"Test Loss: {avg_test_loss:.4f}, Test Accuracy: {test_acc.item():.4f}")
+
+y_true = y_true_tensor.cpu().numpy()
+y_pred = y_pred_tensor.cpu().numpy()
+
+labels = np.unique(np.concatenate([y_true, y_pred]))
+cm = confusion_matrix(y_true, y_pred, normalize='true')
+
+plt.figure(figsize=(8, 6))
+sns.heatmap(cm, annot=True, fmt='.2f', cmap='Blues',
+            xticklabels=labels, yticklabels=labels)
+plt.xlabel("Predicted")
+plt.ylabel("True")
+plt.title("Confusion Matrix")
+plt.tight_layout()
+plt.show()
