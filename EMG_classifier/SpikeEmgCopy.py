@@ -56,10 +56,11 @@ class SimpleSNN(nn.Module):
         self.MLP = nn.Sequential(
             nn.Linear(features, 64), 
             nn.ReLU(),  
-            nn.Dropout(0.1),
+            nn.Dropout(0.1), 
+            nn.Linear(64,128)
         ) 
         self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=2.0)     
-        self.fc =nn.Linear(64,num_classes)
+        self.fc =nn.Linear(128,num_classes)
         self.loss = nn.CrossEntropyLoss()
 
 
