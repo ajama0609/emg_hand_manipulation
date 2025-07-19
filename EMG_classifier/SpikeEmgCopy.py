@@ -55,20 +55,17 @@ class SimpleSNN(nn.Module):
         super().__init__()
         self.MLP = nn.Sequential(
             nn.Linear(features, 64), 
-            nn.ReLU(), 
-            nn.Linear(64,128), 
-            nn.ReLU(), 
-            nn.Linear(128, num_classes)
+            nn.ReLU(),  
+            nn.Dropout(0.1),
         ) 
-        self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=2.0)    
-        self.lif2 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=2.0)    
-        self.lif3 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=2.0)   
+        self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=2.0)     
+        self.fc =nn.Linear(64,num_classes)
         self.loss = nn.CrossEntropyLoss()
 
 
     def forward(self, x,target=None):
         batch_size, Time,features = x.shape
-        spike_sum = torch.zeros(batch_size, self.MLP[-1].out_features, device=x.device)        
+        spike_sum = torch.zeros(batch_size, self.fc.out_features, device=x.device)        
     
         functional.reset_net(self) 
 
@@ -77,10 +74,9 @@ class SimpleSNN(nn.Module):
         xt = xt.view(batch_size, Time, -1)
         for t in range(Time):
             x = xt[:, t, :]  
-            spk=self.lif1(x)
-            spk1= self.lif2(spk)
-            spk2 = self.lif3(spk) 
-            spike_sum += spk2
+            spk = self.lif1(x)     
+            out = self.fc(spk)       
+            spike_sum += out
         output = spike_sum / Time
 
         if target is not None:
