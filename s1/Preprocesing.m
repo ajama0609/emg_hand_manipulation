@@ -1,4 +1,4 @@
-Fs = 200;            % Sampling frequency                    
+Fs = 1000;            % Sampling frequency                    
 T = 1/Fs;             % Sampling period       
 L = 101014;             % Length of signal
 t = (0:L-1)*T;  
@@ -8,13 +8,17 @@ window_samples = round(window_ms * Fs / 1000);  % window in samples
 num_windows = floor(L / window_samples);
 figure;  % Create a single figure window
 hold on;  % Keep all plots on the same axes 
+
+%filterDesigner ; %IIR Highpass 10Hz Fs=1000Hz
+
+
 emg_filtered = sosfilt(SOS, emg);
 for ch = 1:size(emg,2) 
     for n=1:size(G,2)
         emg_filtered(:,ch) = emg_filtered(:,ch) * G(n); 
     end
 end
-%filterDesigner ;
+
 for i=1:size(emg,2)
     Y=fft(emg_filtered(:,i)); 
     
@@ -32,6 +36,13 @@ RMS = zeros(num_windows, num_channels);
 VAR = zeros(num_windows, num_channels);
 MAV = zeros(num_windows, num_channels);
 
+labels=zeros(num_windows,1);
+for w=1:num_windows 
+  start_idx = (w-1)*window_samples + 1;
+  end_idx = w*window_samples;
+  labels(w)=mode(stimulus(start_idx:end_idx)); 
+end  
+
 for ch = 1:num_channels
     for w = 1:num_windows
         start_idx = (w-1)*window_samples + 1;
@@ -44,7 +55,7 @@ for ch = 1:num_channels
     end
 end
 %raw_flat = emg_filtered(:)';
-features = [RMS; VAR; MAV]; 
+features = [RMS, VAR, MAV,labels]; 
 writematrix(features,'s1_feat.csv');
 xlabel('Frequency (Hz)');
 ylabel('|P1(f)|');
