@@ -58,11 +58,11 @@ spike_grad2 = surrogate.ATan()
 class SimpleSNN(nn.Module):
     def __init__(self, features, num_classes):
         super().__init__()
-        self.MLP = nn.Linear(features, 32)
-        self.MLP2 = nn.Linear(32, num_classes)
+        self.MLP = nn.Linear(features, 64)
+        self.MLP2 = nn.Linear(64, num_classes)
 
-        self.lif = neuron.LIFNode(tau=2.0, surrogate_function=spike_grad1)
-        self.lif1 = neuron.LIFNode(tau=2.0, surrogate_function=spike_grad2)
+        self.lif = neuron.LIFNode(tau=3.0, surrogate_function=spike_grad1)
+        self.lif1 = neuron.LIFNode(tau=3.0, surrogate_function=spike_grad2)
 
         self.loss = nn.CrossEntropyLoss()
 
@@ -78,7 +78,9 @@ class SimpleSNN(nn.Module):
 
         spk_out = []
         for t in range(Time):
-            spk_t= self.lif1(x1[:, t, :])
+            spk_t= self.lif(x1[:, t, :]) 
+            spk_t=self.MLP2(spk_t) 
+            spk_t  = self.lif1(spk_t)
             spk_out.append(spk_t)
 
         # Stack and average spikes across time
