@@ -52,46 +52,41 @@ labels_test_tensor = torch.tensor(labels_test, dtype=torch.int64, device=device)
 
 X_train_tensor = X_train_tensor
 
-spike_grad1 = surrogate.ATan()
-spike_grad2 = surrogate.ATan()
+
 
 class SimpleSNN(nn.Module):
-    def __init__(self, features, num_classes):
+    def __init__(self,features,num_classes):
         super().__init__()
-        self.MLP = nn.Linear(features, 64)
-        self.MLP2 = nn.Linear(64, num_classes)
-
-        self.lif = neuron.LIFNode(tau=3.0, surrogate_function=spike_grad1)
-        self.lif1 = neuron.LIFNode(tau=3.0, surrogate_function=spike_grad2)
-
+        self.MLP = nn.Sequential(
+            nn.Linear(features, 64), 
+            nn.ReLU(),
+            nn.Linear(64, 128)
+        )  
+        self.fc = nn.Linear(128,num_classes)
+        self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=1.5)   
         self.loss = nn.CrossEntropyLoss()
 
-    def forward(self, x,target=None): 
-        self.lif.reset()
-        self.lif1.reset()
-
+    def forward(self, x, target=None):
         batch_size, Time, features = x.shape
 
-        x1 = x.reshape(batch_size * Time, features)
-        x1 = self.MLP(x1)
-        x1 = x1.reshape(batch_size, Time, -1)
+        functional.reset_net(self)
 
-        spk_out = []
+        xt = x.view(batch_size * Time, features)
+        xt = self.MLP(xt)
+        xt = xt.view(batch_size, Time, -1)
+
         for t in range(Time):
-            spk_t= self.lif(x1[:, t, :]) 
-            spk_t=self.MLP2(spk_t) 
-            spk_t  = self.lif1(spk_t)
-            spk_out.append(spk_t)
-
-        # Stack and average spikes across time
-        spk_out = torch.stack(spk_out, dim=1)  # (batch, time, neurons)
-        out = spk_out.mean(dim=1)  # (batch, neurons)
+            x_t = xt[:, t, :]
+            spk1 = self.lif1(x_t)
+            spk = self.fc(spk1)
+        output = spk  # (batch_size, Time, num_classes)
 
         if target is not None:
-            loss = self.loss(out, target)
-            return out, loss
+            loss = self.loss(output, target)  # target: (batch_size,)
+            return output, loss
         else:
-            return out
+            return output
+
 
 
 model = SimpleSNN(features=n_features,num_classes=num_classes).to('cuda:0') 
