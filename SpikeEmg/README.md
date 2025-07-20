@@ -38,7 +38,11 @@ In Python:
 **Params size (MB):** 0.16  
 **Estimated Total Size (MB):** 0.17  
 
-
+## How to use this Resource 
+ - Matlab scripts in the s1/ folder Preprocessing.m run once to generate .csv file with features.
+ - SpikeEMG contains python script.
+ -  Requirements.txt contains dependancies.
+   
 
 ## Evaluation  
 - Achieved a test accuracy of **90.89%** with fewer than 100K parameters. 
