@@ -4,7 +4,7 @@ from torch.utils.data import TensorDataset, DataLoader
 import numpy as np    
 from sklearn.model_selection import train_test_split 
 from sklearn.metrics import confusion_matrix   
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler,MinMaxScaler
 import seaborn as sns 
 import matplotlib.pyplot as plt   
 import snntorch as snn 
@@ -12,7 +12,7 @@ from snntorch import surrogate
 from imblearn.over_sampling import SMOTE   
 from torchsummary import summary
 from ipdb import set_trace
-from spikingjelly.clock_driven import neuron, surrogate, functional, layer
+from spikingjelly.clock_driven import neuron, surrogate, functional, layer,encoding
 import time 
 import json  
 
@@ -21,21 +21,21 @@ device = 'cuda:0'
 beta=0.9 
 num_epochs=50
 
-scaler = StandardScaler()
+scaler = MinMaxScaler()
 data = np.loadtxt('../s1/s1_feat.csv',delimiter=',')    
 sm = SMOTE(random_state=42)
 X = data[:, :-1]  
 n_features=X.shape[1] 
 labels=data[:,-1] 
 
-Time = X.shape[0]
 num_classes = len(np.unique(labels))
 
-
 X=scaler.fit_transform(X)
-X, labels = sm.fit_resample(X, labels)   
+X, labels = sm.fit_resample(X, labels) 
 
-X = np.repeat(X[:, np.newaxis, :], Time, axis=1)  
+Time= X.shape[1] 
+
+X = X[:, np.newaxis , :]  # shape: (samples, 1, features)
 
 
 X_train,X_test,labels_train,labels_test=train_test_split(X,labels,test_size=0.20,random_state=42)   
@@ -50,42 +50,43 @@ labels_valid_tensor = torch.tensor(labels_valid, dtype=torch.int64, device=devic
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32, device=device)
 labels_test_tensor = torch.tensor(labels_test, dtype=torch.int64, device=device)   
 
-X_train_tensor = X_train_tensor
-
-
 
 class SimpleSNN(nn.Module):
     def __init__(self,features,num_classes):
-        super().__init__()
-        self.MLP = nn.Sequential(
-            nn.Linear(features, 64), 
-            nn.ReLU(),
-            nn.Linear(64, 128)
-        )  
-        self.fc = nn.Linear(128,num_classes)
-        self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=1.5)   
+        super().__init__()  
+        max_spike_time = 2
+        self.encoder = encoding.LatencyEncoder(max_spike_time) 
+
+        self.fc = nn.Linear(features,128)
+        self.fc1 = nn.Linear(128,num_classes)
+        self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=1.2)   
         self.loss = nn.CrossEntropyLoss()
 
     def forward(self, x, target=None):
-        batch_size, Time, features = x.shape
+            batch_size, Time, features = x.shape
+            functional.reset_net(self)
 
-        functional.reset_net(self)
+            x = x.view(batch_size * Time, features)
+            x = self.fc(x)
+            x = x.view(batch_size, Time, -1)
 
-        xt = x.view(batch_size * Time, features)
-        xt = self.MLP(xt)
-        xt = xt.view(batch_size, Time, -1)
+            spk_seq = []
 
-        for t in range(Time):
-            x_t = xt[:, t, :]
-            spk1 = self.lif1(x_t)
-            spk = self.fc(spk1)
-        output = spk  # (batch_size, Time, num_classes)
+            for t in range(Time):
+                x_t = x[:, t, :]  
+                encoded = self.encoder(x_t)
+                spk = self.lif1(encoded)
+                out = self.fc1(spk)
+                spk_seq.append(out)
 
-        if target is not None:
-            loss = self.loss(output, target)  # target: (batch_size,)
-            return output, loss
-        else:
-            return output
+            out = torch.stack(spk_seq, dim=1)  # (batch_size, Time, num_classes)
+            out = out.mean(dim=1)
+            if target is not None:
+                loss = self.loss(out, target)
+                return out, loss
+            else:
+                return out
+
 
 
 
