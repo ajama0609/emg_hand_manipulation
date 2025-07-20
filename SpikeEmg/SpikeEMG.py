@@ -1,10 +1,10 @@
 import torch
-from torch import nn ,optim 
+from torch import nn ,optim
 from torch.utils.data import TensorDataset, DataLoader
 import numpy as np    
 from sklearn.model_selection import train_test_split 
-from sklearn.metrics import confusion_matrix   
-from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import confusion_matrix , f1_score 
+from sklearn.preprocessing import StandardScaler,MinMaxScaler
 import seaborn as sns 
 import matplotlib.pyplot as plt   
 import snntorch as snn 
@@ -12,27 +12,33 @@ from snntorch import surrogate
 from imblearn.over_sampling import SMOTE   
 from torchsummary import summary
 from ipdb import set_trace
-from spikingjelly.clock_driven import neuron, surrogate, functional, layer
+from spikingjelly.clock_driven import neuron, surrogate, functional, layer,encoding
 import time 
-import json 
+import json   
+from torch.utils.tensorboard import SummaryWriter
+
 device = 'cuda:0'
 
 
+num_epochs=50 
+
+writer =SummaryWriter(log_dir='logs')
+
 scaler = StandardScaler()
-data = np.loadtxt('../s1/s1_feat.csv',delimiter=',')    
+data = np.loadtxt('s1/s1_feat.csv',delimiter=',')    
 sm = SMOTE(random_state=42)
 X = data[:, :-1]  
 n_features=X.shape[1] 
 labels=data[:,-1] 
 
-Time = X.shape[0]
 num_classes = len(np.unique(labels))
 
-
 X=scaler.fit_transform(X)
-X, labels = sm.fit_resample(X, labels)   
+X, labels = sm.fit_resample(X, labels) 
 
-X = np.repeat(X[:, np.newaxis, :], Time, axis=1)  
+Time= X.shape[1] 
+
+X = X[:, np.newaxis , :]  # shape: (samples, 1, features)
 
 
 X_train,X_test,labels_train,labels_test=train_test_split(X,labels,test_size=0.20,random_state=42)   
@@ -42,51 +48,57 @@ X_train_tensor = torch.tensor(X_train, dtype=torch.float32, device=device)
 labels_train_tensor = torch.tensor(labels_train, dtype=torch.int64, device=device)
 
 X_valid_tensor = torch.tensor(X_valid, dtype=torch.float32, device=device)
-labels_valid_tensor = torch.tensor(labels_valid, dtype=torch.int64, device=device)
+labels_valid_tensor = torch.tensor(labels_valid, dtype=torch.int64, device=device) 
 
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32, device=device)
 labels_test_tensor = torch.tensor(labels_test, dtype=torch.int64, device=device)   
 
-X_train_tensor = X_train_tensor
 
 class SimpleSNN(nn.Module):
     def __init__(self,features,num_classes):
-        super().__init__()
-        self.MLP = nn.Sequential(
-            nn.Linear(features, 64), 
-            nn.ReLU(),
-            nn.Linear(64, num_classes)
-        ) 
-        self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=2.0)   
+        super().__init__()  
+        max_spike_time = 2
+        self.encoder = encoding.LatencyEncoder(max_spike_time) 
+
+        self.fc = nn.Linear(features,128) 
+        self.fc1 = nn.Linear(128,256)
+        self.fc2 = nn.Linear(256,num_classes)
+        self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=1.2)   
         self.loss = nn.CrossEntropyLoss()
 
+    def forward(self, x, target=None):
+            batch_size, Time, features = x.shape
+            functional.reset_net(self)
 
-    def forward(self, x,target=None):
-        batch_size, Time,features = x.shape
-        spike_sum = torch.zeros(batch_size, self.MLP[-1].out_features, device=x.device)        
-    
-        functional.reset_net(self) 
+            x = x.view(batch_size * Time, features)
+            x = self.fc(x) 
+            x = self.fc1(x)
+            x = x.view(batch_size, Time, -1)
 
-        xt = x.view(batch_size * Time,features)  
-        xt=self.MLP(xt) 
-        xt = xt.view(batch_size, Time, -1)
-        for t in range(Time):
-            x = xt[:, t, :]
-            spk = self.lif1(x) 
-            spike_sum += spk
-        output = spike_sum / Time
+            spk_seq = []
 
-        if target is not None:
-            loss = self.loss(output, target)
-            return output, loss
-        else:
-            return output
+            for t in range(Time):
+                x_t = x[:, t, :]   
+                #encoded = self.encoder(x_t)
+                spk = self.lif1(x_t)
+                out = self.fc2(spk)
+                spk_seq.append(out)
+
+            out = torch.stack(spk_seq, dim=1)  # (batch_size, Time, num_classes)
+            out = out.mean(dim=1)
+            if target is not None:
+                loss = self.loss(out, target)
+                return out, loss
+            else:
+                return out
+
+
+
 
 model = SimpleSNN(features=n_features,num_classes=num_classes).to('cuda:0') 
 
 summary(model,input_size=(X.shape[1],X.shape[2]))
 
-num_epochs = 20 
 optimizer = optim.Adam(model.parameters(), lr=1e-3) 
 
 train_dataset = TensorDataset(X_train_tensor, labels_train_tensor) 
@@ -100,13 +112,15 @@ test_dataset=  TensorDataset(X_test_tensor, labels_test_tensor)
 test_loader = DataLoader(test_dataset, batch_size=64, shuffle=True) 
 
 
+
 for epoch in range(num_epochs): 
     model.train()
     train_loss = 0
     correct = 0
     total = 0
 
-    for X_batch, labels_batch in train_loader:
+    for X_batch, labels_batch in train_loader: 
+
         optimizer.zero_grad()
         output, loss = model(X_batch, labels_batch)
         loss.backward()
@@ -126,7 +140,8 @@ for epoch in range(num_epochs):
     num_batches = 0
 
     with torch.no_grad():
-        for valid_batch, valid_labels_batch in valid_loader:
+        for valid_batch, valid_labels_batch in valid_loader: 
+
             valid_output, val_loss = model(valid_batch, valid_labels_batch)
             valid_preds = torch.argmax(valid_output, dim=1)
             
@@ -139,24 +154,24 @@ for epoch in range(num_epochs):
     valid_loss = valid_loss_sum / num_batches
     valid_acc = valid_acc_sum / num_batches
 
+    writer.add_scalar('Train/Loss', avg_loss, epoch + 1)
+    writer.add_scalar('Train/Accuracy', avg_acc, epoch + 1)
+    writer.add_scalar('Valid/Loss', valid_loss, epoch + 1)
+    writer.add_scalar('Valid/Accuracy', valid_acc, epoch + 1)
+
+
 
     print(f"Epoch {epoch+1}/{num_epochs}, "
       f"Train Loss: {avg_loss:.4f}, Train Acc: {avg_acc:.4f}, "
       f"Valid Loss: {val_loss:.4f}, Valid Acc: {valid_acc:.4f}") 
-    
 
+writer.close()
+
+training_number = input("Enter the training number: ")
 torch.save({
     'model_state_dict': model.state_dict(),
     'optimizer_state_dict': optimizer.state_dict(),
-    'num_epochs': num_epochs,
-    'train_loss': avg_loss,
-    'train_acc': avg_acc,
-    'valid_loss': valid_loss,
-    'valid_acc': valid_acc,
-}, 'model_checkpoint.pth')
-
-
-
+}, f'model/model_{training_number}checkpoint.pth')
 
 
 
@@ -171,7 +186,8 @@ end_event = torch.cuda.Event(enable_timing=True)
 start_event.record()  # start timing
 
 with torch.no_grad():
-    for test_batch, test_labels_batch in test_loader:
+    for test_batch, test_labels_batch in test_loader: 
+
         test_output, test_loss = model(test_batch, test_labels_batch)
         test_preds = torch.argmax(test_output, dim=1)
 
@@ -210,12 +226,18 @@ results = {
     "avg_inference_time_per_sample_s": elapsed_time_s / total_samples
 }
 
-with open("inference_results.json", "w") as f:
+with open(f"logs/inference_results_{training_number}.json", "w") as f:
     json.dump(results, f, indent=4)
 
 
 y_true = y_true_tensor.cpu().numpy()
-y_pred = y_pred_tensor.cpu().numpy()
+y_pred = y_pred_tensor.cpu().numpy() 
+
+f1_macro = f1_score(y_true, y_pred, average='macro')  # average over classes equally
+f1_weighted = f1_score(y_true, y_pred, average='weighted')  # weighted by support
+
+print(f"Macro F1-score: {f1_macro:.4f}")
+print(f"Weighted F1-score: {f1_weighted:.4f}")
 
 labels = np.unique(np.concatenate([y_true, y_pred]))
 cm = confusion_matrix(y_true, y_pred, normalize='true')
