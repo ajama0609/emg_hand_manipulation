@@ -19,21 +19,25 @@ In Python:
 ### Model  
 - The model includes two linear layers before feeding into a LIF layer and a final fully connected layer for classification. 
 - This structure allows the LIF layer to process dense temporal data per time slice. 
-- No encoding was used, as EMG signals inherently contain rich temporal features, and encoding degraded performance. 
+- No encoding was used, as EMG signals inherently contain rich temporal features, and encoding degraded performance.
 
-Layer (type)               Output Shape         Param #
-Linear-1                   [-1, 128]           6,528
-Linear-2                   [-1, 256]          33,024
-PiecewiseLeakyReLU-3       [-1, 256]               0
-LIFNode-4                 [-1, 256]               0
-Linear-5                   [-1, 13]           3,341
-Total params: 42,893
-Trainable params: 42,893
-Non-trainable params: 0
-Input size (MB): 0.00
-Forward/backward pass size (MB): 0.01
-Params size (MB): 0.16
-Estimated Total Size (MB): 0.17
+| Layer (type)           | Output Shape | Param # |
+|-----------------------|--------------|---------|
+| Linear-1              | [-1, 128]    | 6,528   |
+| Linear-2              | [-1, 256]    | 33,024  |
+| PiecewiseLeakyReLU-3  | [-1, 256]    | 0       |
+| LIFNode-4             | [-1, 256]    | 0       |
+| Linear-5              | [-1, 13]     | 3,341   |
+
+**Total params:** 42,893  
+**Trainable params:** 42,893  
+**Non-trainable params:** 0  
+
+**Input size (MB):** 0.00  
+**Forward/backward pass size (MB):** 0.01  
+**Params size (MB):** 0.16  
+**Estimated Total Size (MB):** 0.17  
+
 
 
 ## Evaluation  
