@@ -1,7 +1,7 @@
 # SpikeEMG
 
 ## Introduction  
-In this work, I used the NinaProDB1 dataset to reproduce results from EmgHandNet. Using a model with 42,893 parameters that leverages a hybrid ANN and SNN architecture, I achieved an overall test accuracy of **90.98%** (F1-score: 0.9082) with an inference time of approximately **1.6 microseconds per sample** on an Nvidia RTX 4070 with 8GB VRAM.
+In this work, I used the NinaProDB1 dataset to reproduce results from EmgHandNet. Using a model with 42,893 parameters that leverages a hybrid ANN and SNN architecture, I achieved an overall test accuracy of **94.19%** (F1-score: 0.9082) with an inference time of approximately **1.3 microseconds per sample** on an Nvidia RTX 4070 with 8GB VRAM.
 
 ## Methodology  
 
@@ -45,7 +45,7 @@ In Python:
    
 
 ## Evaluation  
-- Achieved a test accuracy of **90.89%** with fewer than 100K parameters. 
+- Achieved a test accuracy of **94.19%** with fewer than 100K parameters. 
 - This is competitive compared to baselines like EmgHandNet with DNNs (80-90%) and Atorzi et al. with SVMs (70-85%). 
 - Detailed statistics, confusion matrices, and training logs including inference times are available in the logs directory.
 
