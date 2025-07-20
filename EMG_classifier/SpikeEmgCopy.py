@@ -1,5 +1,5 @@
 import torch
-from torch import nn ,optim 
+from torch import nn ,optim
 from torch.utils.data import TensorDataset, DataLoader
 import numpy as np    
 from sklearn.model_selection import train_test_split 
@@ -14,12 +14,15 @@ from torchsummary import summary
 from ipdb import set_trace
 from spikingjelly.clock_driven import neuron, surrogate, functional, layer,encoding
 import time 
-import json  
+import json   
+from torch.utils.tensorboard import SummaryWriter
 
 device = 'cuda:0'
 
 
-num_epochs=50
+num_epochs=50 
+
+writer =SummaryWriter(log_dir='../SpikeEmg/logs')
 
 scaler = StandardScaler()
 data = np.loadtxt('../s1/s1_feat.csv',delimiter=',')    
@@ -57,8 +60,9 @@ class SimpleSNN(nn.Module):
         max_spike_time = 2
         self.encoder = encoding.LatencyEncoder(max_spike_time) 
 
-        self.fc = nn.Linear(features,128)
-        self.fc1 = nn.Linear(128,num_classes)
+        self.fc = nn.Linear(features,128) 
+        self.fc1 = nn.Linear(128,256)
+        self.fc2 = nn.Linear(256,num_classes)
         self.lif1 = neuron.LIFNode(surrogate_function=surrogate.PiecewiseLeakyReLU(), tau=1.2)   
         self.loss = nn.CrossEntropyLoss()
 
@@ -67,7 +71,8 @@ class SimpleSNN(nn.Module):
             functional.reset_net(self)
 
             x = x.view(batch_size * Time, features)
-            x = self.fc(x)
+            x = self.fc(x) 
+            x = self.fc1(x)
             x = x.view(batch_size, Time, -1)
 
             spk_seq = []
@@ -76,7 +81,7 @@ class SimpleSNN(nn.Module):
                 x_t = x[:, t, :]   
                 #encoded = self.encoder(x_t)
                 spk = self.lif1(x_t)
-                out = self.fc1(spk)
+                out = self.fc2(spk)
                 spk_seq.append(out)
 
             out = torch.stack(spk_seq, dim=1)  # (batch_size, Time, num_classes)
@@ -149,21 +154,24 @@ for epoch in range(num_epochs):
     valid_loss = valid_loss_sum / num_batches
     valid_acc = valid_acc_sum / num_batches
 
+    writer.add_scalar('Train/Loss', avg_loss, epoch + 1)
+    writer.add_scalar('Train/Accuracy', avg_acc, epoch + 1)
+    writer.add_scalar('Valid/Loss', valid_loss, epoch + 1)
+    writer.add_scalar('Valid/Accuracy', valid_acc, epoch + 1)
+
+
 
     print(f"Epoch {epoch+1}/{num_epochs}, "
       f"Train Loss: {avg_loss:.4f}, Train Acc: {avg_acc:.4f}, "
       f"Valid Loss: {val_loss:.4f}, Valid Acc: {valid_acc:.4f}") 
-    
+
+writer.close()
+
 training_number = input("Enter the training number: ")
 torch.save({
     'model_state_dict': model.state_dict(),
     'optimizer_state_dict': optimizer.state_dict(),
-    'num_epochs': num_epochs,
-    'train_loss': avg_loss,
-    'train_acc': avg_acc,
-    'valid_loss': valid_loss,
-    'valid_acc': valid_acc,
-}, f'../SpikeEmg/model_{training_number}checkpoint.pth')
+}, f'../SpikeEmg/model/model_{training_number}checkpoint.pth')
 
 
 
@@ -218,7 +226,7 @@ results = {
     "avg_inference_time_per_sample_s": elapsed_time_s / total_samples
 }
 
-with open(f"../SpikeEmg/inference_results_{training_number}.json", "w") as f:
+with open(f"../SpikeEmg/logs/inference_results_{training_number}.json", "w") as f:
     json.dump(results, f, indent=4)
 
 
