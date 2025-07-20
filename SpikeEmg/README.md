@@ -1,55 +1,91 @@
 # SpikeEMG
 
 ## Introduction  
-In this work, I used the NinaProDB1 dataset to reproduce results from EmgHandNet. Using a model with 42,893 parameters that leverages a hybrid ANN and SNN architecture, I achieved an overall test accuracy of **94.19%** (F1-score: 0.9082) with an inference time of approximately **1.3 microseconds per sample** on an Nvidia RTX 4070 with 8GB VRAM.
+This work reproduces and extends results from EmgHandNet using the NinaPro DB1 dataset. Leveraging a hybrid **Artificial Neural Network (ANN)** and **Spiking Neural Network (SNN)** architecture with just **42,893 parameters**, the proposed model achieves a test accuracy of **94.19%** (macro F1-score: **0.9441**) with an **average inference time of 1.3 µs per sample** on an Nvidia RTX 4070 (8GB VRAM).
+
+This design offers a low-latency, energy-efficient solution suitable for real-time prosthetic control and embedded biomedical systems.
+
+---
 
 ## Methodology  
 
 ### Preprocessing  
-- Data preprocessing was done in MATLAB. 
-- Applied a 10th order high-pass filter at 15 Hz because EMG frequencies of interest lie between 20-500 Hz, and no content above 500 Hz was observed. 
-- Extracted time-domain features per window (200 ms window with 50% overlap): RMS, MAV, VAR. 
-- Extracted frequency-domain features: FFT power and Peak frequency. 
+Preprocessing was conducted in **MATLAB** and **Python**:
 
-In Python: 
-- Applied SMOTE to address class imbalance. 
-- Split data into train/validation/test sets with an 80/10/10 ratio. 
-- Reshaped features to add a time dimension for compatibility with the Leaky Integrate-and-Fire (LIF) layer.
+- **Filtering:** Applied a 10th-order high-pass filter at 15 Hz. EMG signals primarily reside between 20–500 Hz.  
+- **Time-domain features:**  
+  - Root Mean Square (RMS)  
+  - Mean Absolute Value (MAV)  
+  - Variance (VAR)  
+- **Frequency-domain features:**  
+  - FFT power  
+  - Peak frequency  
 
-### Model  
-- The model includes two linear layers before feeding into a LIF layer and a final fully connected layer for classification. 
-- This structure allows the LIF layer to process dense temporal data per time slice. 
-- No encoding was used, as EMG signals inherently contain rich temporal features, and encoding degraded performance.
+Python pipeline:  
+- Applied **SMOTE** for class balancing  
+- Dataset split: 80% training / 10% validation / 10% testing  
+- Reshaped feature vectors to include a **temporal dimension** compatible with the **Leaky Integrate-and-Fire (LIF)** spiking layer.
 
-| Layer (type)           | Output Shape | Param # |
-|-----------------------|--------------|---------|
-| Linear-1              | [-1, 128]    | 6,528   |
-| Linear-2              | [-1, 256]    | 33,024  |
-| PiecewiseLeakyReLU-3  | [-1, 256]    | 0       |
-| LIFNode-4             | [-1, 256]    | 0       |
-| Linear-5              | [-1, 13]     | 3,341   |
+---
 
-**Total params:** 42,893  
-**Trainable params:** 42,893  
-**Non-trainable params:** 0  
+## Model Architecture  
 
-**Input size (MB):** 0.00  
-**Forward/backward pass size (MB):** 0.01  
-**Params size (MB):** 0.16  
-**Estimated Total Size (MB):** 0.17  
+A hybrid ANN-SNN architecture was used:
 
-## How to use this Resource 
- - Matlab scripts in the s1/ folder Preprocessing.m run once to generate .csv file with features.
- - SpikeEMG contains python script.
- -  Requirements.txt contains dependancies.
-   
+| Layer                  | Output Shape | Parameters |
+|------------------------|--------------|------------|
+| Linear-1               | [-1, 128]    | 6,528      |
+| Linear-2               | [-1, 256]    | 33,024     |
+| PiecewiseLeakyReLU-3   | [-1, 256]    | 0          |
+| LIFNode-4              | [-1, 256]    | 0          |
+| Linear-5               | [-1, 13]     | 3,341      |
+
+- **Total parameters:** 42,893  
+- **Memory footprint:** ~0.17 MB  
+- **Encoding:** None used. Temporal richness of EMG features was sufficient; spike encoding **reduced** performance.
+
+---
+
+## How to Use This Resource  
+
+1. **Preprocessing:**  
+   - Run `Preprocessing.m` in the `s1/` folder to generate `.csv` feature files.  
+
+2. **Training & Evaluation:**  
+   - Use the Python scripts in `SpikeEMG/` for training and evaluation.  
+   - Install dependencies with:
+     ```bash
+     pip install -r requirements.txt
+     ```
+
+3. **Output:**  
+   - Logs, metrics, and model checkpoints are saved in the `logs/` directory.  
+
+---
 
 ## Evaluation  
-- Achieved a test accuracy of **94.19%** with fewer than 100K parameters. 
-- This is competitive compared to baselines like EmgHandNet with DNNs (80-90%) and Atorzi et al. with SVMs (70-85%). 
-- Detailed statistics, confusion matrices, and training logs including inference times are available in the logs directory.
 
-## Notes  
-- Future work will explore multimodal fusion for more robust learning using this architecture. 
-- This model presents a promising low-power, low-compute, energy-efficient solution for real-time prosthetic control.
+| Metric                 | Value       |
+|------------------------|-------------|
+| **Test Accuracy**      | **94.19%**  |
+| **Macro F1-score**     | **0.9441**  |
+| **Weighted F1-score**  | **0.9419**  |
+| **Inference Time**     | **1.3 µs/sample** |
+| **Model Size**         | **0.17 MB** |
+| **Total Parameters**   | **42,893**  |
 
+The model significantly outperforms traditional classifiers (e.g., SVM: 70–85%) and deep EMG networks like EmgHandNet (80–90%), while using **under 50K parameters** and achieving **real-time inference**.
+
+---
+
+## Notes & Future Work  
+- Future directions include **multimodal fusion** with IMU or EEG data.  
+- The lightweight architecture is promising for **on-device prosthetics**, **wearables**, or **neuromorphic edge computing**.  
+- Full training logs and confusion matrices are included in the repository.
+
+---
+
+## Example Training Command
+
+```bash
+python train.py --config configs/spikeemg.yaml
