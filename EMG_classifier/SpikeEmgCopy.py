@@ -3,7 +3,7 @@ from torch import nn ,optim
 from torch.utils.data import TensorDataset, DataLoader
 import numpy as np    
 from sklearn.model_selection import train_test_split 
-from sklearn.metrics import confusion_matrix   
+from sklearn.metrics import confusion_matrix , f1_score 
 from sklearn.preprocessing import StandardScaler,MinMaxScaler
 import seaborn as sns 
 import matplotlib.pyplot as plt   
@@ -231,7 +231,13 @@ with open(f"../SpikeEmg/logs/inference_results_{training_number}.json", "w") as 
 
 
 y_true = y_true_tensor.cpu().numpy()
-y_pred = y_pred_tensor.cpu().numpy()
+y_pred = y_pred_tensor.cpu().numpy() 
+
+f1_macro = f1_score(y_true, y_pred, average='macro')  # average over classes equally
+f1_weighted = f1_score(y_true, y_pred, average='weighted')  # weighted by support
+
+print(f"Macro F1-score: {f1_macro:.4f}")
+print(f"Weighted F1-score: {f1_weighted:.4f}")
 
 labels = np.unique(np.concatenate([y_true, y_pred]))
 cm = confusion_matrix(y_true, y_pred, normalize='true')
