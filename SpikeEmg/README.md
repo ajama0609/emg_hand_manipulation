@@ -84,8 +84,3 @@ The model significantly outperforms traditional classifiers (e.g., SVM: 70–85%
 - Full training logs and confusion matrices are included in the repository.
 
 ---
-
-## Example Training Command
-
-```bash
-python train.py --config configs/spikeemg.yaml
