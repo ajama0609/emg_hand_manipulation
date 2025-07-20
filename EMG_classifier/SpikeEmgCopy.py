@@ -18,10 +18,10 @@ import json
 
 device = 'cuda:0'
 
-beta=0.9 
+
 num_epochs=50
 
-scaler = MinMaxScaler()
+scaler = StandardScaler()
 data = np.loadtxt('../s1/s1_feat.csv',delimiter=',')    
 sm = SMOTE(random_state=42)
 X = data[:, :-1]  
@@ -45,7 +45,7 @@ X_train_tensor = torch.tensor(X_train, dtype=torch.float32, device=device)
 labels_train_tensor = torch.tensor(labels_train, dtype=torch.int64, device=device)
 
 X_valid_tensor = torch.tensor(X_valid, dtype=torch.float32, device=device)
-labels_valid_tensor = torch.tensor(labels_valid, dtype=torch.int64, device=device)
+labels_valid_tensor = torch.tensor(labels_valid, dtype=torch.int64, device=device) 
 
 X_test_tensor = torch.tensor(X_test, dtype=torch.float32, device=device)
 labels_test_tensor = torch.tensor(labels_test, dtype=torch.int64, device=device)   
@@ -73,9 +73,9 @@ class SimpleSNN(nn.Module):
             spk_seq = []
 
             for t in range(Time):
-                x_t = x[:, t, :]  
-                encoded = self.encoder(x_t)
-                spk = self.lif1(encoded)
+                x_t = x[:, t, :]   
+                #encoded = self.encoder(x_t)
+                spk = self.lif1(x_t)
                 out = self.fc1(spk)
                 spk_seq.append(out)
 
