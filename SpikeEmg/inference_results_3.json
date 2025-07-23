@@ -1,7 +1,0 @@
-{
-    "test_loss": 0.28566982208513747,
-    "test_accuracy": 0.9098039865493774,
-    "total_inference_time_s": 0.2828268737792969,
-    "avg_inference_time_per_batch_s": 0.07070671844482422,
-    "avg_inference_time_per_sample_s": 0.001109124995212929
-}

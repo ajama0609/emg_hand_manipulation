@@ -20,9 +20,10 @@ from torch.utils.tensorboard import SummaryWriter
 device = 'cuda:0'
 
 
-num_epochs=50 
+num_epochs=50  
 
-writer =SummaryWriter(log_dir='logs')
+training_number = input("Enter the training number: ") 
+writer =SummaryWriter(log_dir=f'logs/{training_number}')
 
 scaler = StandardScaler()
 data = np.loadtxt('s1/s1_feat.csv',delimiter=',')    
@@ -167,7 +168,7 @@ for epoch in range(num_epochs):
 
 writer.close()
 
-training_number = input("Enter the training number: ")
+
 torch.save({
     'model_state_dict': model.state_dict(),
     'optimizer_state_dict': optimizer.state_dict(),
