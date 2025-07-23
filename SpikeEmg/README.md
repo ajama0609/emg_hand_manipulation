@@ -75,6 +75,8 @@ A hybrid ANN-SNN architecture was used:
 | **Total Parameters**   | **42,893**  |
 
 The model significantly outperforms traditional classifiers (e.g., SVM: 70–85%) and deep EMG networks like EmgHandNet (80–90%), while using **under 50K parameters** and achieving **real-time inference**.
+## Results 
+<img width="800" height="600" alt="SpikeEMG_s1_ea_5" src="https://github.com/user-attachments/assets/e04e8e56-76ac-40fe-b298-2004ed0b62fd" />
 
 ---
 
