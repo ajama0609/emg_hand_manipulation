@@ -19,6 +19,7 @@ from torch.utils.tensorboard import SummaryWriter
 
 device = 'cuda:0'
 
+subject=1
 
 num_epochs=150  
 
@@ -29,10 +30,26 @@ scaler = StandardScaler()
 data = np.loadtxt('s1/total_feats.csv',delimiter=',',skiprows=1)    
 sm = SMOTE(random_state=42)
 X = data[:, :-1]  
-n_features=X.shape[1] 
-labels=data[:,-1] 
+n_features=X.shape[1]  
+
+labels_a = data[0:505, -1]
+labels_b = data[505:1010, -1]
+labels_c = data[1010:1515, -1]
+
+# Offset labels to avoid overlapping classes
+index_1 = labels_a.max()
+labels_b = labels_b + index_1 + 1
+
+index_2 = labels_b.max()
+labels_c = labels_c + index_2 + 1
+
+# Concatenate all into a single label array
+labels = np.concatenate([labels_a, labels_b, labels_c])
+
 
 num_classes = len(np.unique(labels))
+
+#set_trace()
 
 X=scaler.fit_transform(X)
 X, labels = sm.fit_resample(X, labels) 
@@ -54,9 +71,6 @@ X_test_tensor = torch.tensor(X_test, dtype=torch.float32, device=device)
 labels_test_tensor = torch.tensor(labels_test, dtype=torch.int64, device=device)    
 
 
-
-
-
 class SimpleSNN(nn.Module):
     def __init__(self,features,num_classes):
         super().__init__()  
@@ -72,8 +86,6 @@ class SimpleSNN(nn.Module):
     def forward(self, x, target=None):
             batch_size, Time, features = x.shape
             functional.reset_net(self) 
-
-            #set_trace()
 
             x = x.view(batch_size * Time, features)
             x = self.fc(x) 
@@ -176,7 +188,7 @@ writer.close()
 torch.save({
     'model_state_dict': model.state_dict(),
     'optimizer_state_dict': optimizer.state_dict(),
-}, f'model/model_{training_number}checkpoint.pth')
+}, f'model/{subject}/model_{training_number}checkpoint.pth')
 
 
 
