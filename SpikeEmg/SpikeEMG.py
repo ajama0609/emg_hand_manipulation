@@ -26,44 +26,20 @@ training_number = input("Enter the training number: ")
 writer =SummaryWriter(log_dir=f'logs/{training_number}')
 
 scaler = StandardScaler()
-data = np.loadtxt('s1/total_feats.csv',delimiter=',')    
-sm = SMOTE(random_state=42)  
-
-X = []
-labels = [] 
-
-#padding = np.zeros((data.shape[0], 1))
-#data_padded = np.hstack((data, padding))  # Now data_padded has shape (num_samples, num
-
-
-num_blocks = data.shape[1] // 51  # 51 features + 1 label per block
- 
-for n in range(num_blocks): 
-    #set_trace()
-    start_col = n * 51
-    X.append(data[:, start_col:start_col+50])        # 51 features
-    labels.append(data[:, start_col+50])             # 1 label
-
-#set_trace()
-# Optional: convert lists to arrays
-X = np.array(X)         # shape: (num_blocks, num_samples, 51) 
-X = X.reshape(-1, 50)     
-
-#X = np.concatenate(X, axis=0)        # shape (total_samples, features)
-
-labels = np.concatenate(labels, axis=0)  # shape (total_samples,) 
-#labels = labels.reshape(-1)  # or labels = labels.flatten()
-n_features =X.shape[0] 
-n_samples=X.shape[1]
+data = np.loadtxt('s1/total_feats.csv',delimiter=',',skiprows=1)    
+sm = SMOTE(random_state=42)
+X = data[:, :-1]  
+n_features=X.shape[1] 
+labels=data[:,-1] 
 
 num_classes = len(np.unique(labels))
-
-#set_trace()
 
 X=scaler.fit_transform(X)
 X, labels = sm.fit_resample(X, labels) 
 
-X=X[:,np.newaxis,:]
+Time= X.shape[1] 
+
+X = X[:, np.newaxis , :]  # shape: (samples, 1, features)
 
 X_train,X_test,labels_train,labels_test=train_test_split(X,labels,test_size=0.20,random_state=42)   
 X_test,X_valid,labels_test,labels_valid=train_test_split(X_test,labels_test,test_size=0.50,random_state=42)
@@ -97,7 +73,7 @@ class SimpleSNN(nn.Module):
             batch_size, Time, features = x.shape
             functional.reset_net(self) 
 
-            set_trace()
+            #set_trace()
 
             x = x.view(batch_size * Time, features)
             x = self.fc(x) 
@@ -126,7 +102,7 @@ class SimpleSNN(nn.Module):
 
 model = SimpleSNN(features=n_features,num_classes=num_classes).to('cuda:0') 
 
-summary(model,input_size=(X.shape[0],X.shape[1]))
+summary(model,input_size=(X.shape[1],X.shape[2]))
 
 optimizer = optim.Adam(model.parameters(), lr=1e-3) 
 
