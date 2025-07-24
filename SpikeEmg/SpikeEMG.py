@@ -20,7 +20,7 @@ from torch.utils.tensorboard import SummaryWriter
 device = 'cuda:0'
 
 
-num_epochs=50  
+num_epochs=150  
 
 training_number = input("Enter the training number: ") 
 writer =SummaryWriter(log_dir=f'logs/{training_number}')
