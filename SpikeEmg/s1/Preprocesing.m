@@ -71,7 +71,7 @@ end
 fft_feats_reshaped = reshape(fft_feats, num_windows, num_channels * 2);
 
 features = [RMS, VAR, MAV,fft_feats_reshaped,labels]; 
-writematrix(features,'s1_feat.csv');
+writematrix(features,'s2_feat.csv');
 xlabel('Frequency (Hz)');
 ylabel('|P1(f)|');
 title('FFT of All 10 EMG Channels');
