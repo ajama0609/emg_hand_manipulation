@@ -78,7 +78,8 @@ The current model achieves up to **92% accuracy** across six gesture classes usi
 
 The confusion matrix below highlights that most misclassifications occur in the resting state, confirming that low SNR in relaxed muscles poses a classification challenge:
 
-![Confusion Matrix](https://github.com/user-attachments/assets/e04e8e56-76ac-40fe-b298-2004ed0b62fd)
+<img width="1267" height="496" alt="image" src="https://github.com/user-attachments/assets/e4cf81af-3ae0-4ada-a18a-f274a14bccd7" />
+
 
 
 ---
