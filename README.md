@@ -53,7 +53,7 @@ Each data file contains 10 columns:
 
 1. **Time:** Timestamp in milliseconds  
 2-9. **Channels 1-8:** EMG signals from the eight sensors of the MYO Thalmic bracelet  
-10. **Class label:** Gesture identifiers  
+10. **Class label:** static gesture identifiers  
     - 0: Unmarked data  
     - 1: Hand at rest  
     - 2: Hand clenched in a fist  
@@ -67,14 +67,8 @@ Each data file contains 10 columns:
 
 # Results
 
-The current model achieves up to **92% accuracy** across six gesture classes using only the ML pipeline on preprocessed MYO bracelet data:
+The current model achieves up to **94.19% accuracy** across 38 gesture classes using only the ML pipeline on preprocessed MYO bracelet data:
 
-- Resting  
-- Fist clenched  
-- Wrist flexion  
-- Wrist extension  
-- Ulnar deviation  
-- Radial deviation  
 
 The confusion matrix below highlights that most misclassifications occur in the resting state, confirming that low SNR in relaxed muscles poses a classification challenge:
 
