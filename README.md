@@ -12,7 +12,6 @@ A custom sEMG acquisition hardware board has been designed and fabricated to ena
 ![Custom sEMG Acquisition Board](https://github.com/user-attachments/assets/d60003c4-8d64-4608-a2c1-6201ea7448be) 
 <img width="1143" height="810" alt="image" src="https://github.com/user-attachments/assets/199e6229-784d-4c7a-840a-f8d00d9c123f" /> 
 <img width="824" height="902" alt="image" src="https://github.com/user-attachments/assets/2c02a8f3-a584-4c64-aaec-d83945aa1f71" /> 
-<img width="1463" height="804" alt="image" src="https://github.com/user-attachments/assets/3f3eba94-c6f3-4420-9cd1-e35a9bde7136" />
 
 
 
